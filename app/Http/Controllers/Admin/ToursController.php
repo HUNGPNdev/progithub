@@ -24,7 +24,8 @@ class ToursController extends Controller
     }
     public function postAddTour(AddTourRequest $request){
     	$img = $request->img->getClientOriginalName();
-        $route = ($request->route)?'json_encode($request->route)':'';
+        $j_en = json_encode($request->route);
+        $route = ($request->route)? $j_en :'';
     	$tour	=	new ToursModel;
     	$tour->tour_name 	=	$request->name;
     	$tour->dest_id 		=	$request->dest_id;
@@ -50,8 +51,8 @@ class ToursController extends Controller
     	return view('backEnd.edittours',$data);
     }
     public function postEditTour(Request $request,$id){
-        
-        $route = ($request->route)?'json_encode($request->route)':'';
+        $j_en = json_encode($request->route);
+        $route = ($request->route)? $j_en : '';
     	$tour	=	new ToursModel;
     	$arr['tour_name'] = $request->name;
     	$arr['list_tags'] = str_slug($request->name);

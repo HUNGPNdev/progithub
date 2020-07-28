@@ -45,14 +45,17 @@
 											<td>{{$tour->dest_id}}</td>
 											<td>
 												<p>
-													<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{$tour->tour_id}}2" aria-expanded="false" aria-controls="collapseExample">
+													<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{$tour->tour_id}}d" aria-expanded="false" aria-controls="collapseExample">
 														...
 													</button>
 												</p>
-												<div class="collapse" id="{{$tour->tour_id}}2">
+												<div class="collapse" id="{{$tour->tour_id}}d">
 													<div class="card card-body">
 														@if($tour->package != null)
-															@foreach(json_decode($tour->package) as $val)
+															@php
+																$endecode = json_decode($tour->package);
+															@endphp
+															@foreach($endecode as $val)
 																{{ $tour->packag($val)['pac_name'] }}<br>
 															@endforeach <br><br>
 															<b>--không bao gồm--</b><br>
@@ -65,11 +68,11 @@
 											</td>
 											<td>
 												<p>
-													<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{$tour->tour_id}}" aria-expanded="false" aria-controls="collapseExample">
+													<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{$tour->tour_id}}c" aria-expanded="false" aria-controls="collapseExample">
 														...
 													</button>
 												</p>
-												<div class="collapse" id="{{$tour->tour_id}}">
+												<div class="collapse" id="{{$tour->tour_id}}c">
 													<div class="card card-body">
 														{{$tour->tour_sumary}}
 													</div>
@@ -77,11 +80,11 @@
 											</td>
 											<td>
 												<p>
-													<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{$tour->tour_id}}1" aria-expanded="false" aria-controls="collapseExample">
+													<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{$tour->tour_id}}a" aria-expanded="false" aria-controls="collapseExample">
 														...
 													</button>
 												</p>
-												<div class="collapse" id="{{$tour->tour_id}}1">
+												<div class="collapse" id="{{$tour->tour_id}}a">
 													<div class="card card-body">
 														{!!$tour->tour_content!!}
 													</div>
@@ -96,11 +99,11 @@
 											<td>{{$tour->list_tags}}</td>
 											<td>
 												<p>
-													<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{$tour->tour_id}}2" aria-expanded="false" aria-controls="collapseExample">
+													<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{$tour->tour_id}}b" aria-expanded="false" aria-controls="collapseExample">
 														...
 													</button>
 												</p>
-												<div class="collapse" id="{{$tour->tour_id}}2">
+												<div class="collapse" id="{{$tour->tour_id}}b">
 													<div class="card card-body">
 														{{$tour->maps}}
 													</div>

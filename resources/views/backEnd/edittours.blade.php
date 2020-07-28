@@ -52,7 +52,7 @@
 									</div>
 									<div class="form-group" >
 										<label>Maps</label>
-										<input type="text" class="form-control" name="maps">
+										<input type="text" class="form-control" value="{{$tour->maps}}" name="maps">
 									</div>
 									<div class="form-group" >
 										<label>Status</label><br>
