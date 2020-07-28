@@ -9,6 +9,7 @@ use App\Http\Requests\AddGuider;
 use App\Model\roles;
 use App\Model\ad_roles;
 use DB;
+use Auth;
 use App\User;
 
 class AdminController extends Controller
@@ -67,9 +68,8 @@ class AdminController extends Controller
     {
         $ad_rol = $listadmin->getRoles;
         $roles = roles::all();
-        $ad_roles = ad_roles::all();
-        return view('backEnd.edit_admin',compact('listadmin','roles','ad_roles'));
-    }
+        return view('backEnd.edit_admin',compact('listadmin','roles'));
+    } 
     
     /**
      * Update the specified resource in storage.

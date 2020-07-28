@@ -81,7 +81,7 @@
                         								<h2><b>Roles</b></h2>
                         								<div class="checkbox">
                                                             @foreach($roles as $role)
-                        										  <input type="checkbox" name="role[]" value="{{$role->id}}">{{$role->name}}<br>
+                        										  <input type="checkbox" name="role[]"  value="{{$role->id}}"  {{($role->add_role) ? "checked" : ""}}>{{$role->name}}<br>
                         									@endforeach
                         								</div>
                         							</div>
