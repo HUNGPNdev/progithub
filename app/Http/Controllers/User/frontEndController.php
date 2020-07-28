@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Http\Controllers\User;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Model\ToursModel;
+use App\Model\guider;
+use App\Model\package;
+use App\Model\destModel;
+use DB;
+
+class frontEndController extends Controller
+{
+    public function getHome(){
+        $data['guider'] = guider::where('status',1)->get();
+        $data['dest']   = destModel::all();
+    	$data['tour'] = ToursModel::where('status',1)->orderBy('tour_id','desc')->take(4)->get();
+    	return view('frontEnd.index',$data);
+    }
+
+    public function getTourDetail($id){
+    	$tour = ToursModel::find($id);
+        $id = $tour->dest_id;
+        $dest = destModel::where('dest_id',$id)->first();
+        if($tour->package!=null){
+            $key = package::wherein('pac_id',json_decode($tour->package))->get();
+        }
+        $unkey = package::where('status',1)->orderBy('pac_id','desc')->take(4)->get();
+    	return view('frontEnd.tour-details',compact('tour','key','unkey','dest'));
+    }
+    public function getTourpackages(){
+    	// $data['tour'] = ToursModel::where('status',1)->orderBy('tour_id','desc')->paginate(6);
+        $data['dest']   = destModel::all();
+    	$data['data'] = DB::table('Tours_tb')->where('status',1)->orderBy('tour_id','desc')->paginate(3);
+    	return view('frontEnd.tour-packages',$data);
+    }
+    public function getpagetours(Request $request){
+        if($request->ajax())
+        {
+            $data['data'] = DB::table('Tours_tb')->where('status',1)->orderBy('tour_id','desc')->paginate(3);
+            return view('frontEnd.tours',$data);
+        }
+    }
+}

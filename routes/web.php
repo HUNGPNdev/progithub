@@ -1,0 +1,118 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+Auth::routes();
+
+
+Route::group(['namespace' => 'User'], function() {
+	Route::get('/','frontEndController@getHome');
+	Route::get('home','frontEndController@getHome');
+	Route::group(['prefix' => 'user'], function() {
+		Route::group(['prefix' => 'tour'], function() {
+			Route::get('tourdetail/{id}','frontEndController@getTourDetail');
+
+            Route::get('tourpackages','frontEndController@getTourpackages');
+
+			Route::post('tourpackages/getpagetours','frontEndController@getpagetours')->name('getpagetours');
+
+		});
+        Route::get('service','ServiceController@getService');
+
+        Route::get('gallery','ServiceController@getGallery');
+
+        Route::get('blog','ServiceController@getBlog');
+
+        Route::get('blog_single/{id}','ServiceController@getBlog_Single');
+
+        Route::get('about','ServiceController@getAbout');
+
+        Route::get('faqs','ServiceController@getFAQs');
+
+        Route::get('contact','ServiceController@getContact');
+	});
+});
+
+
+
+Route::group(['namespace' => 'Admin'], function() {
+        Route::group(['prefix' => 'loginad', 'middleware'=>'CheckLogedIn'], function() {
+            Route::get('/','LoginController@getLogin');
+            Route::post('/','LoginController@postLogin');
+        });
+
+    Route::group(['prefix' => 'admin', 'middleware'=>'CheckLogedOut','as'=>'admin.'], function() {
+            Route::get('/','HomeController@getHome')->name('home');
+            Route::get('home','HomeController@getHome')->name('home');
+
+        Route::group(['prefix' => 'listadmin'], function() {
+            Route::get('/','HomeController@listadmin')->name('listadmin');
+        });
+        Route::group(['prefix' => 'destination'], function() {
+        	Route::get('/','DestinationController@getDest')->name('destination');
+        	Route::post('/','DestinationController@postDest')->name('destination.post');
+
+        	Route::get('edit/{id}','DestinationController@getEditDest')->name('destination.edit');
+        	Route::post('edit/{id}','DestinationController@postEditDest')->name('destination.postedit');
+
+        	Route::get('delete/{id}','DestinationController@getDeleteDest')->name('destination.delete');
+        });
+
+        Route::group(['prefix' => 'tours'], function() {
+        	Route::get('/','ToursController@getTour')->name('tours');
+        	Route::get('add','ToursController@AddTour')->name('tours.add');
+        	Route::post('add','ToursController@postAddTour')->name('tours.postadd');
+
+        	Route::get('edit/{id}','ToursController@getEditTour')->name('tours.edit');
+        	Route::post('edit/{id}','ToursController@postEditTour')->name('tours.postedit');
+
+        	Route::get('delete/{id}','ToursController@getDeleteTour')->name('tours.delete');
+        });
+        Route::group(['prefix' => 'guider'], function() {
+            Route::get('/','TourGuiderController@tourguider')->name('guider');
+            Route::post('/','TourGuiderController@posttourguider')->name('guider.post');
+
+            Route::get('edit/{id}','TourGuiderController@EditTourguider')->name('guider.edit');
+            Route::post('edit/{id}','TourGuiderController@postEditTourguider')->name('guider.postedit');
+
+            Route::get('delete/{id}','TourGuiderController@DeleteTourguider')->name('guider.delete');
+        });
+        Route::group(['prefix' => 'packages'], function() {
+            Route::get('/','ToursController@getAddPackages')->name('packages');
+            Route::post('/','ToursController@postAddPackages')->name('packages.post');
+
+            Route::get('editpack/{id}','ToursController@getEditPackages')->name('packages.edit');
+            Route::post('editpack/{id}','ToursController@postEditPackages')->name('packages.postedit');
+
+            Route::get('delete/{id}','ToursController@deletePackages')->name('packages.delete');
+        });
+        Route::group(['prefix' => 'blog'], function() {
+            Route::get('/','BlogController@getBlog')->name('blog');
+
+            Route::get('add','BlogController@getAddBlog')->name('blog.add');
+            Route::post('add','BlogController@postAddBlog')->name('blog.postadd');
+
+            Route::get('edit/{id}','BlogController@EditBlogguider')->name('blog.edit');
+            Route::post('edit/{id}','BlogController@PostEditBlogguider')->name('blog.postedit');
+
+            Route::get('delete/{id}','BlogController@DeleteBlog')->name('blog.delete');
+        });
+        Route::resources([
+            'roles' => 'RoleController',
+            'listadmin' => 'AdminController'
+        ]);
+    });
+
+    Route::get('logout','HomeController@getlogout');
+
+});
