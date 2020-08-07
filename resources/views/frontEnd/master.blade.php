@@ -65,7 +65,7 @@
                         <div class="email sel d-flex">
                             <div class="main-email-text d-flex">
                                 <i class="fas fa-envelope"></i>
-                                <p>infp@a2z.com</p>
+                                <p>team-5@gmail.com</p>
                             </div>
                             <div class="main-loc-text d-flex">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -80,22 +80,32 @@
                             <img src="assets/img/common-img/flg.png" alt="img" />
                             <select name="cars">
                                 <option value="volvo">USA</option>
-                                <option value="saab">BAN</option>
-                                <option value="fiat">BAN</option>
                                 <option value="audi">BAN</option>
                             </select>
                             <i class="fas fa-angle-down"></i>
                         </div>
+                        @if(Auth::guard("users_tb")->check())
+                        <div class="user-log">
+                            <i class="far fa-user-circle" style="display: inline-block;"></i>
+                            <p style="display: inline-block;" class="dropdown-toggle" data-toggle="dropdown">
+                                {{session("name")}}
+                            </p>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{asset('userlogout')}}">LogOut</a>
+                            </div>
+                        </div>
+                        @else
                         <div class="user-log">
                             <i class="far fa-user-circle"></i>
-                            <a href="#">Sign In</a>
+                            <a href="{{route('userlogin')}}">Sign In</a>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
-            
+
     <header class="site-header header-style-one">
         <div class="site-navigation style-one">
             <div class="">
@@ -124,8 +134,9 @@
                                             <a href="{{asset('user/gallery')}}">Gallery</a>
                                         </li>
                                         <li class="dropdown-trigger">
-                                            <a href="{{asset('user/blog')}}">Blog</a>
+                                            <a href="{{asset('')}}">Page</a>
                                             <ul class="dropdown-content">
+                                                <li><a href="{{asset('user/blog')}}">Blog</a></li>
                                                 <li><a href="{{asset('user/about')}}">About</a></li>
                                                 <li><a href="{{asset('user/faqs')}}">FAQs</a></li>
                                             </ul>
@@ -295,6 +306,7 @@
         <i class="fas fa-chevron-up"></i>
         <i class="fas fa-arrow-up"></i>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script src="assets/js/jquery-3.3.1.min.js"></script>
 
@@ -339,21 +351,15 @@
         });
         function getpagetours(page){
             var _token = $("input[name=_token]").val();
-            // $.ajax({
-            //     type: "GET",
-            //     url: '../../user/tour/tourpackages/getpagetours?page='+page
-            // }).done(function(data){
-            //     $('#table_data').html(data);
-            // });
             $.ajax({
               url:"{{ route('getpagetours') }}",
               method:"POST",
               data:{_token:_token, page:page},
               success:function(data)
               {
-               $('#table_data').html(data);
-              }
-            });
+                 $('#table_data').html(data);
+             }
+         });
         }
     </script>
 </body>

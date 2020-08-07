@@ -1,7 +1,7 @@
 @extends('frontEnd.master')
 @section('title','Tour Details')
 @section('main')
-	<section id="tour-packes-deatils">
+	<section id="tour-packes-deatils" style="background-image: url({{asset('storage/app/image/'.$data->banner_img)}});">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-12">

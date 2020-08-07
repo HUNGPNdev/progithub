@@ -16,7 +16,7 @@
                         <div class="alert alert-success">Added user success!</div>
                         <div class="bootstrap-table">
                             <div class="table-responsive">
-                                <a href="{{asset('admin/blog/add')}}" class="btn btn-primary">Add Admin</a>
+                                <a href="{{ route('admin.listadmin.create') }}" class="btn btn-primary">Add Admin</a>
                                 <table class="table table-bordered" style="margin-top:20px;">               
                                     <thead>
                                         <tr id="tbl-first-row">
@@ -45,35 +45,16 @@
                                            <td>{{$a->image}}</td>
                                            <td>{{$a->status}}</td>
                                            <td>
-                                                <a href="{{ route('admin.listadmin.edit',$a->id) }}" class="btn btn-primary">Edit</a>
+                                                <a href="{{ route('admin.listadmin.edit',$a->id) }}" class="btn btn-primary"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i> Edit</a>
+                                                <a href="{{ asset('admin/destroy/'.$a->id) }}" class="btn btn-danger"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i> Delete</a>
                                             </td>
                                        </tr>
                                        @endforeach
-                                    </tbody>
+                                    </tbody> 
                                 </table>  
                                 <div class="panel-footer">
                                     {{ $data->links() }}
-                                </div>
-                                <div aria-label="Page navigation">
-                                   <ul class="pagination">
-                                       <li>
-                                           <a aria-label="Previous" href="#">
-                                               <span aria-hidden="true">&laquo;</span>
-                                           </a>
-                                       </li>
-                                       <li class="active"><a href="#">1</a></li>
-                                       <li><a href="#">2</a></li>
-                                       <li><a href="#">3</a></li>
-                                       <li><a href="#">4</a></li>
-                                       <li><a href="#">5</a></li>
-                                       <li><a href="#">6</a></li>
-                                       <li>
-                                           <a href="#" aria-label="Next">
-                                               <span aria-hidden="true">&raquo;</span>
-                                           </a>
-                                       </li>
-                                   </ul>
-                               </div>                          
+                                </div>                     
                             </div>
                         </div>
                         <div class="clearfix"></div>

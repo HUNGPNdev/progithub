@@ -18,7 +18,7 @@ class TourGuiderController extends Controller
     	$tour = new guider;
     	$tour->guider_name = $request->name;
     	$tour->status = $request->status;
-    	$tour->images 	=	$img;
+    	$tour->images 	= $img;
     	$tour->facebook = $request->facebook;
     	$tour->twiter = $request->twiter;
     	$tour->instagram = $request->instagram;

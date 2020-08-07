@@ -18,12 +18,18 @@ Auth::routes();
 Route::group(['namespace' => 'User'], function() {
 	Route::get('/','frontEndController@getHome');
 	Route::get('home','frontEndController@getHome');
+    // logout
+    Route::get('userlogout','UserLoginController@getuserlogout');
+
+    Route::group(['prefix' => 'userlogin', 'middleware'=>'UserLoginCheck'], function() {
+        Route::get('/','UserLoginController@getlogin')->name('userlogin');
+        Route::post('/','UserLoginController@postuserlogin');
+    });
+
 	Route::group(['prefix' => 'user'], function() {
 		Route::group(['prefix' => 'tour'], function() {
 			Route::get('tourdetail/{id}','frontEndController@getTourDetail');
-
             Route::get('tourpackages','frontEndController@getTourpackages');
-
 			Route::post('tourpackages/getpagetours','frontEndController@getpagetours')->name('getpagetours');
 
 		});
@@ -50,6 +56,8 @@ Route::group(['namespace' => 'Admin'], function() {
             Route::get('/','LoginController@getLogin');
             Route::post('/','LoginController@postLogin');
         });
+
+            Route::get('logout','HomeController@getlogout');
 
     Route::group(['prefix' => 'admin', 'middleware'=>'CheckLogedOut','as'=>'admin.'], function() {
             Route::get('/','HomeController@getHome')->name('home');
@@ -107,12 +115,27 @@ Route::group(['namespace' => 'Admin'], function() {
 
             Route::get('delete/{id}','BlogController@DeleteBlog')->name('blog.delete');
         });
+        Route::group(['prefix'=>'slider'],function(){
+            Route::get('/','SliderController@getSlider')->name('slider');
+            Route::get('/active/{id}','SliderController@activeSlider')->name('slider.active');
+            Route::get('/unactive/{id}','SliderController@unactiveSlider')->name('slider.unactive');
+
+            Route::get('add','SliderController@getAddSlider')->name('slider.add');
+            Route::post('add','SliderController@postAddSlider')->name('slider.add');
+
+            Route::get('edit/{id}','SliderController@getEditSlider')->name('slider.edit');
+            Route::post('edit/{id}','SliderController@postEditSlider')->name('slider.edit');
+
+            Route::get('delete/{id}','SliderController@getDelSlider')->name('slider.delete');
+        });
+        Route::get('error','AdminController@error')->name('error');
+        Route::get('destroy/{id}','AdminController@destroy')->name('destroy');
         Route::resources([
             'roles' => 'RoleController',
-            'listadmin' => 'AdminController'
+            'listadmin' => 'AdminController',
+            'banner' => 'BannerController'
         ]);
     });
 
-    Route::get('logout','HomeController@getlogout');
 
 });

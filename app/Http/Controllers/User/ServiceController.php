@@ -8,26 +8,31 @@ use App\Model\ToursModel;
 use App\Model\Blog_Model;
 use App\Model\destModel;
 use Illuminate\Support\Arr;
+use App\Model\banner;
 use DB;
 
 class ServiceController extends Controller
 {
 	public function getService(){
-		return view('frontEnd.service');
+        $data['banner'] = banner::where('banner_id',3)->first('banner_img');
+		return view('frontEnd.service',$data);
 	}
 
 	public function getGallery(){
-		return view('frontEnd.gallery');
+        $data['banner'] = banner::where('banner_id',4)->first('banner_img');
+		return view('frontEnd.gallery',$data);
 	}
 
 	public function getBlog(){
+        $data = banner::where('banner_id',5)->first('banner_img');
 		// $blog = Blog_Model::where('status',1)->orderBy('id','desc')->get();
     	$blog = DB::table('blog_tb')->where('blog_tb.status',1)->orderBy('blog_tb.id_blog','desc')->join('admin_tb','blog_tb.id_ad','=','admin_tb.id')->get();
 		// $admin= 
-		return view('frontEnd.blog',compact('blog'));
+		return view('frontEnd.blog',compact('blog','data'));
 	}
 
 	public function getBlog_Single($id){
+        $data['banner'] = banner::where('banner_id',5)->first('banner_img');
 		$data['data'] = Blog_Model::find($id);
 		$data['list_tags'] = ToursModel::where('status',1)->take(9)->get();
 		$data['dest'] = destModel::take(5)->get();
@@ -37,14 +42,17 @@ class ServiceController extends Controller
 	}
 
 	public function getAbout(){
-		return view('frontEnd.about');
+        $data['banner'] = banner::where('banner_id',6)->first('banner_img');
+		return view('frontEnd.about',$data);
 	}
 
 	public function getFAQs(){
-		return view('frontEnd.faq');
+        $data['banner'] = banner::where('banner_id',7)->first('banner_img');
+		return view('frontEnd.faq',$data);
 	}
 
 	public function getContact(){
-		return view('frontEnd.contact');
+        $data['banner'] = banner::where('banner_id',8)->first('banner_img');
+		return view('frontEnd.contact',$data);
 	}
 }

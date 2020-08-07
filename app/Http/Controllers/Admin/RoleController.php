@@ -37,7 +37,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $route = '';
+        $route = [];
         $all = Route::getRoutes();
         
         return view('backEnd.roles',compact('route'));
@@ -54,6 +54,7 @@ class RoleController extends Controller
         $request->validate([
             'name' => 'unique:roles,name'
         ],['name.unique' => 'Roles has been dupplicated!']); 
+        array_push($request->route,'admin.home');
         $route = json_encode($request->route);
         roles::create(['name' => $request->name, 'permission' => $route]);
         return back();
@@ -102,6 +103,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, roles $roles,$id)
     {
+        $route = [];
         $request->validate([
             'name' => 'required'
         ],['name.required' => 'Fill role name in the input!']);

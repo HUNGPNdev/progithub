@@ -2,7 +2,7 @@
 @section('title','Service')
 @section('main')
 	
-	<section id="service-main-banner">
+	<section id="service-main-banner" style="background-image: url({{asset('storage/app/image/'.$banner->banner_img)}});">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">

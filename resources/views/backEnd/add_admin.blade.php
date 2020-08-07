@@ -18,18 +18,18 @@
                         		<div class="panel panel-primary">
                         			<div class="panel-heading">Edit Admin</div>
                         			<div class="panel-body">
-                        				<form action="{{route('admin.listadmin.update',$listadmin->id)}}" method="POST" role="form" enctype="multipart/form-data">
-                        					@csrf @method('PUT')
+                        				<form action="{{route('admin.listadmin.store')}}" method="POST" role="form" enctype="multipart/form-data">
+                        					@csrf 
                         					<div class="row">
                         						<div class="col-md-6">
                         							<div class="form-group">
                         								<label for="">Email</label>
-                        								<input type="text" class="form-control" name="email" value="{{$listadmin->email}}" placeholder="input email">
+                        								<input type="text" required class="form-control" name="email" placeholder="input email">
                                                         @error('email')<p style="color: red;">{{ $message }}</p>@enderror
                         							</div>
                         							<div class="form-group">
                         								<label for="">Password</label>
-                        								<input type="text" class="form-control" name="password" value="" placeholder="input new password">
+                        								<input type="text" required class="form-control" name="password" value="" placeholder="input new password">
                                                         @error('password')<p style="color: red;">{{ $message }}</p>@enderror
                         							</div>
                                                     <div class="form-group">
@@ -39,35 +39,35 @@
                                                     </div>
                         							<div class="form-group">
                         								<label for="">Name</label>
-                        								<input type="text" class="form-control" name="name" value="{{$listadmin->name}}" placeholder="input name">
+                        								<input type="text" class="form-control" required name="name" placeholder="input name">
                                                         @error('name')<p style="color: red;">{{ $message }}</p>@enderror
                         							</div>
                         							<div class="form-group">
                         								<label for="">Phone</label>
-                        								<input type="number" class="form-control" name="phone" value="{{$listadmin->phone}}" placeholder="input phone">
+                        								<input type="number" class="form-control" name="phone" placeholder="input phone">
                         							</div>
                         							<div class="form-group">
                         								<label for="">Address</label>
-                        								<input type="text" class="form-control" name="address" value="{{$listadmin->address}}" placeholder="input address">
+                        								<input type="text" class="form-control" name="address" placeholder="input address">
                         							</div>
                         							<div class="form-group">
                         								<label for="">Birthday</label>
-                        								<input type="date" class="form-control" name="birthday" value="{{$listadmin->birthday}}" placeholder="input birthday">
+                        								<input type="date" class="form-control" name="birthday" placeholder="input birthday">
                         							</div>
                         							<div class="form-group">
                         								<label for="">Gender</label><br>
-                        								Male: <input  type="radio" name="gender" value="1" @if($listadmin->status == 1) checked @endif>
-                        								Female: <input type="radio" name="gender" value="0" @if($listadmin->status == 0) checked @endif>
+                        								Male: <input  type="radio" name="gender" value="1">
+                        								Female: <input type="radio" name="gender" value="0">
                         							</div>
                         							<div class="form-group" >
-                        								<label>Admin Images</label>
-                        								<input id="img" type="file" name="img" class="form-control hidden" onchange="changeImg(this)">
-                        								<img id="avatar" class="thumbnail" width="100px" src="@if($listadmin->image == '') img/new_seo-10-512.png @else {{asset('storage/app/admin/'.$listadmin->image)}} @endif">
-                        							</div>
+                                                        <label>Tour Images</label>
+                                                        <input id="img" type="file" name="img" class="form-control hidden" onchange="changeImg(this)">
+                                                        <img id="avatar" class="thumbnail" width="100px" src="img/new_seo-10-512.png">
+                                                    </div>
                         							<div class="form-group" >
                         								<label>Status</label><br>
-                        								Active: <input  type="radio" name="status" value="1" @if($listadmin->status == 1) checked @endif>
-                        								Missed: <input type="radio" name="status" value="0" @if($listadmin->status == 0) checked @endif>
+                        								Active: <input  type="radio" checked name="status" value="1">
+                        								Missed: <input type="radio" name="status" value="0">
                         							</div>
                         						</div>
                         						<div class="col-md-1"></div>
@@ -75,11 +75,9 @@
                         							<div class="form-group">
                         								<h2><b>Roles</b></h2>
                         								<div class="checkbox">
-                                                            @for($i = 0;$i<$roles->count();$i++)
-                                                                @for($j = 0;$j<$rolesAdmin->count();$j++)
-                            										  <input type="checkbox" name="role[]" value="{{$roles[$i]->id}}" {{($roles[$i]->id == $rolesAdmin[$j]->roles_id)?"checked":""}}>{{$roles[$i]->name}}<br>
-                                                                 @endfor
-                                                             @endfor
+                                                            @foreach($roles as $role)
+                        										  <input type="checkbox" name="role[]" value="{{$role->id}}">{{$role->name}}<br>
+                        									@endforeach
                         								</div>
                         							</div>
                         						</div>

@@ -8,6 +8,8 @@ use App\Model\ToursModel;
 use App\Model\guider;
 use App\Model\package;
 use App\Model\destModel;
+use App\Model\banner;
+use App\Model\slider;
 use DB;
 
 class frontEndController extends Controller
@@ -16,6 +18,8 @@ class frontEndController extends Controller
         $data['guider'] = guider::where('status',1)->get();
         $data['dest']   = destModel::all();
     	$data['tour'] = ToursModel::where('status',1)->orderBy('tour_id','desc')->take(4)->get();
+        $data['slider'] = slider::where('slider_status',1)->get();
+        $data['banner'] = banner::where('banner_id',1)->first('banner_img');
     	return view('frontEnd.index',$data);
     }
 
@@ -27,12 +31,14 @@ class frontEndController extends Controller
             $key = package::wherein('pac_id',json_decode($tour->package))->get();
         }
         $unkey = package::where('status',1)->orderBy('pac_id','desc')->take(4)->get();
-    	return view('frontEnd.tour-details',compact('tour','key','unkey','dest'));
+        $data = banner::where('banner_id',2)->first('banner_img');
+    	return view('frontEnd.tour-details',compact('tour','key','unkey','dest','data'));
     }
     public function getTourpackages(){
     	// $data['tour'] = ToursModel::where('status',1)->orderBy('tour_id','desc')->paginate(6);
         $data['dest']   = destModel::all();
     	$data['data'] = DB::table('Tours_tb')->where('status',1)->orderBy('tour_id','desc')->paginate(3);
+        $data['banner'] = banner::where('banner_id',2)->first('banner_img');
     	return view('frontEnd.tour-packages',$data);
     }
     public function getpagetours(Request $request){

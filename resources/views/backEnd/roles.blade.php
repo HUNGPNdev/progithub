@@ -8,7 +8,6 @@
 				<h1 class="page-header">List Roles</h1>
 			</div>
 		</div><!--/.row-->
-		
 		<div class="row">
 			<div class="col-xs-12 col-md-4 col-lg-4">
 				<div class="panel panel-primary">
@@ -74,8 +73,8 @@
 										</div>
 										</td>
 										<td>
-											<a href="{{ route('admin.roles.edit',$data->id) }}" class="btn btn-primary">Edit</a>
-											<a href="{{asset('admin/roles/'.$data->id)}}" class="btn btn-danger">Delete</a>
+											<a href="{{ route('admin.roles.edit',$data->id) }}" class="btn btn-primary"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i> Edit</a>
+											<a href="{{asset('admin/roles/'.$data->id)}}" class="btn btn-danger"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i> Delete</a>
 										</td>
 									</tr>
 									@endforeach
