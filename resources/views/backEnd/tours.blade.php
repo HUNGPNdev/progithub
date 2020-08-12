@@ -125,6 +125,6 @@
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->
-	</div>	<!--/.main-->
+		</div>
+	</div>	
 @stop

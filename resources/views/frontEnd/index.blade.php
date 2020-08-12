@@ -31,149 +31,65 @@
             <h2>ab-section</h2>
         </div>
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12 main-com">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-8 main-com">
                 <nav>
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Search Tour</a>
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
-                            <i class="fas fa-city amr"></i> Hotel
-                        </a>
                     </div>
                 </nav>
                 <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                <div class="booking-info">
-                                    <div class="select-box">
-                                        <span class="sec-po"><i class="fas fa-map-marker-alt"></i></span>
-                                        <select>
-                                            @foreach($dest as $d)
-                                            <option> Destination</option>
-                                            <option value="{{$d->dest_id}}"> {{$d->dest_name}}</option>
-                                            @endforeach
-                                        </select>
-                                        <i class="fas fa-angle-down map-io"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                <div class="booking-info">
+                        <form action="{{route('searchtour')}}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="booking-info">
-                                        <div id="datepicker-2" class="input-group date" data-date-format="mm-dd-yyyy">
-                                            <input class="form-control" type="text" placeholder="Check In" />
-                                            <span class="input-group-addon sec-po"><i class="far fa-calendar-alt"></i></span>
+                                        <div class="select-box">
+                                            <span class="sec-pos"><i class="fas fa-map-marker-alt"></i></span>
+                                            <input type="text" name="searchName" class="parentBtn form-control searchDay" placeholder="Where are you going...?">
                                         </div>
-                                        <i class="fas fa-angle-down map-io"></i>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="booking-info">
-                                    <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
-                                        <input class="form-control" type="text" placeholder="Check Out" />
-                                        <span class="input-group-addon sec-po"><i class="far fa-calendar-alt"></i></span>
-                                    </div>
-                                    <i class="fas fa-angle-down map-io"></i>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                <div class="booking-info">
-                                    <div class="select-box">
-                                        <span class="sec-po"><i class="fas fa-bed"></i></span>
-                                        <select>
-                                            <option value="0"> Hotel</option>
-                                            <option value="1">Audi</option>
-                                            <option value="2">BMW</option>
-                                            <option value="3">Citroen</option>
-                                        </select>
-                                        <i class="fas fa-angle-down map-io"></i>
-                                    </div>
-                                </div>
-                            </div>
+                                    <span class="mybtn minus btn-2">-</span>
+                                    <input type="text" name="searchDay" class="parentBtn form-control searchDay" placeholder="Enter Search Day..." value="0">
+                                    <span class="mybtn plus btn-2">+</span>
+                                </div> -->
 
-                            <div class="col-lg-12">
-                                <div class="book-ctn">
-                                    <a href="#!" class="btn btn-2 pad">Search Now</a>
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                                    <div class="all-class">
+                                        <div class="bugest-info">
+                                            <span>
+                                                Budget Now:
+                                            </span>
+                                        </div>
+                                        <div class="buget" id="slider-tooltips">
+                                        </div>
+                                    </div>
+                                </div>
+                                <span id="slider-value-lower" hidden></span>
+                                <span id="slider-value-upper" hidden></span>
+                                <input type="number" id="minval" name="minval" hidden>
+                                <input type="number" id="maxval" name="maxval" hidden>
+                                <div class="col-lg-4">
+                                    <div class="book-ctn">
+                                        <button class="btn btn-2 pad">Search Now</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                <div class="booking-info">
-                                    <div class="select-box">
-                                        <span class="sec-po"><i class="fas fa-map-marker-alt"></i></span>
-                                        <select>
-                                            @foreach($dest as $d)
-                                            <option> Destination</option>
-                                            <option value="{{$d->dest_id}}"> {{$d->dest_name}}</option>
-                                            @endforeach
-                                        </select>
-                                        <i class="fas fa-angle-down map-io"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                <div class="booking-info">
-                                    <div class="booking-info">
-                                        <div id="datepicker-3" class="input-group date" data-date-format="mm-dd-yyyy">
-                                            <input class="form-control" type="text" placeholder="Check In" />
-                                            <span class="input-group-addon sec-po"><i class="far fa-calendar-alt"></i></span>
-                                        </div>
-                                        <i class="fas fa-angle-down map-io"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                <div class="booking-info">
-                                    <div id="datepicker-4" class="input-group date" data-date-format="mm-dd-yyyy">
-                                        <input class="form-control" type="text" placeholder="Check Out" />
-                                        <span class="input-group-addon sec-po"><i class="far fa-calendar-alt"></i></span>
-                                    </div>
-                                    <i class="fas fa-angle-down map-io"></i>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                <div class="booking-info">
-                                    <div class="select-box">
-                                        <span class="sec-po"><i class="fas fa-bed"></i></span>
-                                        <select class="marder">
-                                            <option value="0"> Hotel</option>
-                                            <option value="1">Audi</option>
-                                            <option value="2">BMW</option>
-                                            <option value="3">Citroen</option>
-                                        </select>
-                                        <i class="fas fa-angle-down map-io"></i>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="all-class">
-                                    <div class="bugest-info">
-                                        <span>
-                                            Budget Now:
-                                        </span>
-                                    </div>
-                                    <div class="buget" id="slider-tooltips">
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="book-ctn">
-                                    <a href="#!" class="btn btn-2 pad">Search Now</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="valedoter">
                     <h2>Home</h2>
                 </div>
             </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>
 
             <div class="col-lg-6 col-md-12">
                 <div class="left-side-text-ab max-live">
@@ -393,8 +309,8 @@
                 <div class="team-box" >
                     <img style="height: 190px !important;" src="{{asset('storage/app/image/'.$guider->images)}}" alt="img" />
                     <div class="box-content">
-                        <h3 class="title"></h3>
-                        <p class="posation">{{$guider->guider_name}}</p>
+                        <h3 class="title">{{$guider->guider_name}}</h3>
+                        <p class="posation">Tour Guide</p>
                     </div>
                     <ul class="icon">
                         <li>
@@ -436,6 +352,7 @@
             </div>
         </div>
         <div class="test-slider-home-1 owl-carousel owl-theme">
+            @foreach($sliCus as $s)
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="row">
@@ -449,9 +366,9 @@
                                 </div>
                                 <div class="test-flex">
                                     <p>
-                                        “Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius. Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.”
+                                        {!!$s->slider_description!!}
                                     </p>
-                                    <h6>Carry Bradshow</h6>
+                                    <h6>{{$s->slider_customer}}</h6>
                                     <div class="start-icon">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -467,86 +384,13 @@
                                 <i class="flaticon-quotation"></i>
                             </div>
                             <div class="test-moinal-ing-left">
-                                <img src="assets/img/client/client-1.jpg" alt="img" />
+                                <img src="{{asset('storage/app/image.slider/'.$s->slider_img)}}" alt="img" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="row">
-                        <div class="col-lg-7 col-md-12 col-sm-12 col-12">
-                            <div class="test-monial-item">
-                                <div class="test-heading">
-                                    <h6>Lots of Smiles</h6>
-                                    <h2>
-                                        More Than 960+ People <span>Are Happy With Us.</span>
-                                    </h2>
-                                </div>
-                                <div class="test-flex">
-                                    <p>
-                                        “Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius. Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.”
-                                    </p>
-                                    <h6>Lady Anais Torres</h6>
-                                    <div class="start-icon">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-8 col-12">
-                            <div class="qyaty">
-                                <i class="flaticon-quotation"></i>
-                            </div>
-                            <div class="test-moinal-ing-left">
-                                <img src="assets/img/client/client-2.jpg" alt="img" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="row">
-                        <div class="col-lg-7 col-md-12 col-sm-12 col-12">
-                            <div class="test-monial-item">
-                                <div class="test-heading">
-                                    <h6>Lots of Smiles</h6>
-                                    <h2>
-                                        More Than 960+ People <span>Are Happy With Us.</span>
-                                    </h2>
-                                </div>
-                                <div class="test-flex">
-                                    <p>
-                                        “Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.”
-                                    </p>
-                                    <h6>Helen Park (Lena)</h6>
-                                    <div class="start-icon">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-8 col-12">
-                            <div class="qyaty">
-                                <i class="flaticon-quotation"></i>
-                            </div>
-                            <div class="test-moinal-ing-left">
-                                <img src="assets/img/client/client-3.jpg" alt="img" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

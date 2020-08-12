@@ -357,10 +357,27 @@
               data:{_token:_token, page:page},
               success:function(data)
               {
-                 $('#table_data').html(data);
-             }
-         });
+               $('#table_data').html(data);
+           }
+       });
         }
+        // $(document).ready(function() {
+        //     $('.minus').click(function () {
+        //         var $input = $(this).parent().find('input');
+        //         var count = parseInt($input.val()) - 1;
+        //         count = count < 0 ? 0 : count;
+        //         $input.val(count);
+        //         $input.change();
+        //         return false;
+        //     });
+        //     $('.plus').click(function () {
+        //         var $input = $(this).parent().find('input');
+        //         $input.val(parseInt($input.val()) + 1);
+        //         $input.change();
+        //         return false;
+        //     });
+        // });
     </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=377553719880284&autoLogAppEvents=1" nonce="qRknaJ3G"></script>
 </body>
 </html>

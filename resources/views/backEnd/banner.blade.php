@@ -33,7 +33,7 @@
 											<img width="300px" style="margin: 0;" src="{{asset('storage/app/image/'.$d->banner_img)}}" class="thumbnail img-fluid">
 										</td>
 										<td>
-											<a href="{{ route('admin.banner.edit',$d->banner_id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+											<a href="{{ route('admin.banner.edit',$d->banner_id) }}" class="btn btn-warning"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i> Edit</a>
 										</td>
 									</tr>
 									@endforeach

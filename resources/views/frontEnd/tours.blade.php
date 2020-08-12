@@ -12,8 +12,8 @@
             </div>
             <div class="real-dat-para">
                 <p style="height: 70px; overflow: hidden;">
-                {{$tour->tour_sumary}}
-            </p>
+                    {{$tour->tour_sumary}}
+                </p>
             </div>
             <div class="des-button-icon">
                 <div class="das-into-btn">
@@ -32,6 +32,7 @@
     </div>
 </div>
 @endforeach
-    <div style="margin-bottom: 0px !important;margin: 20px auto ">
+<div class="col-lg-5 col-md-5"></div>
+<div style="margin-top: 20px" class="col-lg-7 col-md-7">
     {!!$data->links()!!}
-    </div>
+</div>

@@ -3,8 +3,8 @@ $(document).ready(function () {
     "use strict";
 
     $('.input-group.date').datepicker(
-     { format: "dd/mm/yyyy" }
-     );
+       { format: "dd/mm/yyyy" }
+       );
 
     $('.slider-main-ab').owlCarousel({
         loop: true,
@@ -466,12 +466,27 @@ $('.testimonials-six-wrapper').owlCarousel({
     var tooltipSlider = document.getElementById('slider-tooltips');
 
     noUiSlider.create(tooltipSlider, {
-        start: [0, 5000],
+        connect: true,
+        start: [0, 2000],
         tooltips: [wNumb({decimals: 0}), wNumb({decimals: 0})],
         range: {
             'min': 0,
-            'max': 5000
-        }
+            'max': 2000
+        },
+    });
+
+    var toolValues = [
+        document.getElementById('slider-value-lower'),
+        document.getElementById('slider-value-upper')
+    ];
+
+    tooltipSlider.noUiSlider.on('update', function (values, handle) {
+        toolValues[handle].innerHTML = values[handle];
+        var from = Math.floor(values[0]);
+        var to = Math.floor(values[1]);
+        console.log(from);
+        $('#minval').val(from);
+        $('#maxval').val(to);
     });
 
 });

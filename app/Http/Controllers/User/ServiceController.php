@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\ToursModel;
 use App\Model\Blog_Model;
 use App\Model\destModel;
+use App\Model\guider;
 use Illuminate\Support\Arr;
 use App\Model\banner;
 use DB;
@@ -14,6 +15,7 @@ use DB;
 class ServiceController extends Controller
 {
 	public function getService(){
+        $data['guider'] = guider::where('status',1)->get();
         $data['banner'] = banner::where('banner_id',3)->first('banner_img');
 		return view('frontEnd.service',$data);
 	}
@@ -42,6 +44,7 @@ class ServiceController extends Controller
 	}
 
 	public function getAbout(){
+        $data['guider'] = guider::where('status',1)->get();
         $data['banner'] = banner::where('banner_id',6)->first('banner_img');
 		return view('frontEnd.about',$data);
 	}

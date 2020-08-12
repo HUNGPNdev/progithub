@@ -46,6 +46,7 @@
 				<label class="tree-toggler"> <svg class="glyph stroked chevron right"><use xlink:href="#stroked-chevron-right"/></svg>Banner/Slider </label> 
 				<ul class="nav nav-list tree">
 					<li><a href="{{ route('admin.slider') }}"><svg class="glyph stroked blank document"><use xlink:href="#stroked-blank-document"/></svg> Slider</a></li>
+					<li><a href="{{ route('admin.sliCus') }}"><svg class="glyph stroked blank document"><use xlink:href="#stroked-blank-document"/></svg> Slider Customer</a></li>
 					<li><a href="{{ route('admin.banner.index') }}"><svg class="glyph stroked plus sign"><use xlink:href="#stroked-plus-sign"/></svg>
 					Banner</a></li>
 				</ul>

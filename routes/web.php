@@ -18,6 +18,7 @@ Auth::routes();
 Route::group(['namespace' => 'User'], function() {
 	Route::get('/','frontEndController@getHome');
 	Route::get('home','frontEndController@getHome');
+    Route::post('search','searchController@searchTour')->name('searchtour');
     // logout
     Route::get('userlogout','UserLoginController@getuserlogout');
 
@@ -127,6 +128,19 @@ Route::group(['namespace' => 'Admin'], function() {
             Route::post('edit/{id}','SliderController@postEditSlider')->name('slider.edit');
 
             Route::get('delete/{id}','SliderController@getDelSlider')->name('slider.delete');
+
+            // slider customer
+            Route::get('slider-customer','SliCusController@getSlider')->name('sliCus');
+            Route::get('/active-customer/{id}','SliCusController@activeSlider')->name('sliCus.active');
+            Route::get('/unactive-customer/{id}','SliCusController@unactiveSlider')->name('sliCus.unactive');
+
+            Route::get('sliCus-add','SliCusController@getAddSlider')->name('sliCus.add');
+            Route::post('sliCus-add','SliCusController@postAddSlider')->name('sliCus.add');
+
+            Route::get('sliCus-edit/{id}','SliCusController@getEditSlider')->name('sliCus.edit');
+            Route::post('sliCus-edit/{id}','SliCusController@postEditSlider')->name('sliCus.edit');
+
+            Route::get('sliCus-delete/{id}','SliCusController@getDelSlider')->name('sliCus.delete');
         });
         Route::get('error','AdminController@error')->name('error');
         Route::get('destroy/{id}','AdminController@destroy')->name('destroy');

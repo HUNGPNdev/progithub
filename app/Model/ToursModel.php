@@ -27,4 +27,17 @@ class ToursModel extends Model
 		return $paket_no;
 		// dd($paket_no);
 	}
+
+	public function scopeSearch($query){
+		$search = request()->searchName;
+       	$min = (int)request()->minval;
+        $max = (int)request()->maxval;
+        if ($search) {
+        	$query = $query->where('tour_name','LIKE','%'.$search.'%');
+        }
+    	
+    	$query = $query->whereBetween('tour_price',[$min,$max]);
+
+    	return $query;
+	}
 }

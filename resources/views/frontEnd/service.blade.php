@@ -117,91 +117,29 @@
 		</div>
 		<div class="container">
 			<div class="row mt-30">
-				<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-					<div class="team-box">
-						<img src="assets/img/agent/t-1.png" alt="img" />
-						<div class="box-content">
-							<h3 class="title">willimson</h3>
-							<p class="posation">web designer</p>
-							<a href="#!" class="btn btn-4">HIRE ME</a>
-						</div>
-						<ul class="icon">
-							<li>
-								<a href="#"><i class="fab fa-facebook-f"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fab fa-twitter"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fab fa-linkedin-in"></i></a>
-							</li>
-						</ul>
+			@foreach($guider as $guider)
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+				<div class="team-box" >
+					<img style="height: 190px !important;" src="{{asset('storage/app/image/'.$guider->images)}}" alt="img" />
+					<div class="box-content">
+						<h3 class="title">{{$guider->guider_name}}</h3>
+						<p class="posation">Tour Guide</p>
 					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-					<div class="team-box">
-						<img src="assets/img/agent/t-2.png" alt="img" />
-						<div class="box-content">
-							<h3 class="title">Kristiana</h3>
-							<p class="posation">Web developer</p>
-							<a href="#!" class="btn btn-4">HIRE ME</a>
-						</div>
-						<ul class="icon">
-							<li>
-								<a href="#"><i class="fab fa-facebook-f"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fab fa-twitter"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fab fa-linkedin-in"></i></a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-					<div class="team-box">
-						<img src="assets/img/agent/t-3.png" alt="img" />
-						<div class="box-content">
-							<h3 class="title">Kristiana</h3>
-							<p class="posation">Web developer</p>
-							<a href="#!" class="btn btn-4">HIRE ME</a>
-						</div>
-						<ul class="icon">
-							<li>
-								<a href="#"><i class="fab fa-facebook-f"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fab fa-twitter"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fab fa-linkedin-in"></i></a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-					<div class="team-box">
-						<img src="assets/img/agent/t-3.png" alt="img" />
-						<div class="box-content">
-							<h3 class="title">Kristiana</h3>
-							<p class="posation">Web developer</p>
-							<a href="#!" class="btn btn-4">HIRE ME</a>
-						</div>
-						<ul class="icon">
-							<li>
-								<a href="#"><i class="fab fa-facebook-f"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fab fa-twitter"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fab fa-linkedin-in"></i></a>
-							</li>
-						</ul>
-					</div>
+					<ul class="icon">
+						<li>
+							<a href="{{asset($guider->facebook)}}"><i class="fab fa-facebook-f"></i></a>
+						</li>
+						<li>
+							<a href="{{asset($guider->twiter)}}"><i class="fab fa-twitter"></i></a>
+						</li>
+						<li>
+							<a href="{{asset($guider->twiter)}}"><i class="fab fa-linkedin-in"></i></a>
+						</li>
+					</ul>
 				</div>
 			</div>
+			@endforeach
+		</div>
 			<div class="logo-slilder">
 				<div class="all-logo owl-carousel owl-theme">
 					<a href="#!"><img src="assets/img/about/lo-1.png" alt=""></a>
