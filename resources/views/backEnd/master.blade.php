@@ -32,7 +32,7 @@
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
-			<li class="active"><a href="{{route('admin.listadmin.index')}}"><svg class="glyph stroked male user"><use xlink:href="#stroked-male-user"></use></svg> Admin</a></li>
+			<li><a href="{{route('admin.listadmin.index')}}"><svg class="glyph stroked male user"><use xlink:href="#stroked-male-user"></use></svg> Admin</a></li>
 			<li>
 				<a href="{{ route('admin.roles.index') }}"><svg class="glyph stroked chain"><use xlink:href="#stroked-chain"></use></svg> Roles</a>
 			</li>
@@ -109,8 +109,6 @@
 		        $('#img').click();
 		    });
 		});
-
-
 	</script>	
 </body>
 

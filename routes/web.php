@@ -18,20 +18,35 @@ Auth::routes();
 Route::group(['namespace' => 'User'], function() {
 	Route::get('/','frontEndController@getHome');
 	Route::get('home','frontEndController@getHome');
+    // logout
+    Route::get('userlogout','UserLoginController@getuserlogout');
+
+    Route::group(['prefix' => 'userlogin', 'middleware'=>'UserLoginCheck'], function() {
+        Route::get('/','UserLoginController@getlogin')->name('userlogin');
+        Route::post('/','UserLoginController@postuserlogin')->name('postuserlogin');;
+        Route::post('post_register','UserLoginController@post_register')->name('post_register');
+        Route::get('forget','UserLoginController@forgetpass')->name('forgetpass');
+        Route::post('forgetpas','UserLoginController@postforgetpas')->name('postforgetpas');
+        Route::get('changepass','UserLoginController@changepass')->name('changepass');
+        Route::post('postchangepass','UserLoginController@postchangepass')->name('postchangepass');
+    });
+
 	Route::group(['prefix' => 'user'], function() {
+       Route::post('edit/{id}','UserLoginController@EditUser')->name('userlogin.edit');
 		Route::group(['prefix' => 'tour'], function() {
 			Route::get('tourdetail/{id}','frontEndController@getTourDetail');
-
             Route::get('tourpackages','frontEndController@getTourpackages');
-
 			Route::post('tourpackages/getpagetours','frontEndController@getpagetours')->name('getpagetours');
-
 		});
+        Route::group(['prefix' => 'cart'], function() {
+            Route::post('booking','BookingNowController@postBooking')->name('cart.booking');
+        });
         Route::get('service','ServiceController@getService');
 
         Route::get('gallery','ServiceController@getGallery');
 
         Route::get('blog','ServiceController@getBlog');
+        Route::get('search','ServiceController@SearchBlog')->name('searchblog');
 
         Route::get('blog_single/{id}','ServiceController@getBlog_Single');
 
@@ -50,6 +65,8 @@ Route::group(['namespace' => 'Admin'], function() {
             Route::get('/','LoginController@getLogin');
             Route::post('/','LoginController@postLogin');
         });
+
+            Route::get('logout','HomeController@getlogout');
 
     Route::group(['prefix' => 'admin', 'middleware'=>'CheckLogedOut','as'=>'admin.'], function() {
             Route::get('/','HomeController@getHome')->name('home');
@@ -107,12 +124,13 @@ Route::group(['namespace' => 'Admin'], function() {
 
             Route::get('delete/{id}','BlogController@DeleteBlog')->name('blog.delete');
         });
+        Route::get('error','AdminController@error')->name('error');
+        Route::get('destroy/{id}','AdminController@destroy')->name('destroy');
         Route::resources([
             'roles' => 'RoleController',
             'listadmin' => 'AdminController'
         ]);
     });
 
-    Route::get('logout','HomeController@getlogout');
 
 });

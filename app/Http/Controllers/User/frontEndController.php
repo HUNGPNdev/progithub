@@ -8,6 +8,7 @@ use App\Model\ToursModel;
 use App\Model\guider;
 use App\Model\package;
 use App\Model\destModel;
+use App\Model\traveltype_tb;
 use DB;
 
 class frontEndController extends Controller
@@ -15,7 +16,7 @@ class frontEndController extends Controller
     public function getHome(){
         $data['guider'] = guider::where('status',1)->get();
         $data['dest']   = destModel::all();
-    	$data['tour'] = ToursModel::where('status',1)->orderBy('tour_id','desc')->take(4)->get();
+    	$data['tour'] = ToursModel::where('status',1)->orderBy('tour_id','desc')->take(10)->get();
     	return view('frontEnd.index',$data);
     }
 
@@ -32,13 +33,13 @@ class frontEndController extends Controller
     public function getTourpackages(){
     	// $data['tour'] = ToursModel::where('status',1)->orderBy('tour_id','desc')->paginate(6);
         $data['dest']   = destModel::all();
-    	$data['data'] = DB::table('Tours_tb')->where('status',1)->orderBy('tour_id','desc')->paginate(3);
+    	$data['data'] = DB::table('Tours_tb')->where('Tours_tb.status',1)->join('traveltype_tb','Tours_tb.tour_id','=','traveltype_tb.tour_id')->orderBy('Tours_tb.tour_id','desc')->paginate(6);
     	return view('frontEnd.tour-packages',$data);
     }
     public function getpagetours(Request $request){
         if($request->ajax())
         {
-            $data['data'] = DB::table('Tours_tb')->where('status',1)->orderBy('tour_id','desc')->paginate(3);
+            $data['data'] = DB::table('Tours_tb')->where('status',1)->orderBy('tour_id','desc')->paginate(6);
             return view('frontEnd.tours',$data);
         }
     }

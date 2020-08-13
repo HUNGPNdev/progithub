@@ -270,7 +270,7 @@
                     </div>
                     <div class="des-para">
                         <div class="dayt">
-                            <h6><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}">{{$tour->tour_name}}</a></h6>
+                            <h6><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}" >{{$tour->tour_name}}</a></h6>
                             <p>{{$tour->tour_day }}Days | {{number_format($tour->tour_price,2,'.',' ' )}}$</p>
                         </div>
                         <div class="real-dat-para" style="">
@@ -280,7 +280,7 @@
                         </div>
                         <div class="des-button-icon">
                             <div class="das-into-btn">
-                                <a href="#!" class="btn btn-3" data-toggle="modal" data-target="#myModal">Book Now</a>
+                                <a href="#!" class="btn btn-3" data-toggle="modal"  data-target="#myModal">Book Now</a>
                             </div>
                             <div class="start-icon-des">
                                 <i class="fas fa-star"></i>
@@ -294,7 +294,6 @@
                 </div>
                 @endforeach
             </div>
-
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -304,6 +303,7 @@
                             </button>
                             <div class="model-details">
                                 <h5>Travel Booking Form</h5>
+                                {{$tour->tour_id}}
                                 <div class="mdel-form">
                                     <form action="#">
                                         <div class="form-group">
@@ -331,21 +331,22 @@
                                                   <option value="1">4</option>
                                                   <option value="2">10</option>
                                                   <option value="3">20+</option>
-                                              </select>
-                                              <div class="serv-ivmf-2">
-                                                <i class="fas fa-angle-down"></i>
+                                                </select>
+                                                <div class="serv-ivmf-2">
+                                                    <i class="fas fa-angle-down"></i>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="travel-tyepe row">
-                                        <div class="flex-type col-lg-3">
-                                            <label for="text">Travel Type</label>
-                                        </div>
-                                        <div class="col-lg-9 sub-travel-tyepe">
-                                            <input type="checkbox"> Economy
-                                            <input type="checkbox"> Premium
-                                            <input type="checkbox"> Business
-                                            <input type="checkbox"> High Class</div>
+                                        <div class="travel-tyepe row">
+                                            <div class="flex-type col-lg-3">
+                                                <label for="text">Travel Type</label>
+                                            </div>
+                                            <div class="col-lg-9 sub-travel-tyepe">
+                                                <input type="checkbox"> Economy
+                                                <input type="checkbox"> Premium
+                                                <input type="checkbox"> Business
+                                                <input type="checkbox"> High Class
+                                            </div>
                                         </div>
                                         <div class="sunb-btn-mod">
                                             <a href="#!" class="btn btn-3 widet-2">BOOKING NOW</a>

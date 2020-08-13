@@ -12,7 +12,7 @@ class HomeController extends Controller
     	return view('backEnd.index');
     }
     public function getlogout(){
-    	Auth::logout();
+        Auth::guard("web")->logout();
     	return redirect()->intended('loginad');
     }
 

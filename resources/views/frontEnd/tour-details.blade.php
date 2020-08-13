@@ -1,6 +1,6 @@
-@extends('frontEnd.master')
-@section('title','Tour Details')
-@section('main')
+	@extends('frontEnd.master')
+	@section('title','Tour Details')
+	@section('main')
 	<section id="tour-packes-deatils">
 		<div class="container">
 			<div class="row">
@@ -69,9 +69,9 @@
 									<ul>
 										<li>
 											@if($tour->package != null)
-												@foreach( $key as $value)
-													<i class="far fa-check-circle"></i>{{$value->pac_name}}<br><br>
-												@endforeach
+											@foreach( $key as $value)
+											<i class="far fa-check-circle"></i>{{$value->pac_name}}<br><br>
+											@endforeach
 											@endif
 										</li>
 									</ul>
@@ -80,19 +80,19 @@
 									<ul>
 										<li>
 											@php
-												$arr = json_decode($tour->package);
+											$arr = json_decode($tour->package);
 											@endphp
 											@foreach($unkey as $unkey)
-												@if($tour->package==null || !in_array($unkey->pac_id,$arr ) )
-													<i class="fas fa-times-circle"></i> {{$unkey->pac_name}}<br><br>
-												@endif
+											@if($tour->package==null || !in_array($unkey->pac_id,$arr ) )
+											<i class="fas fa-times-circle"></i> {{$unkey->pac_name}}<br><br>
+											@endif
 											@endforeach
 										</li>
 									</ul>
 								</div>
 							</div>
 						</div>
-												
+
 						<div class="map-inclid">
 							<h5>Tour Location</h5>
 							{!!$tour->maps!!}
@@ -280,17 +280,97 @@
 									</div>
 								</div>
 								<div class="sunb-btn-naple">
-									<a href="#!" class="btn submit widet">Submit</a>
+									<a href="#!" class="btn submit widet"  data-toggle="modal" data-target="#myModal">BOOKING NOW</a>
 								</div>
-
 							</form>
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	<div class="modal fade hais" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal">
+						&times;
+					</button>
+					<div class="model-details">
+						<h5>Travel Booking Form</h5>
+						<div class="mdel-form">
+							<form action="{{route('cart.booking')}}" role="form" method="POST">
+								@csrf
+								<div class="form-group">
+									<label for="name">First name</label>
+									<input type="text" class="form-control" name="name" required placeholder="Full Name" id="name" />
+								</div>
+								<div class="form-group">
+									<label for="last-name">Email: </label>
+									<input type="email" class="form-control" placeholder="email" required name="email" id="email" />
+								</div>
+								<div class="form-group">
+									<label for="last-name"> Phone: </label>
+									<input type="number" class="form-control" placeholder="phone" required name="phone" id="phone" />
+								</div>
+								<div class="form-group">
+									<label for="last-name">Address: </label>
+									<input type="text" class="form-control" placeholder="address" name="address" id="address" />
+								</div>
+								<div class="form-group">
+									<label for="departure">Departure Date: </label>
+									<input type="date" class="form-control" name="departure" id="departure" />
+								</div>
+								<div class="form-group">
+									<label for="children">Children under 2 year old: </label>
+									<input type="number" class="form-control" placeholder="Number of children" name="children" id="children" />
+								</div>
+								<div class="form-group">
+									<label for="adults">Adults: </label>
+									<input type="number" class="form-control" name="adults" placeholder="Number of adults" id="adults" />
+								</div>
+								<div class="travel-tyepe row">
+									<div class="flex-type col-lg-3">
+										<label for="text">Travel Type: </label>
+									</div>
+									<div class="flex-type col-lg-9">
+										<label>
+											<input type="radio" id="tour-first" name="package" value=""> First Class
+										</label>
+										<label>
+											<input type="radio" id="tour-business" name="package" value=""> Business Class
+										</label><br>
+										<label>
+											<input type="radio" id="tour-premium" name="package" value=""> Premium Class
+										</label>
+										<label>
+											<input type="radio" id="tour-economy" name="package" value=""> Economy Class
+										</label>
+										<label>
+											<input type="radio" id="package" name="package" checked value="0"> Self-sufficient
+										</label>
+										<input  type="text" name="tour_price" hidden="hidden" value="" id="tour-price">
+										<input  type="text" name="tour_id" hidden="hidden" value="" id="tour-id">
+									</div>
+								</div>
+								<div class="col-lg-9 sub-travel-tyepe">
+								</div><br><br>
+								<div style="color: orange;">
+									<label for="">Total: </label>
+									<span id="total"></span>
+								</div>
+								<div class="sunb-btn-mod">
+									<button class="btn btn-3 widet-2" type="submit">BOOKING NOW</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- tour-details end-->
 
 	<!-- footer start-->
-@stop
+	@stop

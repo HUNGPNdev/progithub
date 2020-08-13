@@ -93,7 +93,7 @@ class BlogController extends Controller
     		$arr['bn_image'] = $bn_img;
     	}
 
-    	$tour::where('id',$id)->update($arr);
+    	$tour::where('id_blog',$id)->update($arr);
     	return redirect('admin/blog');
     }
 }

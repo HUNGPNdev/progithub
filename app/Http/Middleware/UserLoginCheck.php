@@ -5,7 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class CheckLogedIn
+
+class UserLoginCheck
 {
     /**
      * Handle an incoming request.
@@ -16,8 +17,8 @@ class CheckLogedIn
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::guard("web")->check()){
-            return redirect()->intended('admin/home');
+        if(Auth::guard("users_tb")->check()){
+            return redirect()->intended('home');
         }
         return $next($request);
     }

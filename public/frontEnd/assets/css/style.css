@@ -24,7 +24,6 @@ body {
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;
 }
-
 :root {
     --main-theme-color-one: #014073;
     --main-theme-color-two: #ff9d34;
@@ -2404,7 +2403,7 @@ button:focus {
     font-size: 30px;
     position: absolute;
     transition: 1.4s;
-    right: 12px;
+    right: 15px !important;
 }
 
 .plean-footer:hover {

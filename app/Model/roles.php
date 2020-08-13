@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class roles extends Model
 {
     protected $fillable = ['name','permission'];
+    
+    public function add_role(){
+    	return $this->hasMany('App\Model\ad_roles','roles_id','id');
+    }
 }
+
+

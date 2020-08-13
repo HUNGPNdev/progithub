@@ -18,7 +18,7 @@ class LoginController extends Controller
     	}else{
     		$remember = false;
     	}
-    	if(Auth::attempt($arr, $remember)){
+    	if(Auth::guard('web')->attempt($arr, $remember)){
     		return redirect()->intended('admin/home');
     	}else{
     		return back()->withInput()->with('error','User account or password is incorrect!');

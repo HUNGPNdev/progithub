@@ -9,6 +9,7 @@ use App\Http\Requests\AddGuider;
 use App\Model\roles;
 use App\Model\ad_roles;
 use DB;
+use Auth;
 use App\User;
 
 class AdminController extends Controller
@@ -32,7 +33,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $roles = roles::all();
+        return view('backEnd.add_admin',compact('roles'));
     }
 
     /**
@@ -43,7 +45,47 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'unique:admin_tb,name',
+            'email' => 'unique:admin_tb,email',
+            'password'=>'required',
+            'conf_pas'=>'required|same:password'
+        ];
+        $messages = [
+            'name.unique'=>'Admin has been dupplicated!',
+            'email.unique'=>'Email has been dupplicated!',
+            'password.required'=>'Please, Enter the password!',
+            'conf_pas.required'=>'Please, Enter the password again!',
+            'conf_pas.same'=>'Password incorrect, please try again!'
+        ];
+        $request->validate($rules,$messages);
+  
+        $admin = [
+            'email'     =>   $request->email,
+            'password'  =>   bcrypt($request->password),
+            'name'      =>   $request->name,
+            'phone'     =>   $request->phone,
+            'address'   =>   $request->address,
+            'birthday'  =>   $request->birthday,
+            'gender'    =>   $request->gender,
+            'status'    =>   $request->status
+        ];
+
+        if($request->hasFile('img')){
+            $img = $request->img->getClientOriginalName();
+            $admin['image'] = $img;
+            $request->img->storeAs('admin',$img);
+        }
+        if($listadmin = listadmin::create($admin)){
+            if(is_array($request->role)){
+            foreach($request->role as $roles_id){
+                ad_roles::create(['admin_id'=>$listadmin->id,'roles_id'=>$roles_id]);
+            }
+        }
+            return redirect()->route('admin.listadmin.index');
+        }
+
+        return redirect()->back();
     }
 
     /**
@@ -65,11 +107,11 @@ class AdminController extends Controller
      */
     public function edit(listadmin $listadmin)
     {
-        $ad_rol = $listadmin->getRoles;
+        // $ad_rol = $listadmin->getRoles;
         $roles = roles::all();
-        $ad_roles = ad_roles::all();
-        return view('backEnd.edit_admin',compact('listadmin','roles','ad_roles'));
-    }
+        $rolesAdmin = ad_roles::where('admin_id',$listadmin->id)->get();
+        return view('backEnd.edit_admin',compact('listadmin','roles','rolesAdmin'));
+    } 
     
     /**
      * Update the specified resource in storage.
@@ -83,7 +125,7 @@ class AdminController extends Controller
 
         $rules = [
             'name' => 'required',
-            'email'=> 'required',
+            'email'=> 'required'
         ];
         $messages = [];
         if($request->password){
@@ -112,10 +154,13 @@ class AdminController extends Controller
         $listadmin->update($arr);
 
         if(is_array($request->role)){
-            ad_roles::where('admin_id',$listadmin->id)->delete();
+            DB::table('ad_roles')->where('admin_id',$listadmin->id)->delete();
             foreach($request->role as $roles_id){
                 ad_roles::create(['admin_id'=>$listadmin->id,'roles_id'=>$roles_id]);
             }
+        }else{
+            DB::table('ad_roles')->where('admin_id',$listadmin->id)->delete();
+            ad_roles::create(['admin_id'=>$listadmin->id,'roles_id'=>$request->role]);
         }
 
         return redirect()->route('admin.listadmin.index');
@@ -126,8 +171,22 @@ class AdminController extends Controller
      * @param  \App\Model\listadmin  $listadmin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(listadmin $listadmin)
+    public function destroy(listadmin $listadmin,ad_roles $ad_roles, $id)
     {
-        //
+        try{
+            DB::beginTransaction();
+            DB::table('ad_roles')->where('admin_id',$id)->delete();
+            DB::table('admin_tb')->where('id',$id)->delete();
+            DB::commit();
+            return back();
+        } catch(Exception $e){
+            return back();
+        }
+    }
+
+    public function error()
+    {
+        $code = request()->code;
+        return view('backEnd.error');
     }
 }
