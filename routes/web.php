@@ -18,27 +18,43 @@ Auth::routes();
 Route::group(['namespace' => 'User'], function() {
 	Route::get('/','frontEndController@getHome');
 	Route::get('home','frontEndController@getHome');
+<<<<<<< HEAD
     Route::post('search','searchController@searchTour')->name('searchtour');
+=======
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
     // logout
     Route::get('userlogout','UserLoginController@getuserlogout');
 
     Route::group(['prefix' => 'userlogin', 'middleware'=>'UserLoginCheck'], function() {
         Route::get('/','UserLoginController@getlogin')->name('userlogin');
+<<<<<<< HEAD
         Route::post('/','UserLoginController@postuserlogin');
+=======
+        Route::post('/','UserLoginController@postuserlogin')->name('postuserlogin');;
+        Route::post('post_register','UserLoginController@post_register')->name('post_register');
+        Route::get('forget','UserLoginController@forgetpass')->name('forgetpass');
+        Route::post('forgetpas','UserLoginController@postforgetpas')->name('postforgetpas');
+        Route::get('changepass','UserLoginController@changepass')->name('changepass');
+        Route::post('postchangepass','UserLoginController@postchangepass')->name('postchangepass');
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
     });
 
 	Route::group(['prefix' => 'user'], function() {
+       Route::post('edit/{id}','UserLoginController@EditUser')->name('userlogin.edit');
 		Route::group(['prefix' => 'tour'], function() {
 			Route::get('tourdetail/{id}','frontEndController@getTourDetail');
             Route::get('tourpackages','frontEndController@getTourpackages');
 			Route::post('tourpackages/getpagetours','frontEndController@getpagetours')->name('getpagetours');
-
 		});
+        Route::group(['prefix' => 'cart'], function() {
+            Route::post('booking','BookingNowController@postBooking')->name('cart.booking');
+        });
         Route::get('service','ServiceController@getService');
 
         Route::get('gallery','ServiceController@getGallery');
 
         Route::get('blog','ServiceController@getBlog');
+        Route::get('search','ServiceController@SearchBlog')->name('searchblog');
 
         Route::get('blog_single/{id}','ServiceController@getBlog_Single');
 
@@ -116,6 +132,7 @@ Route::group(['namespace' => 'Admin'], function() {
 
             Route::get('delete/{id}','BlogController@DeleteBlog')->name('blog.delete');
         });
+<<<<<<< HEAD
         Route::group(['prefix'=>'slider'],function(){
             Route::get('/','SliderController@getSlider')->name('slider');
             Route::get('/active/{id}','SliderController@activeSlider')->name('slider.active');
@@ -142,6 +159,8 @@ Route::group(['namespace' => 'Admin'], function() {
 
             Route::get('sliCus-delete/{id}','SliCusController@getDelSlider')->name('sliCus.delete');
         });
+=======
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
         Route::get('error','AdminController@error')->name('error');
         Route::get('destroy/{id}','AdminController@destroy')->name('destroy');
         Route::resources([

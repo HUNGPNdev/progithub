@@ -16,7 +16,7 @@
 					<div class="panel-body">
 						<form method="post" enctype="multipart/form-data">
 							<div class="row" style="margin-bottom:40px">
-								<div class="col-xs-8">
+								<div class="col-xs-12 col-md-7 col-lg-7">
 									<div class="form-group" >
 										<label>Name Tour</label>
 										<input required type="text" name="name" value="{{$tour->tour_name}}" class="form-control">
@@ -81,10 +81,52 @@
 											filebrowserFlashUploadUrl: '../public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 										});
 									</script>
-									<input type="submit" name="submit" value="Save" class="btn btn-primary">
-									<a href="{{asset('admin/tours')}}" class="btn btn-danger">Cancel</a>
+								</div>
+								<div class="col-xs-12 col-md-4 col-lg-4 panel-primary">
+									<div class="panel-heading">Travel type | Airfares </div><br><br>
+								@if($tvt != null)
+									<section style="margin-left: 20px;">
+										<div class="form-group" >
+											<label>Price First Class: </label>
+											<input type="number" name="first" placeholder="Price First $" value="{{$tvt->first}}" class="form-control">
+										</div>
+										<div class="form-group" >
+											<label>Business Class: </label>
+											<input type="number" name="business" placeholder="Business $" value="{{$tvt->business}}" class="form-control">
+										</div>
+										<div class="form-group" >
+											<label>Premium Class: </label>
+											<input type="number" name="premium" placeholder="Premium $" value="{{$tvt->premium}}" class="form-control">
+										</div>
+										<div class="form-group" >
+											<label>Economy Class: </label>
+											<input type="number" name="economy" placeholder="Economy $" value="{{$tvt->economy}}" class="form-control">
+										</div>
+									</section>
+								@else
+									<section style="margin-left: 20px;">
+										<div class="form-group" >
+											<label>Price First Class: </label>
+											<input type="number" name="first" placeholder="Price First $" class="form-control">
+										</div>
+										<div class="form-group" >
+											<label>Business Class: </label>
+											<input type="number" name="business" placeholder="Business $" class="form-control">
+										</div>
+										<div class="form-group" >
+											<label>Premium Class: </label>
+											<input type="number" name="premium" placeholder="Premium $" class="form-control">
+										</div>
+										<div class="form-group" >
+											<label>Economy Class: </label>
+											<input type="number" name="economy" placeholder="Economy $" class="form-control">
+										</div>
+									</section>
+								@endif
 								</div>
 							</div>
+							<input type="submit" name="submit" value="Save" class="btn btn-primary">
+							<a href="{{asset('admin/tours')}}" class="btn btn-danger">Cancel</a>
 							{{csrf_field()}}
 						</form>
 						<div class="clearfix"></div>

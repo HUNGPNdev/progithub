@@ -45,8 +45,13 @@
                                            <td>{{$a->image}}</td>
                                            <td>{{$a->status}}</td>
                                            <td>
+<<<<<<< HEAD
                                                 <a href="{{ route('admin.listadmin.edit',$a->id) }}" class="btn btn-primary"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i> Edit</a>
                                                 <a href="{{ asset('admin/destroy/'.$a->id) }}" class="btn btn-danger"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i> Delete</a>
+=======
+                                                <a href="{{ route('admin.listadmin.edit',$a->id) }}" class="btn btn-primary">Edit</a>
+                                                <a href="{{ asset('admin/destroy/'.$a->id) }}" class="btn btn-danger">Delete</a>
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
                                             </td>
                                        </tr>
                                        @endforeach

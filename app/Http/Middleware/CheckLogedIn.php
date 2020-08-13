@@ -16,7 +16,7 @@ class CheckLogedIn
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check()){
+        if(Auth::guard("web")->check()){
             return redirect()->intended('admin/home');
         }
         return $next($request);

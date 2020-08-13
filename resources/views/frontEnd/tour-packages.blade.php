@@ -164,6 +164,7 @@
         </div>
     </section>
 
+<<<<<<< HEAD
     <section id="summery">
         <div class="container">
             <div class="row">
@@ -182,6 +183,18 @@
                             <a href="tour-details.html" class="btn btn-2 mar-top">View Details</a>
                         </div>
                     </div>
+=======
+        <section id="tour-des">
+            <div class="content-box can-if">
+                <h6>Travel Express Provide</h6>
+                <h2>Select your <span>Destination</span></h2>
+                <p>Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin
+                sed augue sed neque ultricies condimentum. </p>
+            </div>
+            <div class="container">
+                <div class="row" id="table_data">
+                    @include('frontend.tours')
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
                 </div>
             </div>
         </div>

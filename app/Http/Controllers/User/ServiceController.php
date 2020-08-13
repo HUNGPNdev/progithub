@@ -42,6 +42,16 @@ class ServiceController extends Controller
 		$data['review'] = Blog_Model::where('status',1)->orderBy('id_blog','desc')->take(3)->get();
 		return view('frontEnd.blog_single',$data);
 	}
+	public function SearchBlog(Request $request){
+		$a = $request->search;
+		$result = str_replace(' ', '%', $a);
+		$data['key'] = $a;
+		$data['search'] = Blog_Model::join('admin_tb','blog_tb.id_ad','=','admin_tb.id')->where([
+			['title','like','%'.$result.'%'],
+			['blog_tb.status','=',1],
+		])->get();
+		return view('frontEnd.blogsearch',$data);
+	}
 
 	public function getAbout(){
         $data['guider'] = guider::where('status',1)->get();

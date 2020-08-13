@@ -19,7 +19,7 @@ class CheckLogedOut
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::guest()){
+        if(Auth::guard("web")->guest()){
             return redirect()->intended('logout');
         }
         $user = Auth::user();
@@ -27,7 +27,10 @@ class CheckLogedOut
         if($user->cant($route)){
             return redirect()->route('admin.error',['code'=>403]);
         }
+<<<<<<< HEAD
         
+=======
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
         return $next($request);
     }
 }

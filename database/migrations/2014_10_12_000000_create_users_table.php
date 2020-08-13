@@ -20,6 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->tinyInteger('gender')->nullable();
+<<<<<<< HEAD
+=======
+            $table->tinyInteger('check_register')->nullable();
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
             $table->text('image')->nullable();
             $table->rememberToken();
             $table->timestamps();

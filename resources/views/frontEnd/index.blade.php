@@ -184,6 +184,7 @@
                         <h6><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}">{{$tour->tour_name}}</a></h6>
                         <p>{{$tour->tour_day }}Days | {{number_format($tour->tour_price,2,'.',' ' )}}$</p>
                     </div>
+<<<<<<< HEAD
                     <div class="real-dat-para" style="">
                         <p style="height: 70px; overflow: hidden;">
                             {{$tour->tour_sumary}}
@@ -199,10 +200,34 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
+=======
+                    <div class="des-para">
+                        <div class="dayt">
+                            <h6><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}" >{{$tour->tour_name}}</a></h6>
+                            <p>{{$tour->tour_day }}Days | {{number_format($tour->tour_price,2,'.',' ' )}}$</p>
+                        </div>
+                        <div class="real-dat-para" style="">
+                            <p style="height: 70px; overflow: hidden;">
+                                {{$tour->tour_sumary}}
+                            </p>
+                        </div>
+                        <div class="des-button-icon">
+                            <div class="das-into-btn">
+                                <a href="#!" class="btn btn-3" data-toggle="modal"  data-target="#myModal">Book Now</a>
+                            </div>
+                            <div class="start-icon-des">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
                         </div>
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             @endforeach
         </div>
 
@@ -245,6 +270,64 @@
                                           </select>
                                           <div class="serv-ivmf-2">
                                             <i class="fas fa-angle-down"></i>
+=======
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                            <div class="model-details">
+                                <h5>Travel Booking Form</h5>
+                                {{$tour->tour_id}}
+                                <div class="mdel-form">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="name">First name</label>
+                                            <input type="text" class="form-control" placeholder="First Name" id="name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="last-name">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name" id="last-name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="departure">Departure Date</label>
+                                            <input type="date" class="form-control" placeholder="Email" id="departure" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="return">Return Date</label>
+                                            <input type="date" class="form-control" placeholder="Phone" id="return" />
+                                        </div>
+                                        <div class="form-group mainm-sel">
+                                            <label for="Guest" id="form-control">Guest</label>
+                                            <div class="select-box">
+                                                <span class="sec-po"></span>
+                                                <select id="text">
+                                                  <option value="0">Number of Guest</option>
+                                                  <option value="1">4</option>
+                                                  <option value="2">10</option>
+                                                  <option value="3">20+</option>
+                                                </select>
+                                                <div class="serv-ivmf-2">
+                                                    <i class="fas fa-angle-down"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="travel-tyepe row">
+                                            <div class="flex-type col-lg-3">
+                                                <label for="text">Travel Type</label>
+                                            </div>
+                                            <div class="col-lg-9 sub-travel-tyepe">
+                                                <input type="checkbox"> Economy
+                                                <input type="checkbox"> Premium
+                                                <input type="checkbox"> Business
+                                                <input type="checkbox"> High Class
+                                            </div>
+                                        </div>
+                                        <div class="sunb-btn-mod">
+                                            <a href="#!" class="btn btn-3 widet-2">BOOKING NOW</a>
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
                                         </div>
                                     </div>
                                 </div>

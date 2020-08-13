@@ -8,6 +8,7 @@ use App\Http\Requests\AddTourRequest;
 use App\Model\ToursModel;
 use App\Model\destModel;
 use App\Model\package;
+use App\Model\traveltype_tb;
 use DB;
 
 class ToursController extends Controller
@@ -40,17 +41,20 @@ class ToursController extends Controller
         $tour->package      =   $route;
 
     	$tour->list_tags 	=	str_slug($request->name);
-    	$tour->save();
     	$request->img->storeAs('image',$img);
+    	$tour->save();
+        traveltype_tb::create(['tour_id'=>$tour->tour_id,'first'=>$request->first,'business'=>$request->business,'premium'=>$request->premium,'economy'=>$request->economy]);
     	return back();
     }
     public function getEditTour($id){
+        $data['tvt'] = traveltype_tb::find($id);
     	$data['tour'] = ToursModel::find($id);
     	$data['dest'] = destModel::all();
         $data['package'] = package::all()->where('status',1);
     	return view('backEnd.edittours',$data);
     }
     public function postEditTour(Request $request,$id){
+
         $j_en = json_encode($request->route);
         $route = ($request->route)? $j_en : '';
     	$tour	=	new ToursModel;
@@ -72,12 +76,33 @@ class ToursController extends Controller
     		$request->img->storeAs('image',$img);
     	}
     	$tour::where('tour_id',$id)->update($arr);
+
+        // traveltype_tb
+        $tvt_tb = new traveltype_tb;
+        $m['tour_id'] = $id;
+        $m['first'] = $request->first;
+        $m['business'] = $request->business;
+        $m['premium'] = $request->premium;
+        $m['economy'] = $request->economy;
+
+        $tvt = traveltype_tb::where('tour_id',$id)->value("tour_id");
+        if($tvt != null){
+            $tvt_tb::where('tour_id',$id)->update($m);
+        }else{
+            traveltype_tb::create($m);
+        }
+        
+        
     	return redirect('admin/tours');
     }
     public function getDeleteTour($id){
+        traveltype_tb::destroy($id);
     	ToursModel::destroy($id);
     	return back();
     }
+
+
+
 
 
 // addpackage
@@ -108,4 +133,6 @@ class ToursController extends Controller
         return back();
     }
 // addpackage
+
+
 }
