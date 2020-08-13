@@ -6,18 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\UserModel;
 use Auth;
-<<<<<<< HEAD
-=======
+
 use Mail;
->>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
 use DB;
 class UserLoginController extends Controller
 {
 	public function getlogin(){
-<<<<<<< HEAD
-=======
+
         $user = UserModel::all();
->>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
 		return view('frontEnd.login_user');
 	}
 	public function getuserlogout(){
@@ -31,11 +27,9 @@ class UserLoginController extends Controller
     	}else{
     		$remember = false;
     	}
-<<<<<<< HEAD
     	$user = UserModel::where('email',$request->email)->value("name");
     	if(Auth::guard('users_tb')->attempt($arr, $remember)){
     		$request->session()->put("name",$user);
-=======
         $id = UserModel::where('email',$request->email)->value("id");
     	$name = UserModel::where('email',$request->email)->value("name");
     	$img = UserModel::where('email',$request->email)->value("image");
@@ -47,7 +41,6 @@ class UserLoginController extends Controller
     		$request->session()->put("image",$img);
     		$request->session()->put("phone",$phone);
     		$request->session()->put("gender",$gender);
->>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
     		return redirect()->intended('home');
     	}else{
     		return back()->withInput()->with('error','User account or password is incorrect!');
@@ -55,9 +48,7 @@ class UserLoginController extends Controller
 
 
 	}
-<<<<<<< HEAD
 
-=======
     // comment
     public function EditUser( Request $request, UserModel $UserModel, $id){
         $rules = [];
@@ -153,5 +144,4 @@ class UserLoginController extends Controller
         $user::where('password',$code)->update($arr);
         return redirect()->route('userlogin')->with('success','Change password successfuly, Please login!');
     }
->>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
 }
