@@ -1,4 +1,5 @@
 @foreach($data as $tours)
+@csrf
 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
     <div class="des-cov-1">
         <div class="des-img-1">
@@ -11,8 +12,8 @@
             </div>
             <div class="real-dat-para">
                 <p style="height: 70px; overflow: hidden;">
-                {{$tours->tour_sumary}}
-            </p>
+                    {{$tours->tour_sumary}}
+                </p>
             </div>
             <div class="des-button-icon">
                 <div class="das-into-btn">
@@ -93,8 +94,8 @@
                                     <input  type="text" name="tour_price" hidden="hidden" value="" id="tour-price">
                                     <input  type="text" name="tour_id" hidden="hidden" value="" id="tour-id">
                                 </div>
-                                </div>
-                                <div class="col-lg-9 sub-travel-tyepe">
+                            </div>
+                            <div class="col-lg-9 sub-travel-tyepe">
                             </div><br><br>
                             <div style="color: orange;">
                                 <label for="">Total: </label>
@@ -102,10 +103,10 @@
                             </div>
                             <div class="sunb-btn-mod">
                                 @if(Auth::guard("users_tb")->check())
-                                    <button class="btn btn-3 widet-2" type="submit">BOOKING NOW</button>
+                                <button class="btn btn-3 widet-2" type="submit">BOOKING NOW</button>
                                 @else
-                                    <span style="margin-left: 111px;color: red;">You need login befor Booking tour!</span><br><br>
-                                    <a class="btn btn-3 widet-2" style="color: #fff">BOOKING NOW</a>
+                                <span style="margin-left: 111px;color: red;">You need login befor Booking tour!</span><br><br>
+                                <a class="btn btn-3 widet-2" style="color: #fff">BOOKING NOW</a>
                                 @endif
                             </div>
                         </form>
@@ -116,50 +117,51 @@
     </div>
 </div>
 
-    <div style="margin-bottom: 0px !important;margin: 20px auto ">
+<div class="col-lg-5 col-md-5"></div>
+<div style="margin-top: 20px" class="col-lg-7 col-md-7">
     {!!$data->links()!!}
-    </div>
+</div>
 @section('tourjs')
-    <script type="text/javascript">
-        $(document).ready(function (argument) {
-            $(".book-tour").click(function () {
-                var _id = $(this).data("id");
-                var price = $(this).data("price");
-                var first = $(this).data("first");
-                var business = $(this).data("business");
-                var premium = $(this).data("premium");
-                var economy = $(this).data("economy");
-                $("#tour-price").val(parseInt(price));
-                $("#tour-first").val(parseInt(first));
-                $("#tour-business").val(parseInt(business));
-                $("#tour-premium").val(parseInt(premium));
-                $("#tour-economy").val(parseInt(economy));
-                $("#tour-id").val(parseInt(_id));
+<script type="text/javascript">
+    $(document).ready(function (argument) {
+        $(".book-tour").click(function () {
+            var _id = $(this).data("id");
+            var price = $(this).data("price");
+            var first = $(this).data("first");
+            var business = $(this).data("business");
+            var premium = $(this).data("premium");
+            var economy = $(this).data("economy");
+            $("#tour-price").val(parseInt(price));
+            $("#tour-first").val(parseInt(first));
+            $("#tour-business").val(parseInt(business));
+            $("#tour-premium").val(parseInt(premium));
+            $("#tour-economy").val(parseInt(economy));
+            $("#tour-id").val(parseInt(_id));
 
-                $('input[type=radio][name=package]').change(function() {
-                    var _adult = $('input[type=number][name=adults]').val();
-                    var _children = $('input[type=number][name=children]').val();
-                    var _package = parseInt($(this).val());
-                    var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
-                    $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
-                });
+            $('input[type=radio][name=package]').change(function() {
+                var _adult = $('input[type=number][name=adults]').val();
+                var _children = $('input[type=number][name=children]').val();
+                var _package = parseInt($(this).val());
+                var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
+            });
 
-                $('input[name=children]').change(function() {
-                    var _children = $(this).val();
-                    var _adult = $('input[type=number][name=adults]').val();
-                    var _package =  $('input[name=package]:checked').val();
-                    var _total = price * _adult + _package * _adult + price*0.1 * _children + _package*0.1 * _children;
-                    $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
-                });
+            $('input[name=children]').change(function() {
+                var _children = $(this).val();
+                var _adult = $('input[type=number][name=adults]').val();
+                var _package =  $('input[name=package]:checked').val();
+                var _total = price * _adult + _package * _adult + price*0.1 * _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
+            });
 
-                $('input[type=number][name=adults]').change(function() {
-                    var _adult = $(this).val();
-                    var _package =  $('input[name=package]:checked').val();
-                    var _children = $('input[type=number][name=children]').val();
-                    var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
-                    $('#total').html('<span>'+_total+' $</span>');
-                });
+            $('input[type=number][name=adults]').change(function() {
+                var _adult = $(this).val();
+                var _package =  $('input[name=package]:checked').val();
+                var _children = $('input[type=number][name=children]').val();
+                var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total+' $</span>');
             });
         });
-    </script> 
+    });
+</script> 
 @stop
