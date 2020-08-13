@@ -484,7 +484,6 @@ $('.testimonials-six-wrapper').owlCarousel({
         toolValues[handle].innerHTML = values[handle];
         var from = Math.floor(values[0]);
         var to = Math.floor(values[1]);
-        console.log(from);
         $('#minval').val(from);
         $('#maxval').val(to);
     });
