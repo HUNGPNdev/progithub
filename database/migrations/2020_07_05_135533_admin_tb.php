@@ -22,8 +22,7 @@ class AdminTb extends Migration
             $table->string('address')->nullable();
             $table->date('birthday')->nullable();
             $table->tinyInteger('gender')->nullable();
-            $table->string('image')->nullable();
-            $table->string('image')->nullable();
+            $table->text('image')->nullable();
             $table->tinyInteger('status');
             $table->rememberToken();
             $table->timestamps();

@@ -9,6 +9,8 @@ class roles extends Model
     protected $fillable = ['name','permission'];
     
     public function add_role(){
-    	return $this->hasOne('App\Model\ad_roles','roles_id','id');
+    	return $this->hasMany('App\Model\ad_roles','roles_id','id');
     }
 }
+
+

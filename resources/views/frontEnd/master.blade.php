@@ -53,10 +53,28 @@
 
     <link rel="stylesheet" href="assets/css/NoUiSlider/nouislider.min.css">
     
-    <link rel="stylesheet" href="assets/css/style.css" />
-
+    <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
+<style>
+    #check_register {
+        width: 1140px;
+        height: 200px;
+        text-align: center;
+        background: orange;
+        color: #fff;
+        position: fixed;
+        z-index: 999 !important;
+        top: 40px;
+    }
+</style>
 <body>
+    <section>
+        <div class="container">
+            <div class="row" id="check_register">
+                <h1>Hùng</h1>
+            </div>
+        </div>
+    </section>
     <div class="header-most-top">
         <div class="container">
             <div class="row">
@@ -65,7 +83,7 @@
                         <div class="email sel d-flex">
                             <div class="main-email-text d-flex">
                                 <i class="fas fa-envelope"></i>
-                                <p>infp@a2z.com</p>
+                                <p>hung929912a@gmail.com</p>
                             </div>
                             <div class="main-loc-text d-flex">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -80,22 +98,120 @@
                             <img src="assets/img/common-img/flg.png" alt="img" />
                             <select name="cars">
                                 <option value="volvo">USA</option>
-                                <option value="saab">BAN</option>
-                                <option value="fiat">BAN</option>
                                 <option value="audi">BAN</option>
                             </select>
                             <i class="fas fa-angle-down"></i>
                         </div>
+                        @if(Auth::guard("users_tb")->check())
                         <div class="user-log">
-                            <i class="far fa-user-circle"></i>
-                            <a href="#">Sign In</a>
+                            @if(session("image")!='')
+                            <i><img src="../../storage/app/users/{{session('image')}}" style="width: 20px; border-radius: 50%;" alt=""></i>
+                            @else
+                            <i class="far fa-user-circle" style="display: inline-block;"></i>
+                            @endif
+                            <p style="display: inline-block;" class="dropdown-toggle" data-toggle="dropdown">
+                                {{session("name")}}
+                            </p>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{asset('userlogout')}}">LogOut</a>
+                                <a class="dropdown-item"  data-toggle="modal"  data-target="#myModalSetting">Setting Account</a>
+                            </div>
                         </div>
                     </div>
+                    <div class="modal fade" id="myModalSetting" role="dialog" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        &times;
+                                    </button>
+                                    <div class="model-details">
+                                        <h5>Setting Acount</h5>
+                                        <div class="mdel-form">
+                                            <form action="{{route('userlogin.edit',['id'=>session('id')])}}" method="post" enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <label for="name">Name</label>
+
+                                                    <input class="form-control" placeholder="Name" name="name" value="{{session('name')}}" type="text" autofocus>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="name">Old password</label>
+                                                    <input class="form-control password" placeholder="Old password" name="oldpass" type="text" value=""  autofocus>
+                                                    @error('oldpass')<p style="color: red;">{{ $message }}</p>@enderror
+                                                    <div style="height: 20px;">
+                                                        <span id="oldpass" style="width: 20px; color: red;"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="name">Password</label>
+                                                    <input class="form-control password" placeholder="Password" name="password" type="text" value=""  autofocus>
+                                                    @error('password')<p style="color: red;">{{ $message }}</p>@enderror
+                                                    <div style="height: 20px;">
+                                                        <span id="pass" style="width: 20px; color: red;"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Confirm password</label>
+                                                    <input type="text" class="form-control conf_pas" name="conf_pas" value="" placeholder="input new password">
+                                                    @error('conf_pas')<p style="color: red;">{{ $message }}</p>@enderror
+                                                    <div style="height: 20px;">
+                                                        <span id="sp_pas" style="width: 20px; color: red;"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="name">Phone</label>
+                                                    <input class="form-control" placeholder="phone number" name="phone" value="{{session('phone')}}" type="text" autofocus>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <b>Gender: </b><br>
+                                                    @if(session('gender'))
+                                                    <label>
+                                                        <input type="radio" name="gender" value="1" checked ;>Male
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="gender" value="0" >Female
+                                                    </label>
+                                                    @else
+                                                    <label>
+                                                        <input type="radio" name="gender" value="1";>Male
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="gender" value="0" checked >Female
+                                                    </label>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group" >
+                                                    <label>Your avatar: </label><br>
+                                                    <input id="img" type="file" name="img" hidden onchange="changeImg(this)">
+                                                    @if(session("image")!='')
+                                                    <img id="avatar" class="thumbnail" alt="img" width="200px" src="../../storage/app/users/{{session('image')}}">
+                                                    @else
+                                                    <img id="avatar" class="thumbnail" width="100px" src="assets/img/common-img/flg.png">
+                                                    @endif
+                                                </div>
+                                                <div class="sunb-btn-mod">
+                                                    <button type="submit" class="btn btn-3 widet-2">Submit</button>
+                                                </div>
+                                            </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @else
+                    <div class="user-log">
+                        <i class="far fa-user-circle"></i>
+                        <a href="{{route('userlogin')}}">Sign In</a>
+                    </div>
+                    @endif
+
                 </div>
             </div>
         </div>
     </div>
-            
+</div>
+
     <header class="site-header header-style-one">
         <div class="site-navigation style-one">
             <div class="">
@@ -295,6 +411,7 @@
         <i class="fas fa-chevron-up"></i>
         <i class="fas fa-arrow-up"></i>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script src="assets/js/jquery-3.3.1.min.js"></script>
 
@@ -331,7 +448,29 @@
     <script src="assets/js/NoUiSlider/nouislider.min.js"></script>
 
     <script src="assets/js/NoUiSlider/wNumb.js"></script>
+    @yield('tourjs')
+
     <script>
+        $('input[type=text][name=conf_pas]').change(function() {
+            var conf_pas = $(this).val();
+            var pass = $('input[name=password]').val();
+            if(conf_pas != pass){
+                document.getElementById("sp_pas").innerHTML = "Confirm password incorrect, please try again!";
+            }else{
+                document.getElementById("pass").innerHTML = "";
+                document.getElementById("sp_pas").innerHTML = "";
+            }
+        });
+        $('input[type=text][name=password]').change(function() {
+            var pass = $(this).val();
+            var conf_pas = $('input[name=conf_pas]').val();
+            if(conf_pas != pass){
+                document.getElementById("pass").innerHTML = "Please, Enter the Confirm password!";
+            }else{
+                document.getElementById("pass").innerHTML = "";
+            }
+        });
+
         $(document).on('click','.pagination a', function(e){
             e.preventDefault();
             var page = $(this).attr('href').split('page=')[1];
@@ -339,12 +478,7 @@
         });
         function getpagetours(page){
             var _token = $("input[name=_token]").val();
-            // $.ajax({
-            //     type: "GET",
-            //     url: '../../user/tour/tourpackages/getpagetours?page='+page
-            // }).done(function(data){
-            //     $('#table_data').html(data);
-            // });
+            
             $.ajax({
               url:"{{ route('getpagetours') }}",
               method:"POST",
@@ -355,6 +489,24 @@
               }
             });
         }
+        
+        function changeImg(input){
+            //Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới
+            if(input.files && input.files[0]){
+                var reader = new FileReader();
+                //Sự kiện file đã được load vào website
+                reader.onload = function(e){
+                    //Thay đổi đường dẫn ảnh
+                    $('#avatar').attr('src',e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $(document).ready(function() {
+            $('#avatar').click(function(){
+                $('#img').click();
+            });
+        });
     </script>
 </body>
 </html>

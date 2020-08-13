@@ -190,77 +190,16 @@
         </div>
     </section>
 
-    <section id="tour-des">
-        <div class="content-box can-if">
-            <h6>Travel Express Provide</h6>
-            <h2>Select your <span>Destination</span></h2>
-            <p>Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin
-            sed augue sed neque ultricies condimentum. </p>
-        </div>
-        <div class="container">
-            <div class="row" id="table_data">
+        <section id="tour-des">
+            <div class="content-box can-if">
+                <h6>Travel Express Provide</h6>
+                <h2>Select your <span>Destination</span></h2>
+                <p>Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin
+                sed augue sed neque ultricies condimentum. </p>
+            </div>
+            <div class="container">
+                <div class="row" id="table_data">
                     @include('frontend.tours')
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <button type="button" class="close" data-dismiss="modal">
-                                    &times;
-                                </button>
-                                <div class="model-details">
-                                    <h5>Travel Booking Form</h5>
-                                    <div class="mdel-form">
-                                        <form action="#">
-                                            <div class="form-group">
-                                                <label for="name">First name</label>
-                                                <input type="text" class="form-control" placeholder="First Name" id="name" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="last-name">Last Name</label>
-                                                <input type="text" class="form-control" placeholder="Last Name" id="last-name" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="departure">Departure Date</label>
-                                                <input type="date" class="form-control" placeholder="Email" id="departure" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="return">Return Date</label>
-                                                <input type="date" class="form-control" placeholder="Phone" id="return" />
-                                            </div>
-                                            <div class="form-group mainm-sel">
-                                                <label for="Guest" id="form-control">Guest</label>
-                                                <div class="select-box">
-                                                    <span class="sec-po"></span>
-                                                    <select id="text">
-                                                      <option value="0">Number of Guest</option>
-                                                      <option value="1">4</option>
-                                                      <option value="2">10</option>
-                                                      <option value="3">20+</option>
-                                                  </select>
-                                                  <div class="serv-ivmf-2">
-                                                    <i class="fas fa-angle-down"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="travel-tyepe row">
-                                            <div class="flex-type col-lg-3">
-                                                <label for="text">Travel Type</label>
-                                            </div>
-                                            <div class="col-lg-9 sub-travel-tyepe">
-                                                <input type="checkbox"> Economy
-                                                <input type="checkbox"> Premium
-                                                <input type="checkbox"> Business
-                                                <input type="checkbox"> High Class</div>
-                                            </div>
-                                            <div class="sunb-btn-mod">
-                                                <a href="#!" class="btn btn-3 widet-2">BOOKING NOW</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

@@ -12,9 +12,9 @@
 						</div>
 						<div class="commom-sub-heading">
 							<h6>
-								<a href="index-2.html">Home</a>
+								<a href="{{asset('home')}}">Home</a>
 								<span>/</span>
-								<a href="#!">Blog Single</a>
+								<a href="{{asset('user/blog')}}">Blog</a>
 							</h6>
 						</div>
 					</div>
@@ -22,27 +22,26 @@
 			</div>
 		</div>
 	</section>
-
 	<section id="blog-single-main">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 col-md-12 col-sm-12 col-12">
 					<div class="all-single-cover">
 						<div class="blog-sighn-img  wow fadeIn" data-wow-duration="3s">
-							<a href="#!"><img height="474px" src="{{asset('storage/app/blog_img/'.$data->bn_image)}}" alt="img" /></a>
+							<img height="474px" src="{{asset('storage/app/blog_img/'.$data->bn_image)}}" alt="img" />
 						</div>
 						<div class="authour-single">
 							<div class="al-img-at1">
-								<a href="#!"><img src="assets/img/blog/ic.png" alt=""></a>
-								<p>By:<a href="#!">{{$data->name_ad}}</a></p>
+								<img src="assets/img/blog/ic.png" alt="">
+								<p>By: {{$data->name_ad}}</p>
 							</div>
 							<div class="al-img-at2">
 								@php
 									$newtime = strtotime($data->created_at);
 									$data->time = date('D m, Y',$newtime);
 								@endphp
-								<a href="#!"><i class="fas fa-calendar-alt"></i></a>
-								<p><a href="#!">{{$data->time}}</a></p>
+								<i class="fas fa-calendar-alt"></i>
+								<p>{{$data->time}}</p>
 							</div>
 							<div class="al-img-at2">
 								<a href="#!"><i class="fas fa-comments"></i></a>
@@ -202,12 +201,14 @@
 				</div>
 				<div class="col-lg-3 col-md-12 col-sm-12 col-12">
 					<div class="left-blog-tree">
-						<div class="alo-search">
-							<div class="form-group d-flex">
-								<input type="text" placeholder="Search" class="form-control">
-								<button class="btn search-icon-blog"><i class="fas fa-search"></i></button>
+						<form action="{{route('searchblog')}}" role="search" method="get">
+							<div class="alo-search">
+								<div class="form-group d-flex">
+									<input type="text" placeholder="Search" name="search" class="form-control">
+									<button type="submit" class="btn search-icon-blog"><i class="fas fa-search"></i></button>
+								</div>
 							</div>
-						</div>
+						</form>
 						<div class="coomm-seclitor">
 							<div class="blog-hki-hed">
 								<h5>Categories</h5>

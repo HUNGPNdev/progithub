@@ -47,10 +47,16 @@ class User extends Authenticatable
         return in_array($route, $routes) ? true : false;
     }
     public function routes(){
+        $data = [];
         foreach($this->getRoles as $role){
-            // dd($role->permission);
+            $permisson = json_decode($role->permission);
+            foreach($permisson as $per){
+                if(!in_array($per, $data)){
+                    array_push($data, $per);
+                }
+            }
         }
-        return ['admin.listadmin','admin.home','admin.blog'];
+        return $data;
     }
     public function getRoles(){
         return $this->belongsToMany('App\Model\roles','ad_roles','admin_id','roles_id');
