@@ -60,21 +60,40 @@
         width: 1140px;
         height: 200px;
         text-align: center;
-        background: orange;
+        background: #330099;
         color: #fff;
         position: fixed;
         z-index: 999 !important;
-        top: 40px;
+        top: 130px;
+        box-shadow: 0px 0px 5px 5px #999999;
+    }
+    #sendmail {
+        font-style: italic; 
+        font-size: 33px; 
+        color: #FFFF1A;
+        text-decoration: underline;
     }
 </style>
 <body>
+    @if(Auth::guard("users_tb")->check())
+    @if(Auth::guard("users_tb")->user()->check_register == 1)
     <section>
         <div class="container">
             <div class="row" id="check_register">
-                <h1>Hùng</h1>
+                @include('errors.note')
+                <div class="showsend"> 
+                    <h1 style="margin: 31px;">Your account has not been activated, please click 
+                        <a href="{{route('post_mail_index',Auth::guard('users_tb')->user()->email)}}" id="sendmail">here</a>!
+                    </h1>
+                </div>
+                <div class="d-none plas">
+                    <h1 style="margin: 73px 130px;">Please check your mail to continue!</h1>
+                </div>
             </div>
         </div>
     </section>
+    @endif
+    @endif
     <div class="header-most-top">
         <div class="container">
             <div class="row">
@@ -194,23 +213,23 @@
                                                     <button type="submit" class="btn btn-3 widet-2">Submit</button>
                                                 </div>
                                             </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @else
-                    <div class="user-log">
-                        <i class="far fa-user-circle"></i>
-                        <a href="{{route('userlogin')}}">Sign In</a>
-                    </div>
-                    @endif
+                        @else
+                        <div class="user-log">
+                            <i class="far fa-user-circle"></i>
+                            <a href="{{route('userlogin')}}">Sign In</a>
+                        </div>
+                        @endif
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <header class="site-header header-style-one">
         <div class="site-navigation style-one">
@@ -285,7 +304,7 @@
 
 
     @yield('main')
-    
+<!-- a -->
     <!-- footer start-->
     <footer id="footer-all-page">
         <div class="container">
@@ -449,8 +468,12 @@
 
     <script src="assets/js/NoUiSlider/wNumb.js"></script>
     @yield('tourjs')
-
+<!-- a -->
     <script>
+        $('#sendmail').click(function(){
+            $('.showsend').addClass('d-none');
+            $('.plas').removeClass('d-none');
+        });
         $('input[type=text][name=conf_pas]').change(function() {
             var conf_pas = $(this).val();
             var pass = $('input[name=password]').val();

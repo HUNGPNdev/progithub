@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\UserModel;
+use App\Http\Requests\AddGuider;
 use Auth;
 use Mail;
 use DB;
@@ -43,7 +44,6 @@ class UserLoginController extends Controller
 
 
 	}
-    // comment
     public function EditUser( Request $request, UserModel $UserModel, $id){
         $rules = [];
         $messages = [];
@@ -72,16 +72,114 @@ class UserLoginController extends Controller
         return back();
     }
 	// register
-	public function post_register(Request $request){
-		dd($request->all());
+    public function get_register(){
+        return view('frontEnd.user_register');
+    }
+	public function post_register(AddGuider $request){
+        $rules = [
+            'name' => 'required',
+            'email' => 'unique:users_tb,email',
+            'password'=>'required',
+        ];
+        $messages = [
+            'name.required'=>'Please input your name!',
+            'email.unique'=>'Email has been dupplicated!',
+            'password.required'=>'Please, Enter the password!',
+        ];
+        $request->validate($rules,$messages);
+        $pass = bcrypt($request->password);
+        $email = $request->email;
+        $user           =   new UserModel;
+        $user->name     =   $request->name;
+        $user->email    =   $email;
+        $user->password =   $pass;
+        $user->phone    =   $request->phone;
+        $user->gender   =   $request->gender;
+        $user->check_register = 1;
+        if($request->hasFile('img')){
+            $img = $request->img->getClientOriginalName();
+            $request->img->storeAs('users',$img);
+            $user->image    =   $img;
+        }
+        $url = route('post_mail_register',['code'=>$pass]);
+        $data = [
+                'route' => $url,
+            ];
+        Mail::send('frontEnd.email_user_register', $data, function ($message) use($email) {
+            $message->from('c1909i2bkap@gmail.com', 'C1909I2');
+            
+            $message->to($email, $email);
+            
+                // $message->cc('john@johndoe.com', 'John Doe');
+            
+            $message->subject('Acount Active Require?');
+        });
+        $user->save();
+        return redirect()->route('userlogin')->with('success','You registed successfuly, Please check your mail to avalidate!');
 	}
+    // gửi mail
+    public function post_mail_index(Request $request, $id){
+        $email = $id;
+        $user = UserModel::where('email',$id)->get();
+        foreach ($user as $user) {
+            $url = route('acc_post_mail_index',['code'=>$user->password]);
+            $data = [
+                'route' => $url,
+            ];
+        }
+        Mail::send('frontEnd.email_user_register', $data, function ($message) use($email) {
+            $message->from('c1909i2bkap@gmail.com', 'C1909I2');
+            
+            $message->to($email, $email);
+            
+                // $message->cc('john@johndoe.com', 'John Doe');
+            
+            $message->subject('Acount Active Require?');
+        });
+    }
+    public function acc_post_mail_index(Request $request){
+        $code = $request->code;
+        $user = UserModel::all();
+        $key = [];
+        foreach ($user as $user) {
+            $key[] = $user->password;
+        }
+        if(in_array($code, $key)){
+            $code = $request->code;
+            $user =   new UserModel;
+            $arr['check_register'] = 0;
+            $user::where('password',$code)->update($arr);
+            $user = UserModel::where('password',$code)->get();
+            return view('frontEnd.index');
+        }else{
+            return view('frontEnd.404');
+        }
+    }
+    public function post_mail_register(Request $request){
+        $code = $request->code;
+        $user = UserModel::all();
+        $key = [];
+        foreach ($user as $user) {
+            $key[] = $user->password;
+        }
+        if(in_array($code, $key)){
+            $code = $request->code;
+            $user =   new UserModel;
+            $arr['check_register'] = 0;
+            $user::where('password',$code)->update($arr);
+            $user = UserModel::where('password',$code)->get();
+            return redirect()->route('userlogin')->with('success','Account verification is successful!');
+        }else{
+            return view('frontEnd.404');
+        }
+    }
     public function forgetpass(){
         return view('frontEnd.forgetpass');
     }
     public function postforgetpas(Request $request){
         $email = $request->email;
         $user = UserModel::all();
-        $key =[];
+        $key = [];
         foreach ($user as $user) {
             $key[] = $user->email;
         }
@@ -138,4 +236,5 @@ class UserLoginController extends Controller
         $user::where('password',$code)->update($arr);
         return redirect()->route('userlogin')->with('success','Change password successfuly, Please login!');
     }
+
 }

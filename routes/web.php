@@ -22,9 +22,13 @@ Route::group(['namespace' => 'User'], function() {
     Route::get('userlogout','UserLoginController@getuserlogout');
 
     Route::group(['prefix' => 'userlogin', 'middleware'=>'UserLoginCheck'], function() {
+        // login
         Route::get('/','UserLoginController@getlogin')->name('userlogin');
         Route::post('/','UserLoginController@postuserlogin')->name('postuserlogin');;
+        Route::get('user_register','UserLoginController@get_register')->name('get_register');
         Route::post('post_register','UserLoginController@post_register')->name('post_register');
+        Route::get('post_mail_register','UserLoginController@post_mail_register')->name('post_mail_register');
+        // post mail
         Route::get('forget','UserLoginController@forgetpass')->name('forgetpass');
         Route::post('forgetpas','UserLoginController@postforgetpas')->name('postforgetpas');
         Route::get('changepass','UserLoginController@changepass')->name('changepass');
@@ -32,7 +36,10 @@ Route::group(['namespace' => 'User'], function() {
     });
 
 	Route::group(['prefix' => 'user'], function() {
-       Route::post('edit/{id}','UserLoginController@EditUser')->name('userlogin.edit');
+        // post mail
+        Route::get('post_mail_index/{id}','UserLoginController@post_mail_index')->name('post_mail_index');
+        Route::get('acc_post_mail_index}','UserLoginController@acc_post_mail_index')->name('acc_post_mail_index');
+        Route::post('edit/{id}','UserLoginController@EditUser')->name('userlogin.edit');
 		Route::group(['prefix' => 'tour'], function() {
 			Route::get('tourdetail/{id}','frontEndController@getTourDetail');
             Route::get('tourpackages','frontEndController@getTourpackages');
