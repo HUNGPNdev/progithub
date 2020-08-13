@@ -108,7 +108,6 @@ class RoleController extends Controller
             'name' => 'required'
         ],['name.required' => 'Fill role name in the input!']);
         $route = json_encode($request->route);
-        array_push($request->route,"admin.home");
 
         $roles   =   new roles;
         $arr['name'] = $request->name;

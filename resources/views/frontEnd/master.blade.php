@@ -68,13 +68,6 @@
     }
 </style>
 <body>
-    <section>
-        <div class="container">
-            <div class="row" id="check_register">
-                <h1>Hùng</h1>
-            </div>
-        </div>
-    </section>
     <div class="header-most-top">
         <div class="container">
             <div class="row">
@@ -194,23 +187,23 @@
                                                     <button type="submit" class="btn btn-3 widet-2">Submit</button>
                                                 </div>
                                             </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @else
-                    <div class="user-log">
-                        <i class="far fa-user-circle"></i>
-                        <a href="{{route('userlogin')}}">Sign In</a>
-                    </div>
-                    @endif
+                        @else
+                        <div class="user-log">
+                            <i class="far fa-user-circle"></i>
+                            <a href="{{route('userlogin')}}">Sign In</a>
+                        </div>
+                        @endif
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <header class="site-header header-style-one">
         <div class="site-navigation style-one">
@@ -240,8 +233,9 @@
                                             <a href="{{asset('user/gallery')}}">Gallery</a>
                                         </li>
                                         <li class="dropdown-trigger">
-                                            <a href="{{asset('user/blog')}}">Blog</a>
+                                            <a href="{{asset('')}}">Page</a>
                                             <ul class="dropdown-content">
+                                                <li><a href="{{asset('user/blog')}}">Blog</a></li>
                                                 <li><a href="{{asset('user/about')}}">About</a></li>
                                                 <li><a href="{{asset('user/faqs')}}">FAQs</a></li>
                                             </ul>
@@ -281,7 +275,6 @@
             </div>
         </div>
     </header>
-    <!-- tour-details end-->
 
 
     @yield('main')
@@ -485,18 +478,15 @@
               data:{_token:_token, page:page},
               success:function(data)
               {
-               $('#table_data').html(data);
-              }
-            });
+                 $('#table_data').html(data);
+             }
+         });
         }
         
         function changeImg(input){
-            //Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới
             if(input.files && input.files[0]){
                 var reader = new FileReader();
-                //Sự kiện file đã được load vào website
                 reader.onload = function(e){
-                    //Thay đổi đường dẫn ảnh
                     $('#avatar').attr('src',e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
