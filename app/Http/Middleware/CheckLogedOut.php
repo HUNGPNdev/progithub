@@ -27,6 +27,10 @@ class CheckLogedOut
         if($user->cant($route)){
             return redirect()->route('admin.error',['code'=>403]);
         }
+<<<<<<< HEAD
+        
+=======
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
         return $next($request);
     }
 }

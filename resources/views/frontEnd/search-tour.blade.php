@@ -31,7 +31,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>
+<<<<<<< HEAD
 			<div class="col-lg-8 col-md-8 col-sm-8 col-8 main-com">
+=======
+            <div class="col-lg-8 col-md-8 col-sm-8 col-8 main-com">
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 				<nav>
 					<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
 						<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Search Tour</a>
@@ -50,6 +54,7 @@
 										</div>
 									</div>
 								</div>
+<<<<<<< HEAD
 								<div class="col-lg-8 col-md-8 col-sm-12 col-12">
 									<div class="all-class">
 										<div class="bugest-info">
@@ -86,6 +91,45 @@
 		</div>
 	</div>
 </div>
+=======
+
+                            <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="booking-info">
+                                    <span class="mybtn minus btn-2">-</span>
+                                    <input type="text" name="searchDay" class="parentBtn form-control searchDay" placeholder="Enter Search Day..." value="0">
+                                    <span class="mybtn plus btn-2">+</span>
+                                </div>
+                            </div> -->
+
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                            	<div class="all-class">
+                            		<div class="bugest-info">
+                            			<span>
+                            				Budget Now:
+                            			</span>
+                            		</div>
+                            		<div class="buget" id="slider-tooltips">
+                            		</div>
+                            	</div>
+                            </div>
+                            <div class="col-lg-4">
+                            	<div class="book-ctn">
+                            		<button class="btn btn-2 pad">Search Now</button>
+                            	</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                	
+                </div>
+            </div>
+            <div class="valedoter">
+            	<h2>Home</h2>
+            </div>
+        </div>
+    </div>
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 </div>
 </section>
 

@@ -17,7 +17,7 @@
 	<nav class="navbar active navbar-fixed-top" style="background-color: #337ab7;" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="{{ route('admin.home') }}">Hùng Đây Rồi</a>
+				<a class="navbar-brand" href="{{ route('admin.home') }}">I'm Here</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> {{Auth::user()->name}} <span class="caret"></span></a>
@@ -29,7 +29,11 @@
 			</div>
 		</div>
 	</nav>
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
@@ -56,7 +60,11 @@
 	</div>
 	
 	@yield('main')
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -105,6 +113,10 @@
 		function changeImg(input){
 		    if(input.files && input.files[0]){
 		    	var reader = new FileReader();
+<<<<<<< HEAD
+=======
+		        //Sự kiện file đã được load vào website
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 		        reader.onload = function(e){
 		            $('#avatar').attr('src',e.target.result);
 		        }
@@ -116,7 +128,10 @@
 				$('#img').click();
 			});
 		});
+<<<<<<< HEAD
 
+=======
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 		$(document).ready(function () {
 			$('.tree').hide();
 			$('label.tree-toggler').click(function () {

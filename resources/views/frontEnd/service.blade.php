@@ -1,6 +1,7 @@
 @extends('frontEnd.master')
 @section('title','Service')
 @section('main')
+<<<<<<< HEAD
 
 <section id="service-main-banner" style="background-image: url({{asset('storage/app/image/'.$banner->banner_img)}});">
 	<div class="container">
@@ -16,6 +17,24 @@
 							<span>/</span>
 							<a href="#!">Service</a>
 						</h6>
+=======
+	
+	<section id="service-main-banner" style="background-image: url({{asset('storage/app/image/'.$banner->banner_img)}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="common-banner-text  wow zoomIn" data-wow-duration="2s">
+						<div class="common-heading">
+							<h1>Service</h1>
+						</div>
+						<div class="commom-sub-heading">
+							<h6>
+								<a href="index-2.html">Home</a>
+								<span>/</span>
+								<a href="#!">Service</a>
+							</h6>
+						</div>
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 					</div>
 				</div>
 			</div>
@@ -105,6 +124,7 @@
 	</div>
 </section>
 
+<<<<<<< HEAD
 <section id="home-team">
 	<div class="content-box">
 		<h6>Travel Guides, Tips & Advice</h6>
@@ -117,6 +137,20 @@
 	</div>
 	<div class="container">
 		<div class="row mt-30">
+=======
+	<section id="home-team">
+		<div class="content-box">
+			<h6>Travel Guides, Tips & Advice</h6>
+			<h2>Travel <span>Agents</span></h2>
+			<p>
+				Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed
+				viverra quam sollicitudin. Proin sed augue sed neque ultricies
+				condimentum.
+			</p>
+		</div>
+		<div class="container">
+			<div class="row mt-30">
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 			@foreach($guider as $guider)
 			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 				<div class="team-box" >
@@ -140,6 +174,7 @@
 			</div>
 			@endforeach
 		</div>
+<<<<<<< HEAD
 		<div class="logo-slilder">
 			<div class="all-logo owl-carousel owl-theme">
 				<a href="#!"><img src="assets/img/about/lo-1.png" alt=""></a>
@@ -148,6 +183,17 @@
 				<a href="#!"><img src="assets/img/about/lo-4.png" alt=""></a>
 				<a href="#!"><img src="assets/img/about/lo-5.png" alt=""></a>
 				<a href="#!"><img src="assets/img/about/lo-6.png" alt=""></a>
+=======
+			<div class="logo-slilder">
+				<div class="all-logo owl-carousel owl-theme">
+					<a href="#!"><img src="assets/img/about/lo-1.png" alt=""></a>
+					<a href="#!"><img src="assets/img/about/lo-2.png" alt=""></a>
+					<a href="#!"><img src="assets/img/about/lo-3.png" alt=""></a>
+					<a href="#!"><img src="assets/img/about/lo-4.png" alt=""></a>
+					<a href="#!"><img src="assets/img/about/lo-5.png" alt=""></a>
+					<a href="#!"><img src="assets/img/about/lo-6.png" alt=""></a>
+				</div>
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 			</div>
 		</div>
 	</div>

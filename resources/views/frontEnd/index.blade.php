@@ -1,7 +1,10 @@
 @extends('frontEnd.master')
 @section('title','Home')
 @section('main')
+<<<<<<< HEAD
 
+=======
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 <section id="banner-home" style="background-image: url({{asset('storage/app/image/'.$banner->banner_img)}});">
     <div class="container">
         <div class="row">
@@ -52,6 +55,16 @@
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
+=======
+                            <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="booking-info">
+                                    <span class="mybtn minus btn-2">-</span>
+                                    <input type="text" name="searchDay" class="parentBtn form-control searchDay" placeholder="Enter Search Day..." value="0">
+                                    <span class="mybtn plus btn-2">+</span>
+                                </div> -->
+
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                                     <div class="all-class">
                                         <div class="bugest-info">
@@ -75,6 +88,7 @@
                             </div>
                         </form>
                     </div>
+<<<<<<< HEAD
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"></div>
                 </div>
                 <div class="valedoter">
@@ -83,6 +97,18 @@
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>
 
+=======
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                    </div>
+                </div>
+                <div class="valedoter">
+                    <h2>Home</h2>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>
+
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
             <div class="col-lg-6 col-md-12">
                 <div class="left-side-text-ab max-live">
                     <h6>Amazing Places To Enjony Your Travel</h6>
@@ -173,9 +199,16 @@
                 </div>
                 <div class="des-para">
                     <div class="dayt">
+<<<<<<< HEAD
                         <h6><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}" >{{$tour->tour_name}}</a></h6>
                         <p>{{$tour->tour_day }}Days | {{number_format($tour->tour_price,2,'.',' ' )}}$</p>
                     </div>
+=======
+                        <h6><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}">{{$tour->tour_name}}</a></h6>
+                        <p>{{$tour->tour_day }}Days | {{number_format($tour->tour_price,2,'.',' ' )}}$</p>
+                    </div>
+<<<<<<< HEAD
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
                     <div class="real-dat-para" style="">
                         <p style="height: 70px; overflow: hidden;">
                             {{$tour->tour_sumary}}
@@ -183,6 +216,7 @@
                     </div>
                     <div class="des-button-icon">
                         <div class="das-into-btn">
+<<<<<<< HEAD
                             <a href="#!" class="btn btn-3" data-toggle="modal"  data-target="#myModal">Book Now</a>
                         </div>
                         <div class="start-icon-des">
@@ -191,12 +225,52 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
+=======
+                            <a href="#!" class="btn btn-3" data-toggle="modal" data-target="#myModal">Book Now</a>
+                        </div>
+                        <div class="start-icon-des">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+=======
+                    <div class="des-para">
+                        <div class="dayt">
+                            <h6><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}" >{{$tour->tour_name}}</a></h6>
+                            <p>{{$tour->tour_day }}Days | {{number_format($tour->tour_price,2,'.',' ' )}}$</p>
+                        </div>
+                        <div class="real-dat-para" style="">
+                            <p style="height: 70px; overflow: hidden;">
+                                {{$tour->tour_sumary}}
+                            </p>
+                        </div>
+                        <div class="des-button-icon">
+                            <div class="das-into-btn">
+                                <a href="#!" class="btn btn-3" data-toggle="modal"  data-target="#myModal">Book Now</a>
+                            </div>
+                            <div class="start-icon-des">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
                         </div>
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             @endforeach
         </div>
+=======
+<<<<<<< HEAD
+            @endforeach
+        </div>
+
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -206,9 +280,14 @@
                         </button>
                         <div class="model-details">
                             <h5>Travel Booking Form</h5>
+<<<<<<< HEAD
                             {{$tour->tour_id}}
                             <div class="mdel-form">
                                 <form action="#">
+=======
+                            <div class="mdel-form">
+                                <form action="" method="post" enctype="multipart/form-data">
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
                                     <div class="form-group">
                                         <label for="name">First name</label>
                                         <input type="text" class="form-control" placeholder="First Name" id="name" />
@@ -237,6 +316,67 @@
                                           </select>
                                           <div class="serv-ivmf-2">
                                             <i class="fas fa-angle-down"></i>
+<<<<<<< HEAD
+=======
+=======
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                            <div class="model-details">
+                                <h5>Travel Booking Form</h5>
+                                {{$tour->tour_id}}
+                                <div class="mdel-form">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="name">First name</label>
+                                            <input type="text" class="form-control" placeholder="First Name" id="name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="last-name">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name" id="last-name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="departure">Departure Date</label>
+                                            <input type="date" class="form-control" placeholder="Email" id="departure" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="return">Return Date</label>
+                                            <input type="date" class="form-control" placeholder="Phone" id="return" />
+                                        </div>
+                                        <div class="form-group mainm-sel">
+                                            <label for="Guest" id="form-control">Guest</label>
+                                            <div class="select-box">
+                                                <span class="sec-po"></span>
+                                                <select id="text">
+                                                  <option value="0">Number of Guest</option>
+                                                  <option value="1">4</option>
+                                                  <option value="2">10</option>
+                                                  <option value="3">20+</option>
+                                                </select>
+                                                <div class="serv-ivmf-2">
+                                                    <i class="fas fa-angle-down"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="travel-tyepe row">
+                                            <div class="flex-type col-lg-3">
+                                                <label for="text">Travel Type</label>
+                                            </div>
+                                            <div class="col-lg-9 sub-travel-tyepe">
+                                                <input type="checkbox"> Economy
+                                                <input type="checkbox"> Premium
+                                                <input type="checkbox"> Business
+                                                <input type="checkbox"> High Class
+                                            </div>
+                                        </div>
+                                        <div class="sunb-btn-mod">
+                                            <a href="#!" class="btn btn-3 widet-2">BOOKING NOW</a>
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
                                         </div>
                                     </div>
                                 </div>
@@ -248,6 +388,7 @@
                                         <input type="checkbox"> Economy
                                         <input type="checkbox"> Premium
                                         <input type="checkbox"> Business
+<<<<<<< HEAD
                                         <input type="checkbox"> High Class
                                     </div>
                                 </div>
@@ -255,13 +396,25 @@
                                     <a href="#!" class="btn btn-3 widet-2">BOOKING NOW</a>
                                 </div>
                             </form>
+=======
+                                        <input type="checkbox"> High Class</div>
+                                    </div>
+                                    <div class="sunb-btn-mod">
+                                        <input type="submit" class="btn btn-3 widet-2" value="BOOKING NOW">
+                                    </div>
+                                </form>
+                            </div>
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 </section>
 
 <section id="summery">
@@ -337,10 +490,17 @@
             <div class="col-lg-12">
                 <div class="vt-img">
                     <img src="assets/img/common-img/video.png" alt="img" />
+<<<<<<< HEAD
                 </div>
                 <div class="video-play-test">
                     <a href="https://www.youtube.com/watch?v=DIgv-e18OzA" class="video-play-btn video-link venobox" data-autoplay="true" data-vbtype="video"><i class="fas fa-play"></i></a>
                 </div>
+=======
+                </div>
+                <div class="video-play-test">
+                    <a href="https://www.youtube.com/watch?v=DIgv-e18OzA" class="video-play-btn video-link venobox" data-autoplay="true" data-vbtype="video"><i class="fas fa-play"></i></a>
+                </div>
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 
             </div>
         </div>

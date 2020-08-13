@@ -933,6 +933,16 @@ a.bg-danger:hover {
 		cursor: pointer;
 	}
 
+<<<<<<< HEAD
 	.fa-thumbs-styling{
 		font-size: 35px;
 	}
+=======
+#avatar{
+    cursor: pointer;
+}
+
+.fa-thumbs-styling{
+	font-size: 35px;
+}
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873

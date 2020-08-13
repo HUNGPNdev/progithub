@@ -2,6 +2,7 @@
 @section('title','Gallery')
 @section('main')
 
+<<<<<<< HEAD
 <section id="gallery-banner" style="background-image: url({{asset('storage/app/image/'.$banner->banner_img)}});">
     <div class="container">
         <div class="row">
@@ -16,6 +17,23 @@
                             <span>/</span>
                             <a href="#!">Gallery</a>
                         </h6>
+=======
+    <section id="gallery-banner" style="background-image: url({{asset('storage/app/image/'.$banner->banner_img)}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="common-banner-text  wow zoomIn" data-wow-duration="2s">
+                        <div class="common-heading">
+                            <h1>Gallery</h1>
+                        </div>
+                        <div class="commom-sub-heading">
+                            <h6>
+                                <a href="index-2.html">Home</a>
+                                <span>/</span>
+                                <a href="#!">Gallery</a>
+                            </h6>
+                        </div>
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
                     </div>
                 </div>
             </div>

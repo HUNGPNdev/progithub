@@ -12,8 +12,18 @@
             </div>
             <div class="real-dat-para">
                 <p style="height: 70px; overflow: hidden;">
+<<<<<<< HEAD
                     {{$tours->tour_sumary}}
                 </p>
+=======
+<<<<<<< HEAD
+                    {{$tour->tour_sumary}}
+                </p>
+=======
+                {{$tours->tour_sumary}}
+            </p>
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
             </div>
             <div class="des-button-icon">
                 <div class="das-into-btn">
@@ -31,6 +41,12 @@
     </div>
 </div>
 @endforeach
+<<<<<<< HEAD
+<div class="col-lg-5 col-md-5"></div>
+<div style="margin-top: 20px" class="col-lg-7 col-md-7">
+    {!!$data->links()!!}
+</div>
+=======
 <div class="modal fade hais" id="myModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -162,6 +178,12 @@
                 $('#total').html('<span>'+_total+' $</span>');
             });
         });
+<<<<<<< HEAD
     });
 </script> 
 @stop
+=======
+    </script> 
+@stop
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
