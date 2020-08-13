@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin | @yield('title')</title>
-<base href="{{asset('public/backEnd')}}/">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link rel="icon" href="../frontEnd/assets/img/blog/ic.png">
-<link href="css/datepicker3.css" rel="stylesheet">
-<link href="css/styles.css" rel="stylesheet">
-<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
-<script src="js/lumino.glyphs.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin | @yield('title')</title>
+	<base href="{{asset('public/backEnd')}}/">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="icon" href="../frontEnd/assets/img/blog/ic.png">
+	<link href="css/datepicker3.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	<link rel="stylesheet" href="../frontEnd/assets/font/awesome/css/all.min.css">
+	<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+	<script src="js/lumino.glyphs.js"></script>
 </head>
 <body>
 	<nav class="navbar active navbar-fixed-top" style="background-color: #337ab7;" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="{{ route('admin.home') }}">Hùng Đây Rồi</a>
+				<a class="navbar-brand" href="{{ route('admin.home') }}">I'm Here</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> {{Auth::user()->name}} <span class="caret"></span></a>
@@ -28,7 +29,11 @@
 			</div>
 		</div>
 	</nav>
-		
+<<<<<<< HEAD
+
+=======
+	
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
@@ -41,12 +46,25 @@
 			<li><a href="{{asset('admin/packages')}}"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Packages Tour</a></li>
 			<li><a href="{{asset('admin/destination')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Destination</a></li>
 			<li><a href="{{asset('admin/blog')}}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg> Blog</a></li>
+			<li style="padding: 10px 15px; color: #30a5ff;"> 
+				<label class="tree-toggler"> <svg class="glyph stroked chevron right"><use xlink:href="#stroked-chevron-right"/></svg>Banner/Slider </label> 
+				<ul class="nav nav-list tree">
+					<li><a href="{{ route('admin.slider') }}"><svg class="glyph stroked blank document"><use xlink:href="#stroked-blank-document"/></svg> Slider</a></li>
+					<li><a href="{{ route('admin.sliCus') }}"><svg class="glyph stroked blank document"><use xlink:href="#stroked-blank-document"/></svg> Slider Customer</a></li>
+					<li><a href="{{ route('admin.banner.index') }}"><svg class="glyph stroked plus sign"><use xlink:href="#stroked-plus-sign"/></svg>
+					Banner</a></li>
+				</ul>
+			</li>
 			<li role="presentation" class="divider"></li>
 		</ul>
-	</div><!--/.sidebar-->
+	</div>
 	
 	@yield('main')
-		  
+<<<<<<< HEAD
+
+=======
+	
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -61,17 +79,17 @@
 		});
 
 		!function ($) {
-		    $(document).on("click","ul.nav li.parent > a > span.icon", function(){          
-		        $(this).find('em:first').toggleClass("glyphicon-minus");      
-		    }); 
-		    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+			$(document).on("click","ul.nav li.parent > a > span.icon", function(){          
+				$(this).find('em:first').toggleClass("glyphicon-minus");      
+			}); 
+			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
 		}(window.jQuery);
 
 		$(window).on('resize', function () {
-		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+			if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
 		})
 		$(window).on('resize', function () {
-		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+			if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
 		function changeImgs(input){
 			for (var i = 0; i < input.files.length; i++) {
@@ -88,26 +106,37 @@
 					$('#show_imgs').append(_html);
 				}
 				reader.readAsDataURL(input.files[i]);
-			$( "#ahihi" ).addClass( "hidden" );
+				$( "#ahihi" ).addClass( "hidden" );
 			}
 		}
 
 		function changeImg(input){
-		    //Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới
 		    if(input.files && input.files[0]){
-		        var reader = new FileReader();
+		    	var reader = new FileReader();
+<<<<<<< HEAD
+=======
 		        //Sự kiện file đã được load vào website
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 		        reader.onload = function(e){
-		            //Thay đổi đường dẫn ảnh
 		            $('#avatar').attr('src',e.target.result);
 		        }
 		        reader.readAsDataURL(input.files[0]);
 		    }
 		}
 		$(document).ready(function() {
-		    $('#avatar').click(function(){
-		        $('#img').click();
-		    });
+			$('#avatar').click(function(){
+				$('#img').click();
+			});
+		});
+<<<<<<< HEAD
+
+=======
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
+		$(document).ready(function () {
+			$('.tree').hide();
+			$('label.tree-toggler').click(function () {
+				$(this).parent().children('ul.tree').toggle(300);
+			});
 		});
 	</script>	
 </body>

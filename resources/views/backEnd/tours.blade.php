@@ -112,8 +112,8 @@
 											<td>{{$tour->status}}</td>
 											<td>{{$tour->package}}</td>
 											<td>
-												<a href="{{asset('admin/tours/edit/'.$tour->tour_id)}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a href="{{asset('admin/tours/delete/'.$tour->tour_id)}}" onclick="return confirm('Do you sure delete')" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a><br><br>
+												<a href="{{asset('admin/tours/edit/'.$tour->tour_id)}}" class="btn btn-warning"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i> Sửa</a>
+												<a href="{{asset('admin/tours/delete/'.$tour->tour_id)}}" onclick="return confirm('Do you sure delete')" class="btn btn-danger"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i> Xóa</a><br><br>
 											</td>
 										</tr>
 										@endforeach
@@ -125,6 +125,6 @@
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->
-	</div>	<!--/.main-->
+		</div>
+	</div>	
 @stop

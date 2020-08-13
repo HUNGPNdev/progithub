@@ -68,13 +68,6 @@
     }
 </style>
 <body>
-    <section>
-        <div class="container">
-            <div class="row" id="check_register">
-                <h1>Hùng</h1>
-            </div>
-        </div>
-    </section>
     <div class="header-most-top">
         <div class="container">
             <div class="row">
@@ -83,7 +76,11 @@
                         <div class="email sel d-flex">
                             <div class="main-email-text d-flex">
                                 <i class="fas fa-envelope"></i>
+<<<<<<< HEAD
+                                <p>team-5@gmail.com</p>
+=======
                                 <p>hung929912a@gmail.com</p>
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
                             </div>
                             <div class="main-loc-text d-flex">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -103,6 +100,21 @@
                             <i class="fas fa-angle-down"></i>
                         </div>
                         @if(Auth::guard("users_tb")->check())
+<<<<<<< HEAD
+                        <div class="user-log">
+                            <i class="far fa-user-circle" style="display: inline-block;"></i>
+                            <p style="display: inline-block;" class="dropdown-toggle" data-toggle="dropdown">
+                                {{session("name")}}
+                            </p>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{asset('userlogout')}}">LogOut</a>
+                            </div>
+                        </div>
+                        @else
+                        <div class="user-log">
+                            <i class="far fa-user-circle"></i>
+                            <a href="{{route('userlogin')}}">Sign In</a>
+=======
                         <div class="user-log">
                             @if(session("image")!='')
                             <i><img src="../../storage/app/users/{{session('image')}}" style="width: 20px; border-radius: 50%;" alt=""></i>
@@ -116,7 +128,9 @@
                                 <a class="dropdown-item" href="{{asset('userlogout')}}">LogOut</a>
                                 <a class="dropdown-item"  data-toggle="modal"  data-target="#myModalSetting">Setting Account</a>
                             </div>
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
                         </div>
+                        @endif
                     </div>
                     <div class="modal fade" id="myModalSetting" role="dialog" >
                         <div class="modal-dialog">
@@ -194,23 +208,30 @@
                                                     <button type="submit" class="btn btn-3 widet-2">Submit</button>
                                                 </div>
                                             </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @else
-                    <div class="user-log">
-                        <i class="far fa-user-circle"></i>
-                        <a href="{{route('userlogin')}}">Sign In</a>
-                    </div>
-                    @endif
+                        @else
+                        <div class="user-log">
+                            <i class="far fa-user-circle"></i>
+                            <a href="{{route('userlogin')}}">Sign In</a>
+                        </div>
+                        @endif
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 </div>
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 
     <header class="site-header header-style-one">
         <div class="site-navigation style-one">
@@ -240,8 +261,9 @@
                                             <a href="{{asset('user/gallery')}}">Gallery</a>
                                         </li>
                                         <li class="dropdown-trigger">
-                                            <a href="{{asset('user/blog')}}">Blog</a>
+                                            <a href="{{asset('')}}">Page</a>
                                             <ul class="dropdown-content">
+                                                <li><a href="{{asset('user/blog')}}">Blog</a></li>
                                                 <li><a href="{{asset('user/about')}}">About</a></li>
                                                 <li><a href="{{asset('user/faqs')}}">FAQs</a></li>
                                             </ul>
@@ -281,7 +303,6 @@
             </div>
         </div>
     </header>
-    <!-- tour-details end-->
 
 
     @yield('main')
@@ -478,25 +499,49 @@
         });
         function getpagetours(page){
             var _token = $("input[name=_token]").val();
+<<<<<<< HEAD
+=======
             
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
             $.ajax({
               url:"{{ route('getpagetours') }}",
               method:"POST",
               data:{_token:_token, page:page},
               success:function(data)
               {
+<<<<<<< HEAD
+                 $('#table_data').html(data);
+             }
+         });
+=======
                $('#table_data').html(data);
-              }
-            });
+           }
+       });
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
         }
+<<<<<<< HEAD
+        // $(document).ready(function() {
+        //     $('.minus').click(function () {
+        //         var $input = $(this).parent().find('input');
+        //         var count = parseInt($input.val()) - 1;
+        //         count = count < 0 ? 0 : count;
+        //         $input.val(count);
+        //         $input.change();
+        //         return false;
+        //     });
+        //     $('.plus').click(function () {
+        //         var $input = $(this).parent().find('input');
+        //         $input.val(parseInt($input.val()) + 1);
+        //         $input.change();
+        //         return false;
+        //     });
+        // });
+=======
         
         function changeImg(input){
-            //Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới
             if(input.files && input.files[0]){
                 var reader = new FileReader();
-                //Sự kiện file đã được load vào website
                 reader.onload = function(e){
-                    //Thay đổi đường dẫn ảnh
                     $('#avatar').attr('src',e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
@@ -507,6 +552,8 @@
                 $('#img').click();
             });
         });
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
     </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=377553719880284&autoLogAppEvents=1" nonce="qRknaJ3G"></script>
 </body>
 </html>

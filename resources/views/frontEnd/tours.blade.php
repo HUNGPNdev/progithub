@@ -1,5 +1,6 @@
 @foreach($data as $tours)
 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+    @csrf
     <div class="des-cov-1">
         <div class="des-img-1">
             <a href="{{asset('user/tour/tourdetail/'.$tours->tour_id)}}"><img height="256px" src="{{asset('storage/app/image/'.$tours->tour_image)}}" alt="img"></a>
@@ -11,8 +12,18 @@
             </div>
             <div class="real-dat-para">
                 <p style="height: 70px; overflow: hidden;">
+<<<<<<< HEAD
+                    {{$tours->tour_sumary}}
+                </p>
+=======
+<<<<<<< HEAD
+                    {{$tour->tour_sumary}}
+                </p>
+=======
                 {{$tours->tour_sumary}}
             </p>
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
             </div>
             <div class="des-button-icon">
                 <div class="das-into-btn">
@@ -30,6 +41,12 @@
     </div>
 </div>
 @endforeach
+<<<<<<< HEAD
+<div class="col-lg-5 col-md-5"></div>
+<div style="margin-top: 20px" class="col-lg-7 col-md-7">
+    {!!$data->links()!!}
+</div>
+=======
 <div class="modal fade hais" id="myModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -93,8 +110,8 @@
                                     <input  type="text" name="tour_price" hidden="hidden" value="" id="tour-price">
                                     <input  type="text" name="tour_id" hidden="hidden" value="" id="tour-id">
                                 </div>
-                                </div>
-                                <div class="col-lg-9 sub-travel-tyepe">
+                            </div>
+                            <div class="col-lg-9 sub-travel-tyepe">
                             </div><br><br>
                             <div style="color: orange;">
                                 <label for="">Total: </label>
@@ -102,10 +119,10 @@
                             </div>
                             <div class="sunb-btn-mod">
                                 @if(Auth::guard("users_tb")->check())
-                                    <button class="btn btn-3 widet-2" type="submit">BOOKING NOW</button>
+                                <button class="btn btn-3 widet-2" type="submit">BOOKING NOW</button>
                                 @else
-                                    <span style="margin-left: 111px;color: red;">You need login befor Booking tour!</span><br><br>
-                                    <a class="btn btn-3 widet-2" style="color: #fff">BOOKING NOW</a>
+                                <span style="margin-left: 111px;color: red;">You need login befor Booking tour!</span><br><br>
+                                <a class="btn btn-3 widet-2" style="color: #fff">BOOKING NOW</a>
                                 @endif
                             </div>
                         </form>
@@ -116,50 +133,57 @@
     </div>
 </div>
 
-    <div style="margin-bottom: 0px !important;margin: 20px auto ">
+<div class="col-lg-5 col-md-5"></div>
+<div style="margin-top: 20px" class="col-lg-7 col-md-7">
     {!!$data->links()!!}
-    </div>
+</div>
 @section('tourjs')
-    <script type="text/javascript">
-        $(document).ready(function (argument) {
-            $(".book-tour").click(function () {
-                var _id = $(this).data("id");
-                var price = $(this).data("price");
-                var first = $(this).data("first");
-                var business = $(this).data("business");
-                var premium = $(this).data("premium");
-                var economy = $(this).data("economy");
-                $("#tour-price").val(parseInt(price));
-                $("#tour-first").val(parseInt(first));
-                $("#tour-business").val(parseInt(business));
-                $("#tour-premium").val(parseInt(premium));
-                $("#tour-economy").val(parseInt(economy));
-                $("#tour-id").val(parseInt(_id));
+<script type="text/javascript">
+    $(document).ready(function (argument) {
+        $(".book-tour").click(function () {
+            var _id = $(this).data("id");
+            var price = $(this).data("price");
+            var first = $(this).data("first");
+            var business = $(this).data("business");
+            var premium = $(this).data("premium");
+            var economy = $(this).data("economy");
+            $("#tour-price").val(parseInt(price));
+            $("#tour-first").val(parseInt(first));
+            $("#tour-business").val(parseInt(business));
+            $("#tour-premium").val(parseInt(premium));
+            $("#tour-economy").val(parseInt(economy));
+            $("#tour-id").val(parseInt(_id));
 
-                $('input[type=radio][name=package]').change(function() {
-                    var _adult = $('input[type=number][name=adults]').val();
-                    var _children = $('input[type=number][name=children]').val();
-                    var _package = parseInt($(this).val());
-                    var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
-                    $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
-                });
+            $('input[type=radio][name=package]').change(function() {
+                var _adult = $('input[type=number][name=adults]').val();
+                var _children = $('input[type=number][name=children]').val();
+                var _package = parseInt($(this).val());
+                var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
+            });
 
-                $('input[name=children]').change(function() {
-                    var _children = $(this).val();
-                    var _adult = $('input[type=number][name=adults]').val();
-                    var _package =  $('input[name=package]:checked').val();
-                    var _total = price * _adult + _package * _adult + price*0.1 * _children + _package*0.1 * _children;
-                    $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
-                });
+            $('input[name=children]').change(function() {
+                var _children = $(this).val();
+                var _adult = $('input[type=number][name=adults]').val();
+                var _package =  $('input[name=package]:checked').val();
+                var _total = price * _adult + _package * _adult + price*0.1 * _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
+            });
 
-                $('input[type=number][name=adults]').change(function() {
-                    var _adult = $(this).val();
-                    var _package =  $('input[name=package]:checked').val();
-                    var _children = $('input[type=number][name=children]').val();
-                    var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
-                    $('#total').html('<span>'+_total+' $</span>');
-                });
+            $('input[type=number][name=adults]').change(function() {
+                var _adult = $(this).val();
+                var _package =  $('input[name=package]:checked').val();
+                var _children = $('input[type=number][name=children]').val();
+                var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total+' $</span>');
             });
         });
+<<<<<<< HEAD
+    });
+</script> 
+@stop
+=======
     </script> 
 @stop
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873

@@ -55,8 +55,8 @@
 				<div class="panel panel-primary">
 					<div class="panel-heading">List Tour guider</div>
 					<div class="panel-body">
-						<div class="bootstrap-table">
-							<table class="table table-bordered">
+						<div class="bootstrap-table" style="width: 100%; overflow-y: auto">
+							<table class="table table-bordered" >
 				              	<thead>
 					                <tr class="bg-primary">
 					                  <th>Name Guider</th>

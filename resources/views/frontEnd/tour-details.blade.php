@@ -1,7 +1,18 @@
+<<<<<<< HEAD
+@extends('frontEnd.master')
+@section('title','Tour Details')
+@section('main')
+	<section id="tour-packes-deatils" style="background-image: url({{asset('storage/app/image/'.$data->banner_img)}});">
+=======
 	@extends('frontEnd.master')
 	@section('title','Tour Details')
 	@section('main')
+<<<<<<< HEAD
+	<section id="tour-packes-deatils" style="background-image: url({{asset('storage/app/image/'.$data->banner_img)}});">
+=======
 	<section id="tour-packes-deatils">
+>>>>>>> 1f0fdcbb3282c9df2ac9d005ce944b7146aa0e09
+>>>>>>> 119d7320a80d1e70ad9343d4ae213897d5b9b873
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-12">

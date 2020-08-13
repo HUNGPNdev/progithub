@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\UserModel;
 use Auth;
+
 use Mail;
 use DB;
 class UserLoginController extends Controller
 {
 	public function getlogin(){
+
         $user = UserModel::all();
 		return view('frontEnd.login_user');
 	}
@@ -25,6 +27,9 @@ class UserLoginController extends Controller
     	}else{
     		$remember = false;
     	}
+    	$user = UserModel::where('email',$request->email)->value("name");
+    	if(Auth::guard('users_tb')->attempt($arr, $remember)){
+    		$request->session()->put("name",$user);
         $id = UserModel::where('email',$request->email)->value("id");
     	$name = UserModel::where('email',$request->email)->value("name");
     	$img = UserModel::where('email',$request->email)->value("image");
@@ -43,6 +48,7 @@ class UserLoginController extends Controller
 
 
 	}
+
     // comment
     public function EditUser( Request $request, UserModel $UserModel, $id){
         $rules = [];
