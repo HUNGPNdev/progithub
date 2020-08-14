@@ -17,7 +17,7 @@ Auth::routes();
 
 Route::group(['namespace' => 'User'], function() {
 	Route::get('/','frontEndController@getHome');
-	Route::get('home','frontEndController@getHome');
+	Route::get('home','frontEndController@getHome')->name('user');
     Route::post('search','searchController@searchTour')->name('searchtour');
     
     // logout
@@ -34,30 +34,32 @@ Route::group(['namespace' => 'User'], function() {
     });
 
     Route::group(['prefix' => 'user'], function() {
-     Route::post('edit/{id}','UserLoginController@EditUser')->name('userlogin.edit');
-     Route::group(['prefix' => 'tour'], function() {
-         Route::get('tourdetail/{id}','frontEndController@getTourDetail');
-         Route::get('tourpackages','frontEndController@getTourpackages');
-         Route::post('tourpackages/getpagetours','frontEndController@getpagetours')->name('getpagetours');
-     });
-     Route::group(['prefix' => 'cart'], function() {
-        Route::post('booking','BookingNowController@postBooking')->name('cart.booking');
+        Route::get('post_mail_index/{id}','UserLoginController@post_mail_index')->name('post_mail_index');
+        Route::get('acc_post_mail_index}','UserLoginController@acc_post_mail_index')->name('acc_post_mail_index');
+        route::post('edit/{id}','userlogincontroller@edituser')->name('userlogin.edit');
+        Route::group(['prefix' => 'tour'], function() {
+            Route::get('tourdetail/{id}','frontEndController@getTourDetail');
+            Route::get('tourpackages','frontEndController@getTourpackages');
+            Route::post('tourpackages/getpagetours','frontEndController@getpagetours')->name('getpagetours');
+        });
+        Route::group(['prefix' => 'cart'], function() {
+            route::post('booking','bookingnowcontroller@postbooking')->name('cart.booking');
+        });
+        Route::get('service','ServiceController@getService');
+
+        Route::get('gallery','ServiceController@getGallery');
+
+        Route::get('blog','ServiceController@getBlog');
+        Route::get('search','ServiceController@SearchBlog')->name('searchblog');
+
+        Route::get('blog_single/{id}','ServiceController@getBlog_Single');
+
+        Route::get('about','ServiceController@getAbout')->name('about');
+
+        Route::get('faqs','ServiceController@getFAQs');
+
+        Route::get('contact','ServiceController@getContact');
     });
-     Route::get('service','ServiceController@getService');
-
-     Route::get('gallery','ServiceController@getGallery');
-
-     Route::get('blog','ServiceController@getBlog');
-     Route::get('search','ServiceController@SearchBlog')->name('searchblog');
-
-     Route::get('blog_single/{id}','ServiceController@getBlog_Single');
-
-     Route::get('about','ServiceController@getAbout');
-
-     Route::get('faqs','ServiceController@getFAQs');
-
-     Route::get('contact','ServiceController@getContact');
- });
 });
 
 

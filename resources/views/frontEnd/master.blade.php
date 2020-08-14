@@ -59,26 +59,27 @@
 
     <link rel="stylesheet" href="assets/star-rating/jquery.rating.css">
 </head>
-<style>
-    #check_register {
-        width: 1140px;
-        height: 200px;
-        text-align: center;
-        background: orange;
-        color: #fff;
-        position: fixed;
-        z-index: 999 !important;
-        top: 40px;
-    }
-</style>
 <body>
-    <!-- <section>
+
+    @if(Auth::guard("users_tb")->check())
+    @if(Auth::guard("users_tb")->user()->check_register == 1)
+    <section>
         <div class="container">
             <div class="row" id="check_register">
-                <h1>Hùng</h1>
+                <div class="showsend"> 
+                    <h1 style="margin: 31px;">Your account has not been activated, please click 
+                        <a href="{{route('post_mail_index',Auth::guard('users_tb')->user()->email)}}" id="sendmail">here</a>!
+                    </h1>
+                    <h1 style="margin: 0px 130px;"> @include('errors.note')</h1>
+                </div>
+                <div class="d-none plas">
+                    <h1 style="margin: 73px 130px;">Please check your mail to continue!</h1>
+                </div>
             </div>
         </div>
-    </section> -->
+    </section>
+    @endif
+    @endif
     <div class="header-most-top">
         <div class="container">
             <div class="row">
@@ -106,7 +107,7 @@
                             </select>
                             <i class="fas fa-angle-down"></i>
                         </div>
-                        @if(Auth::guard("users_tb")->check())
+                        @if(Auth::guard("users_tb")->check() && session('id'))
                         <div class="user-log">
                             @if(session("image")!='')
                             <i><img src="../../storage/app/users/{{session('image')}}" style="width: 20px; border-radius: 50%;" alt=""></i>
@@ -203,14 +204,13 @@
                                 </div>
                             </div>
                         </div>
-                        @else
-                        <div class="user-log">
-                            <i class="far fa-user-circle"></i>
-                            <a href="{{route('userlogin')}}">Sign In</a>
-                        </div>
-                        @endif
-
                     </div>
+                    @else
+                    <div class="user-log">
+                        <i class="far fa-user-circle"></i>
+                        <a href="{{route('userlogin')}}">Sign In</a>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -509,11 +509,11 @@
               data:{_token:_token, page:page},
               success:function(data)
               {
-                 $('#table_data').html(data);
-             }
-         });
+               $('#table_data').html(data);
+           }
+       });
         }
-        
+
 
     </script>
 
