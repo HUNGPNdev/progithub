@@ -24,7 +24,7 @@ class AddGuider extends FormRequest
     public function rules()
     {
         return [
-             'img'=>'image'
+            'img'=>'image'
         ];
     }
 }

@@ -60,7 +60,6 @@
     <link rel="stylesheet" href="assets/star-rating/jquery.rating.css">
 </head>
 <body>
-
     @if(Auth::guard("users_tb")->check())
     @if(Auth::guard("users_tb")->user()->check_register == 1)
     <section>
@@ -107,7 +106,7 @@
                             </select>
                             <i class="fas fa-angle-down"></i>
                         </div>
-                        @if(Auth::guard("users_tb")->check() && session('id'))
+                @if(Auth::guard("users_tb")->check() && session('id'))
                         <div class="user-log">
                             @if(session("image")!='')
                             <i><img src="../../storage/app/users/{{session('image')}}" style="width: 20px; border-radius: 50%;" alt=""></i>
@@ -205,12 +204,12 @@
                             </div>
                         </div>
                     </div>
-                    @else
-                    <div class="user-log">
-                        <i class="far fa-user-circle"></i>
-                        <a href="{{route('userlogin')}}">Sign In</a>
-                    </div>
-                    @endif
+                        @else
+                        <div class="user-log">
+                            <i class="far fa-user-circle"></i>
+                            <a href="{{route('userlogin')}}">Sign In</a>
+                        </div>
+                @endif
                 </div>
             </div>
         </div>
@@ -289,7 +288,6 @@
 
 
     @yield('main')
-    
     <footer id="footer-all-page">
         <div class="container">
             <div class="row">
@@ -454,8 +452,12 @@
 
     <script src="assets/star-rating/jquery.rating.js"></script>
     @yield('tourjs')
-
+<!-- a -->
     <script>
+        $('#sendmail').click(function(){
+            $('.showsend').addClass('d-none');
+            $('.plas').removeClass('d-none');
+        });
         $('input[type=text][name=conf_pas]').change(function() {
             var conf_pas = $(this).val();
             var pass = $('input[name=password]').val();

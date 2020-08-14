@@ -16,43 +16,10 @@
 	
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-			<div class="login-panel panel panel-default " id="login">
-				<div class="panel-heading" style="text-align: center;text-transform: uppercase;"><h2>Login</h2></div>
-				<div class="panel-body">
-					<form role="form" action="{{route('postuserlogin')}}" method="post">
-						@include('errors.note')
-						<fieldset>
-							<div class="form-group">
-								<label for="">Email</label>
-								<input class="form-control" placeholder="E-mail" name="email" type="email" value="{{old('email')}}" autofocus="">
-							</div>
-							<div class="form-group">
-								<label for="">Password</label>
-								<input class="form-control" placeholder="Password" name="password" type="password" value="{{old('password')}}">
-							</div>
-							<div class="checkbox">
-								<label>
-									<input name="remember" type="checkbox" value="Remember Me">Remember Me
-								</label>
-								<label>
-									<a href="{{route('get_register')}}">Register?</a>
-								</label>
-								<label>
-									<a href="{{route('forgetpass')}}">Forget password?</a>
-								</label>
-							</div>
-							<input type="submit" name="submit" value="login" class="btn btn-primary">
-							<a href="{{asset('/')}}" class="btn btn-info">Back Home</a>
-						</fieldset>
-						{{csrf_field()}}
-					</form>
-				</div>
-			</div>
-
-			<div class="login-panel panel panel-default hidden" id="register">
+			<div class="login-panel panel panel-default" id="register">
 				<div class="panel-heading" style="text-align: center;text-transform: uppercase;"><h2>Register</h2></div>
 				<div class="panel-body">
-					<form role="form" action="{{route('post_register')}}" method="post">
+					<form role="form" action="{{route('post_register')}}" method="post"  enctype="multipart/form-data">
 						@include('errors.note')
 						<fieldset>
 							<div class="form-group">
@@ -62,17 +29,17 @@
 							</div>
 							<div class="form-group">
 								<label for="name">Name</label>
-								<input class="form-control" placeholder="Name" name="name" required type="text" autofocus>
+								<input class="form-control" placeholder="Name" name="name" type="text" autofocus>
                                 @error('name')<p style="color: red;">{{ $message }}</p>@enderror
 							</div>
 							<div class="form-group">
 								<label for="name">Password</label>
-								<input class="form-control" placeholder="Password" name="password" required type="text" autofocus>
+								<input class="form-control" placeholder="Password" name="password"  type="text" autofocus>
                                 @error('password')<p style="color: red;">{{ $message }}</p>@enderror
 							</div>
 							<div class="form-group">
 								<label for="name">Phone</label>
-								<input class="form-control" placeholder="phone number" name="phone" required type="text" autofocus>
+								<input class="form-control" placeholder="phone number" name="phone" type="text" autofocus>
 							</div>
 							<div class="checkbox">
 								<b>Gender: </b><br>
@@ -90,7 +57,7 @@
 							</div><hr><br>
 							<div class="checkbox">
 								<label>
-									<a id="sign">Sign In?</a>
+									<a href="{{route('userlogin')}}" id="sign">Sign In?</a>
 								</label>
 							</div>
 							<input type="submit" name="submit" value="Register" class="btn btn-primary">

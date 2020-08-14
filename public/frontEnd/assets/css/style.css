@@ -6801,12 +6801,12 @@
         visibility: hidden;
     }
 
-    .go-top:hover i:last-child,
-    .go-top:focus i:last-child {
-        opacity: 1;
-        visibility: visible;
-        top: 50%;
-    }
+.go-top:hover i:last-child,
+.go-top:focus i:last-child {
+    opacity: 1;
+    visibility: visible;
+    top: 50%;
+}
 
     #check_register {
     width: 1140px;
@@ -6818,6 +6818,13 @@
     z-index: 999 !important;
     top: 130px;
     box-shadow: 0px 0px 5px 5px #999999;
+}
+#sendmail {
+    font-style: italic; 
+    font-size: 33px; 
+    color: #FFFF1A;
+    text-decoration: underline;
+}
     }
     
     .booking-info .searchDay{
