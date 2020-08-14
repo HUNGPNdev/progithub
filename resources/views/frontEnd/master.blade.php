@@ -55,36 +55,17 @@
     
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
-<style>
-    #check_register {
-        width: 1140px;
-        height: 200px;
-        text-align: center;
-        background: #330099;
-        color: #fff;
-        position: fixed;
-        z-index: 999 !important;
-        top: 130px;
-        box-shadow: 0px 0px 5px 5px #999999;
-    }
-    #sendmail {
-        font-style: italic; 
-        font-size: 33px; 
-        color: #FFFF1A;
-        text-decoration: underline;
-    }
-</style>
 <body>
     @if(Auth::guard("users_tb")->check())
     @if(Auth::guard("users_tb")->user()->check_register == 1)
     <section>
         <div class="container">
             <div class="row" id="check_register">
-                @include('errors.note')
                 <div class="showsend"> 
                     <h1 style="margin: 31px;">Your account has not been activated, please click 
                         <a href="{{route('post_mail_index',Auth::guard('users_tb')->user()->email)}}" id="sendmail">here</a>!
                     </h1>
+                    <h1 style="margin: 0px 130px;"> @include('errors.note')</h1>
                 </div>
                 <div class="d-none plas">
                     <h1 style="margin: 73px 130px;">Please check your mail to continue!</h1>
@@ -121,7 +102,7 @@
                             </select>
                             <i class="fas fa-angle-down"></i>
                         </div>
-                        @if(Auth::guard("users_tb")->check())
+                @if(Auth::guard("users_tb")->check() && session('id'))
                         <div class="user-log">
                             @if(session("image")!='')
                             <i><img src="../../storage/app/users/{{session('image')}}" style="width: 20px; border-radius: 50%;" alt=""></i>
@@ -218,14 +199,13 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                         @else
                         <div class="user-log">
                             <i class="far fa-user-circle"></i>
                             <a href="{{route('userlogin')}}">Sign In</a>
                         </div>
-                        @endif
-
-                    </div>
+                @endif
                 </div>
             </div>
         </div>

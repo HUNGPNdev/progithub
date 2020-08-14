@@ -82,7 +82,7 @@ class AdminController extends Controller
                 ad_roles::create(['admin_id'=>$listadmin->id,'roles_id'=>$roles_id]);
             }
         }
-            return redirect()->route('admin.listadmin.index');
+            return redirect()->route('admin.listadmin.index')->with('success','Add admin succesfully!');
         }
 
         return redirect()->back();

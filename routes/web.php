@@ -17,7 +17,7 @@ Auth::routes();
 
 Route::group(['namespace' => 'User'], function() {
 	Route::get('/','frontEndController@getHome');
-	Route::get('home','frontEndController@getHome');
+	Route::get('home','frontEndController@getHome')->name('user');
     // logout
     Route::get('userlogout','UserLoginController@getuserlogout');
 
@@ -57,7 +57,7 @@ Route::group(['namespace' => 'User'], function() {
 
         Route::get('blog_single/{id}','ServiceController@getBlog_Single');
 
-        Route::get('about','ServiceController@getAbout');
+        Route::get('about','ServiceController@getAbout')->name('about');
 
         Route::get('faqs','ServiceController@getFAQs');
 

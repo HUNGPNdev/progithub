@@ -120,13 +120,11 @@ class UserLoginController extends Controller
     // gửi mail
     public function post_mail_index(Request $request, $id){
         $email = $id;
-        $user = UserModel::where('email',$id)->get();
-        foreach ($user as $user) {
-            $url = route('acc_post_mail_index',['code'=>$user->password]);
+        $user = UserModel::where('email',$id)->value('password');
+        $url = route('acc_post_mail_index',['code'=>$user]);
             $data = [
                 'route' => $url,
             ];
-        }
         Mail::send('frontEnd.email_user_register', $data, function ($message) use($email) {
             $message->from('c1909i2bkap@gmail.com', 'C1909I2');
             
@@ -136,6 +134,7 @@ class UserLoginController extends Controller
             
             $message->subject('Acount Active Require?');
         });
+        return redirect()->route('user')->with('error','Please check your mail!');
     }
     public function acc_post_mail_index(Request $request){
         $code = $request->code;
@@ -149,8 +148,7 @@ class UserLoginController extends Controller
             $user =   new UserModel;
             $arr['check_register'] = 0;
             $user::where('password',$code)->update($arr);
-            $user = UserModel::where('password',$code)->get();
-            return view('frontEnd.index');
+            return redirect()->route('user');
         }else{
             return view('frontEnd.404');
         }

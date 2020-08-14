@@ -13,7 +13,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">List Admin</div>
                     <div class="panel-body">
-                        <div class="alert alert-success">Added user success!</div>
+                        @include('errors.note')
                         <div class="bootstrap-table">
                             <div class="table-responsive">
                                 <a href="{{ route('admin.listadmin.create') }}" class="btn btn-primary">Add Admin</a>
