@@ -1,8 +1,8 @@
 /*---------------------------------------
  	01.Base Styles
-     --------------------------------------*/
+   --------------------------------------*/
 
-     * {
+   * {
         margin: 0;
         padding: 0;
         border: none;
@@ -56,7 +56,7 @@
 
 
 /*--------------------------
-		  2.  Typography
+          2.  Typography
         ---------------------------*/
 
         h1 {
@@ -129,7 +129,7 @@
 
 
 /*---------------------------------------
-	3.content-box
+    3.content-box
     -----------------------------------------*/
 
     .content-box {
@@ -153,7 +153,7 @@
 
 
 /*---------------------------------------
-		4.common-banner
+        4.common-banner
         -----------------------------------------*/
 
         .common-banner-text {
@@ -179,7 +179,7 @@
 
 
 /*--------------------------------------
-	5.Button css
+    5.Button css
     ---------------------------------------*/
 
     .btn-1 {
@@ -1172,7 +1172,7 @@
 
 
 /*--------------------------------------
-	6.3. banner-Home
+    6.3. banner-Home
     ---------------------------------------*/
 
     #banner-home-slider {
@@ -1256,7 +1256,7 @@
 
 
 /*-------------------------------------------
- 	 6.4. video-play animation	
+     6.4. video-play animation  
      ---------------------------------------*/
 
      .video-play-btn:before {
@@ -1348,7 +1348,7 @@
 
 
 /*--------------------------------------
-			6.5About section home
+            6.5About section home
             -------------------------------------*/
 
             #ab-home {
@@ -1717,7 +1717,7 @@
     } */
 
 /*--------------------------------------
-			6.Amazing section
+            6.Amazing section
             -------------------------------------*/
 
             #amazing {
@@ -1806,7 +1806,7 @@
 
 
 /*--------------------------------------
-				7.Tour area
+                7.Tour area
                 -------------------------------------*/
 
                 #tour-des {
@@ -1909,7 +1909,7 @@
 
 
 /*--------------------------------------
-				8.Summery area
+                8.Summery area
                 -------------------------------------*/
 
                 #summery {
@@ -1995,7 +1995,7 @@
 
 
 /*--------------------------------------
-			9.team area
+            9.team area
             -------------------------------------*/
 
             #home-team {
@@ -2140,7 +2140,7 @@
 
 
 /*--------------------------------------
-			10.Testmoinal area
+            10.Testmoinal area
             -------------------------------------*/
 
             #home-testimonial-top {
@@ -2260,7 +2260,7 @@
 
 
 /*--------------------------------------
-				11.contact area
+                11.contact area
                 -------------------------------------*/
 
                 .map-inner iframe {
@@ -2365,7 +2365,7 @@
 
 
 /*--------------------------------------
-			07.footer
+            07.footer
             -------------------------------------*/
 
             .footer-para p {
@@ -2558,7 +2558,7 @@
 
 
 /*---------------------------------
-	08.About page
+    08.About page
     ----------------------------------*/
 
     #about-banner {
@@ -2571,7 +2571,7 @@
 
 
 /*---------------------------------
-	 1.who-area
+     1.who-area
     ----------------------------------*/
 
     #who-area {
@@ -2609,7 +2609,7 @@
 
 
 /*---------------------------------
-	2.best-service
+    2.best-service
     ----------------------------------*/
 
     #best-service {
@@ -2748,7 +2748,7 @@
 
 
 /*---------------------------------
-	 9.Tour packages page
+     9.Tour packages page
     ----------------------------------*/
 
     #tour-packes {
@@ -2788,7 +2788,7 @@
 
 
 /*-----------------------------------------
-			10.tour-packes-deatils page
+            10.tour-packes-deatils page
             ----------------------------------------*/
 
             #tour-packes-deatils {
@@ -2801,7 +2801,7 @@
 
 
 /*-------------------------------- 
-	1.tour-details main content
+    1.tour-details main content
     -----------------------------------*/
 
     #tour-detailes-main {
@@ -3158,7 +3158,7 @@
 
 
 /*-------------------------------
-		11.Model style
+        11.Model style
         --------------------------------*/
 
         .model-details h5 {
@@ -3307,7 +3307,7 @@
 
 
 /*----------------------------------
-		12.service page
+        12.service page
         -----------------------------------*/
 
         #service-main-banner {
@@ -3370,7 +3370,7 @@
 
 
 /*----------------------------------
-		13.Gallery page
+        13.Gallery page
         -----------------------------------*/
 
         #gallery-banner {
@@ -3423,7 +3423,7 @@
 
 
 /*------------------------------
-		14.faq page
+        14.faq page
         --------------------------------*/
 
         #faq-banner {
@@ -3541,7 +3541,7 @@
 
 
 /*----------------------------------
-		15.contact page
+        15.contact page
         -----------------------------------*/
 
         #contact-banner {
@@ -3650,7 +3650,7 @@
 
 
 /*-----------------------------------
-			16.blog classic page
+            16.blog classic page
             -----------------------------------*/
 
             #blog-banner {
@@ -3852,7 +3852,7 @@
 
 
 /*-----------------------------------
-		18.blog-single page
+        18.blog-single page
         -----------------------------------*/
 
         #blog-single-main {
@@ -4321,7 +4321,7 @@
 
 
 /*-----------------------------------
-		19.404 page
+        19.404 page
         -----------------------------------*/
 
         .for-img {
@@ -5529,7 +5529,7 @@
 
 
 /*-------------------------------
-	Testimonial area
+    Testimonial area
     -----------------------------------*/
 
     #testimonial-1 {
@@ -6801,30 +6801,30 @@
         visibility: hidden;
     }
 
-.go-top:hover i:last-child,
-.go-top:focus i:last-child {
-    opacity: 1;
-    visibility: visible;
-    top: 50%;
-}
+    .go-top:hover i:last-child,
+    .go-top:focus i:last-child {
+        opacity: 1;
+        visibility: visible;
+        top: 50%;
+    }
 
     #check_register {
-    width: 1140px;
-    height: 260px;
-    text-align: center;
-    background: #330099;
-    color: #fff;
-    position: fixed;
-    z-index: 999 !important;
-    top: 130px;
-    box-shadow: 0px 0px 5px 5px #999999;
-}
-#sendmail {
-    font-style: italic; 
-    font-size: 33px; 
-    color: #FFFF1A;
-    text-decoration: underline;
-}
+        width: 1140px;
+        height: 260px;
+        text-align: center;
+        background: #330099;
+        color: #fff;
+        position: fixed;
+        z-index: 999 !important;
+        top: 130px;
+        box-shadow: 0px 0px 5px 5px #999999;
+    }
+    #sendmail {
+        font-style: italic; 
+        font-size: 33px; 
+        color: #FFFF1A;
+        text-decoration: underline;
+    }
     
     .booking-info .searchDay{
         background: #fff;

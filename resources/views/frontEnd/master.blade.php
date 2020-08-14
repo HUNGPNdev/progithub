@@ -106,7 +106,7 @@
                             </select>
                             <i class="fas fa-angle-down"></i>
                         </div>
-                @if(Auth::guard("users_tb")->check() && session('id'))
+                        @if(Auth::guard("users_tb")->check() && session('id'))
                         <div class="user-log">
                             @if(session("image")!='')
                             <i><img src="../../storage/app/users/{{session('image')}}" style="width: 20px; border-radius: 50%;" alt=""></i>
@@ -204,294 +204,295 @@
                             </div>
                         </div>
                     </div>
-                        @else
-                        <div class="user-log">
-                            <i class="far fa-user-circle"></i>
-                            <a href="{{route('userlogin')}}">Sign In</a>
-                        </div>
-                @endif
+                    @else
+                    <div class="user-log">
+                        <i class="far fa-user-circle"></i>
+                        <a href="{{route('userlogin')}}">Sign In</a>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <header class="site-header header-style-one">
-        <div class="site-navigation style-one">
-            <div class="">
-                <div class="row align-items-center " style="margin-right: -30px;">
-                    <div class="col-9 row ">
-                        <div class="col-2"></div>
-                        <div class="  navbar navbar-expand-lg navigation-area col-9">
-                            <div class="site-branding ">
-                                <a class="site-logo" href="{{asset('home')}}">
-                                    <img src="assets/img/logo.png" alt="Site-logo" />
-                                </a>
-                            </div>
-                            <div class="mainmenu-area">
-                                <nav class="menu">
-                                    <ul id="nav">
-                                        <li class="">
-                                            <a class="" href="{{asset('')}}">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{asset('user/tour/tourpackages')}}">Tour Packages</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{asset('user/service')}}">Service</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{asset('user/gallery')}}">Gallery</a>
-                                        </li>
-                                        <li class="dropdown-trigger">
-                                            <a href="{{asset('')}}">Page</a>
-                                            <ul class="dropdown-content">
-                                                <li><a href="{{asset('user/blog')}}">Blog</a></li>
-                                                <li><a href="{{asset('user/about')}}">About</a></li>
-                                                <li><a href="{{asset('user/faqs')}}">FAQs</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="">
-                                            <a href="{{asset('user/contact')}}">Contact Us</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="cnt-area col-3" style="height: 70px;">
-                        <h3>1-1235-536-5896</h3>
-                        <p>Toll Free & 24/7 Availabel</p>
-                        <a href="{{asset('user/contact')}}">
-                            <div class="ctc">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                        </a>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <div class="mobile-menu-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="mobile-menu">
-                            <a class="mobile-logo" href="index-2.html">
-                                <img src="assets/img/logo.png" alt="logo" />
+<header class="site-header header-style-one">
+    <div class="site-navigation style-one">
+        <div class="">
+            <div class="row align-items-center " style="margin-right: -30px;">
+                <div class="col-9 row ">
+                    <div class="col-2"></div>
+                    <div class="  navbar navbar-expand-lg navigation-area col-9">
+                        <div class="site-branding ">
+                            <a class="site-logo" href="{{asset('home')}}">
+                                <img src="assets/img/logo.png" alt="Site-logo" />
                             </a>
                         </div>
+                        <div class="mainmenu-area">
+                            <nav class="menu">
+                                <ul id="nav">
+                                    <li class="">
+                                        <a class="" href="{{asset('')}}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{asset('user/tour/tourpackages')}}">Tour Packages</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{asset('user/service')}}">Service</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{asset('user/gallery')}}">Gallery</a>
+                                    </li>
+                                    <li class="dropdown-trigger">
+                                        <a href="{{asset('')}}">Page</a>
+                                        <ul class="dropdown-content">
+                                            <li><a href="{{asset('user/blog')}}">Blog</a></li>
+                                            <li><a href="{{asset('user/about')}}">About</a></li>
+                                            <li><a href="{{asset('user/faqs')}}">FAQs</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{asset('user/contact')}}">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <span class="cnt-area col-3" style="height: 70px;">
+                    <h3>1-1235-536-5896</h3>
+                    <p>Toll Free & 24/7 Availabel</p>
+                    <a href="{{asset('user/contact')}}">
+                        <div class="ctc">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mobile-menu">
+                        <a class="mobile-logo" href="index-2.html">
+                            <img src="assets/img/logo.png" alt="logo" />
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
 
-    @yield('main')
-    <footer id="footer-all-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                    <div class="all-fott-cov">
-                        <div class="footer0logo">
-                            <a href="#"><img src="assets/img/logo.png" alt="img" /></a>
-                        </div>
-                        <div class="footer-para">
-                            <p>
-                                Pellentesque convallis, diam et feugiat volutpat, tellus ligula consequat augue, quis malesuada nisi ante nec metus. Sed id pretium nunc. Mauris vitae porttitor tortor. Fusce aliquet ac metus eget egestas.
-                            </p>
-                        </div>
-                        <div class="footer-form">
-                            <div class="form-group d-flex">
-                                <input type="text" placeholder="Enter your email" class="form-control" />
-                                <button class="btn plean-footer">
-                                  <i class="fab fa-telegram-plane"></i>
-                              </button>
-                          </div>
+@yield('main')
+<footer id="footer-all-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="all-fott-cov">
+                    <div class="footer0logo">
+                        <a href="#"><img src="assets/img/logo.png" alt="img" /></a>
+                    </div>
+                    <div class="footer-para">
+                        <p>
+                            Pellentesque convallis, diam et feugiat volutpat, tellus ligula consequat augue, quis malesuada nisi ante nec metus. Sed id pretium nunc. Mauris vitae porttitor tortor. Fusce aliquet ac metus eget egestas.
+                        </p>
+                    </div>
+                    <div class="footer-form">
+                        <div class="form-group d-flex">
+                            <input type="text" placeholder="Enter your email" class="form-control" />
+                            <button class="btn plean-footer">
+                              <i class="fab fa-telegram-plane"></i>
+                          </button>
                       </div>
                   </div>
               </div>
-              <div class="col-lg-2 col-md-6 col-sm-6 col-6">
-                <div class="quick-link">
-                    <div class="comm-foot-hed">
-                        <h6>Quick Links</h6>
-                    </div>
-                    <div class="foot-list">
-                        <ul>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="tour-packages.html">Tours & Trips</a></li>
-                            <li><a href="tour-details.html">Locations Find</a></li>
-                            <li><a href="contact.html">Contact Us.</a></li>
-                            <li><a href="faq.html">Terms & conditions</a></li>
-                            <li><a href="faq.html">Praivcy Policy</a></li>
-                        </ul>
-                    </div>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-6 col-6">
+            <div class="quick-link">
+                <div class="comm-foot-hed">
+                    <h6>Quick Links</h6>
+                </div>
+                <div class="foot-list">
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="tour-packages.html">Tours & Trips</a></li>
+                        <li><a href="tour-details.html">Locations Find</a></li>
+                        <li><a href="contact.html">Contact Us.</a></li>
+                        <li><a href="faq.html">Terms & conditions</a></li>
+                        <li><a href="faq.html">Praivcy Policy</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6 col-sm-6 col-6">
-                <div class="quick-link-2">
-                    <div class="foot-list-2">
-                        <ul>
-                            <li><a href="index-2.html">Home</a></li>
-                            <li><a href="faq.html">Testimonials</a></li>
-                            <li><a href="gallery.html">Team</a></li>
-                            <li><a href="service.html">Service</a></li>
-                            <li><a href="blog.html">News</a></li>
-                        </ul>
-                    </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6 col-6">
+            <div class="quick-link-2">
+                <div class="foot-list-2">
+                    <ul>
+                        <li><a href="index-2.html">Home</a></li>
+                        <li><a href="faq.html">Testimonials</a></li>
+                        <li><a href="gallery.html">Team</a></li>
+                        <li><a href="service.html">Service</a></li>
+                        <li><a href="blog.html">News</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="recent-fot-post mar-top-responsive">
-                    <div class="comm-foot-hed">
-                        <h6>Recent Post</h6>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+            <div class="recent-fot-post mar-top-responsive">
+                <div class="comm-foot-hed">
+                    <h6>Recent Post</h6>
+                </div>
+                <div class="post-cover-foot">
+                    <div class="pos-rece-1">
+                        <div class="post-rect-img">
+                            <a href="blog-single.html"><img src="assets/img/common-img/footer-blog.png" alt="" /></a>
+                        </div>
+                        <div class="podt-text-1">
+                            <p>
+                                <a href="blog-single.html">Pellentesque convallis, diam et feugiat volutpat,
+                                tellus ligula c</a>
+                            </p>
+                            <span>Sep 09, 2019</span>
+                        </div>
                     </div>
-                    <div class="post-cover-foot">
-                        <div class="pos-rece-1">
-                            <div class="post-rect-img">
-                                <a href="blog-single.html"><img src="assets/img/common-img/footer-blog.png" alt="" /></a>
-                            </div>
-                            <div class="podt-text-1">
-                                <p>
-                                    <a href="blog-single.html">Pellentesque convallis, diam et feugiat volutpat,
-                                    tellus ligula c</a>
-                                </p>
-                                <span>Sep 09, 2019</span>
-                            </div>
+                    <div class="pos-rece-1">
+                        <div class="post-rect-img">
+                            <a href="blog-single.html"><img src="assets/img/common-img/footer-blog-1.png" alt="" /></a>
                         </div>
-                        <div class="pos-rece-1">
-                            <div class="post-rect-img">
-                                <a href="blog-single.html"><img src="assets/img/common-img/footer-blog-1.png" alt="" /></a>
-                            </div>
-                            <div class="podt-text-1">
-                                <p>
-                                    <a href="blog-single.html">Pellentesque convallis, diam et feugiat volutpat,
-                                    tellus ligula c</a>
-                                </p>
-                                <span>Sep 09, 2019</span>
-                            </div>
+                        <div class="podt-text-1">
+                            <p>
+                                <a href="blog-single.html">Pellentesque convallis, diam et feugiat volutpat,
+                                tellus ligula c</a>
+                            </p>
+                            <span>Sep 09, 2019</span>
                         </div>
-                        <div class="pos-rece-1">
-                            <div class="post-rect-img">
-                                <a href="blog-single.html"><img src="assets/img/common-img/footer-blog-2.png" alt="" /></a>
-                            </div>
-                            <div class="podt-text-1">
-                                <p>
-                                    <a href="blog-single.html">Pellentesque convallis, diam et feugiat volutpat,
-                                    tellus ligula c</a>
-                                </p>
-                                <span>Sep 09, 2019</span>
-                            </div>
+                    </div>
+                    <div class="pos-rece-1">
+                        <div class="post-rect-img">
+                            <a href="blog-single.html"><img src="assets/img/common-img/footer-blog-2.png" alt="" /></a>
+                        </div>
+                        <div class="podt-text-1">
+                            <p>
+                                <a href="blog-single.html">Pellentesque convallis, diam et feugiat volutpat,
+                                tellus ligula c</a>
+                            </p>
+                            <span>Sep 09, 2019</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-8 col-sm-8 col-8">
-                    <div class="copy-right-para">
-                        <p>And IT Themes © 2019. All Rights Reserved</p>
-                    </div>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 col-sm-8 col-8">
+                <div class="copy-right-para">
+                    <p>And IT Themes © 2019. All Rights Reserved</p>
                 </div>
-                <div class="col-lg-6 col-md-4 col-sm-4 col-4">
-                    <div class="copy-right-icon">
-                        <a href="#"><i class="fab fa-facebook-f face no-ag"></i></a>
-                        <a href="#"><i class="fab fa-twitter face"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in face"></i></a>
-                    </div>
+            </div>
+            <div class="col-lg-6 col-md-4 col-sm-4 col-4">
+                <div class="copy-right-icon">
+                    <a href="#"><i class="fab fa-facebook-f face no-ag"></i></a>
+                    <a href="#"><i class="fab fa-twitter face"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in face"></i></a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="go-top">
-        <i class="fas fa-chevron-up"></i>
-        <i class="fas fa-arrow-up"></i>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<div class="go-top">
+    <i class="fas fa-chevron-up"></i>
+    <i class="fas fa-arrow-up"></i>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/jquery-3.3.1.min.js"></script>
 
-    <script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
 
-    <script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
 
-    <script src="assets/js/wow.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
 
-    <script src="assets/js/html5shiv.js"></script>
+<script src="assets/js/html5shiv.js"></script>
 
-    <script src="assets/js/respond.min.js"></script>
+<script src="assets/js/respond.min.js"></script>
 
-    <script src="assets/js/prettify.js"></script>
+<script src="assets/js/prettify.js"></script>
 
-    <script src="assets/js/venobox.min.js"></script>
+<script src="assets/js/venobox.min.js"></script>
 
-    <script src="assets/js/meanmenu.min.js"></script>
+<script src="assets/js/meanmenu.min.js"></script>
 
-    <script src="assets/js/popper.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
 
-    <script src="assets/js/magnify-popup.js"></script>
+<script src="assets/js/magnify-popup.js"></script>
 
-    <script src="assets/js/menu-custom.js"></script>
+<script src="assets/js/menu-custom.js"></script>
 
-    <script src="assets/js/custom.js"></script>
+<script src="assets/js/custom.js"></script>
 
-    <script src="assets/js/function.js"></script>
+<script src="assets/js/function.js"></script>
 
-    <script src="assets/cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<script src="assets/cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
-    <script src="assets/js/jquery-ui.js"></script>
+<script src="assets/js/jquery-ui.js"></script>
 
-    <script src="assets/js/NoUiSlider/nouislider.min.js"></script>
+<script src="assets/js/NoUiSlider/nouislider.min.js"></script>
 
-    <script src="assets/js/NoUiSlider/wNumb.js"></script>
+<script src="assets/js/NoUiSlider/wNumb.js"></script>
 
-    <script src="assets/star-rating/jquery.rating.js"></script>
-    @yield('tourjs')
+<script src="assets/star-rating/jquery.rating.js"></script>
+@yield('tourjs')
 <!-- a -->
-    <script>
-        $('#sendmail').click(function(){
-            $('.showsend').addClass('d-none');
-            $('.plas').removeClass('d-none');
-        });
-        $('input[type=text][name=conf_pas]').change(function() {
-            var conf_pas = $(this).val();
-            var pass = $('input[name=password]').val();
-            if(conf_pas != pass){
-                document.getElementById("sp_pas").innerHTML = "Confirm password incorrect, please try again!";
-            }else{
-                document.getElementById("pass").innerHTML = "";
-                document.getElementById("sp_pas").innerHTML = "";
-            }
-        });
-        $('input[type=text][name=password]').change(function() {
-            var pass = $(this).val();
-            var conf_pas = $('input[name=conf_pas]').val();
-            if(conf_pas != pass){
-                document.getElementById("pass").innerHTML = "Please, Enter the Confirm password!";
-            }else{
-                document.getElementById("pass").innerHTML = "";
-            }
-        });
-        
-        function changeImg(input){
-            if(input.files && input.files[0]){
-                var reader = new FileReader();
-                reader.onload = function(e){
-                    $('#avatar').attr('src',e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
+<script>
+    $('#sendmail').click(function(){
+        $('.showsend').addClass('d-none');
+        $('.plas').removeClass('d-none');
+    });
+    $('input[type=text][name=conf_pas]').change(function() {
+        var conf_pas = $(this).val();
+        var pass = $('input[name=password]').val();
+        if(conf_pas != pass){
+            document.getElementById("sp_pas").innerHTML = "Confirm password incorrect, please try again!";
+        }else{
+            document.getElementById("pass").innerHTML = "";
+            document.getElementById("sp_pas").innerHTML = "";
         }
-        $(document).ready(function() {
-            $('#avatar').click(function(){
-                $('#img').click();
-            });
+    });
+    $('input[type=text][name=password]').change(function() {
+        var pass = $(this).val();
+        var conf_pas = $('input[name=conf_pas]').val();
+        if(conf_pas != pass){
+            document.getElementById("pass").innerHTML = "Please, Enter the Confirm password!";
+        }else{
+            document.getElementById("pass").innerHTML = "";
+        }
+    });
+    
+    function changeImg(input){
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#avatar').attr('src',e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(document).ready(function() {
+        $('#avatar').click(function(){
+            $('#img').click();
         });
+    });
         // total money
 
 
