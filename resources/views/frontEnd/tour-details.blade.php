@@ -1,7 +1,7 @@
 	@extends('frontEnd.master')
 	@section('title','Tour Details')
 	@section('main')
-	<section id="tour-packes-deatils">
+	<section id="tour-packes-deatils" style="background-image: url({{asset('storage/app/image/'.$data->banner_img)}});">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -140,11 +140,11 @@
 										<div class="start-one-ras">
 											<h6>Services</h6>
 											<div class="stat-serv">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
+												<input name="star-demo" type="radio" class="star" />
+												<input name="star-demo" type="radio" class="star" />
+												<input name="star-demo" type="radio" class="star" />
+												<input name="star-demo" type="radio" class="star" />
+												<input name="star-demo" type="radio" class="star" />
 											</div>
 										</div>
 										<div class="start-one-ras">
