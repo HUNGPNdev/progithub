@@ -1,6 +1,6 @@
 @foreach($data as $tours)
-@csrf
 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+    @csrf
     <div class="des-cov-1">
         <div class="des-img-1">
             <a href="{{asset('user/tour/tourdetail/'.$tours->tour_id)}}"><img height="256px" src="{{asset('storage/app/image/'.$tours->tour_image)}}" alt="img"></a>
@@ -31,6 +31,12 @@
     </div>
 </div>
 @endforeach
+
+<div class="col-lg-5 col-md-5"></div>
+<div style="margin-top: 20px" class="col-lg-7 col-md-7">
+    {!!$data->links()!!}
+</div>
+
 <div class="modal fade hais" id="myModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -117,10 +123,7 @@
     </div>
 </div>
 
-<div class="col-lg-5 col-md-5"></div>
-<div style="margin-top: 20px" class="col-lg-7 col-md-7">
-    {!!$data->links()!!}
-</div>
+
 @section('tourjs')
 <script type="text/javascript">
     $(document).ready(function (argument) {

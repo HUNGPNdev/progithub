@@ -47,12 +47,11 @@ class frontEndController extends Controller
         $data['banner'] = banner::where('banner_id',2)->first('banner_img');
         $data['sliCus'] = sliderCustomer::where('slider_status',1)->take(3)->get();
         return view('frontEnd.tour-packages',$data);
-
     }
     public function getpagetours(Request $request){
         if($request->ajax())
         {
-            $data['data'] = DB::table('Tours_tb')->where('status',1)->orderBy('tour_id','desc')->paginate(6);
+            $data['data'] = DB::table('Tours_tb')->where('Tours_tb.status',1)->join('traveltype_tb','Tours_tb.tour_id','=','traveltype_tb.tour_id')->orderBy('Tours_tb.tour_id','desc')->paginate(6);
             return view('frontEnd.tours',$data);
         }
     }

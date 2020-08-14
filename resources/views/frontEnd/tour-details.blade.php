@@ -140,11 +140,11 @@
 										<div class="start-one-ras">
 											<h6>Services</h6>
 											<div class="stat-serv">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
+												<input name="star-demo" type="radio" class="star" />
+												<input name="star-demo" type="radio" class="star" />
+												<input name="star-demo" type="radio" class="star" />
+												<input name="star-demo" type="radio" class="star" />
+												<input name="star-demo" type="radio" class="star" />
 											</div>
 										</div>
 										<div class="start-one-ras">
