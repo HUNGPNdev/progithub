@@ -25,7 +25,7 @@ class CheckLogedOut
         $user = Auth::user();
         $route = $request->route()->getName();
         if($user->cant($route)){
-            return redirect()->route('admin.error',['code'=>403]);
+            return redirect()->route('error');
         }
         return $next($request);
     }

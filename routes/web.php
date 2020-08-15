@@ -76,6 +76,8 @@ Route::group(['namespace' => 'Admin'], function() {
     });
 
     Route::get('logout','HomeController@getlogout');
+    
+        Route::get('error','AdminController@error')->name('error');
 
     Route::group(['prefix' => 'admin', 'middleware'=>'CheckLogedOut','as'=>'admin.'], function() {
         Route::get('/','HomeController@getHome')->name('home');
@@ -160,7 +162,6 @@ Route::group(['namespace' => 'Admin'], function() {
             Route::get('sliCus-delete/{id}','SliCusController@getDelSlider')->name('sliCus.delete');
         });
 
-        Route::get('error','AdminController@error')->name('error');
         Route::get('destroy/{id}','AdminController@destroy')->name('destroy');
         Route::resources([
             'roles' => 'RoleController',

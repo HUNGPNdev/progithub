@@ -29,19 +29,34 @@
 			</div>
 		</div>
 	</nav>
-
+	<?php $user = Auth::user(); ?>
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
+        	@if($user->can('admin.listadmin.index'))
 			<li><a href="{{route('admin.listadmin.index')}}"><svg class="glyph stroked male user"><use xlink:href="#stroked-male-user"></use></svg> Admin</a></li>
+			@endif
+        	@if($user->can('admin.roles.index'))
 			<li>
 				<a href="{{ route('admin.roles.index') }}"><svg class="glyph stroked chain"><use xlink:href="#stroked-chain"></use></svg> Roles</a>
 			</li>
+			@endif
+			@if($user->can('admin.guider'))
 			<li><a href="{{asset('admin/guider')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Tour Guider</a></li>
+			@endif
+			@if($user->can('admin.tours'))
 			<li><a href="{{asset('admin/tours')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Tours</a></li>
+			@endif
+			@if($user->can('admin.packages'))
 			<li><a href="{{asset('admin/packages')}}"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Packages Tour</a></li>
+			@endif
+			@if($user->can('admin.destination'))
 			<li><a href="{{asset('admin/destination')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Destination</a></li>
+			@endif
+			@if($user->can('admin.blog'))
 			<li><a href="{{asset('admin/blog')}}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg> Blog</a></li>
+			@endif
+			@if($user->can('admin.banner.index'))
 			<li style="padding: 10px 15px; color: #30a5ff;"> 
 				<label class="tree-toggler"> <svg class="glyph stroked chevron right"><use xlink:href="#stroked-chevron-right"/></svg>Banner/Slider </label> 
 				<ul class="nav nav-list tree">
@@ -51,6 +66,7 @@
 					Banner</a></li>
 				</ul>
 			</li>
+			@endif
 			<li role="presentation" class="divider"></li>
 		</ul>
 	</div>

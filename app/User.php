@@ -50,9 +50,11 @@ class User extends Authenticatable
         $data = [];
         foreach($this->getRoles as $role){
             $permisson = json_decode($role->permission);
-            foreach($permisson as $per){
-                if(!in_array($per, $data)){
-                    array_push($data, $per);
+            if($permisson != ""){
+                foreach($permisson as $per){
+                    if(!in_array($per, $data)){
+                        array_push($data, $per);
+                    }
                 }
             }
         }

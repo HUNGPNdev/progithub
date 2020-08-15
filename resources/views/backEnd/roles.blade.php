@@ -67,9 +67,11 @@
 											@php
 												$decode = json_decode($data->permission);
 											@endphp
-											@foreach($decode as $d)
-												{{$d}}<br>
-											@endforeach
+											@if($decode != "")
+												@foreach($decode as $d)
+													{{$d}}<br>
+												@endforeach
+											@endif
 										</div>
 										</td>
 										<td>

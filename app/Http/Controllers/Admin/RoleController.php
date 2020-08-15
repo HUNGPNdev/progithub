@@ -103,7 +103,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, roles $roles,$id)
     {
-        $route = [];
+        $route = array();
         $request->validate([
             'name' => 'required'
         ],['name.required' => 'Fill role name in the input!']);

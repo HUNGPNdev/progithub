@@ -186,7 +186,7 @@ class AdminController extends Controller
 
     public function error()
     {
-        $code = request()->code;
+        
         return view('backEnd.error');
     }
 }
