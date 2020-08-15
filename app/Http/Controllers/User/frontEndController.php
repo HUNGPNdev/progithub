@@ -12,7 +12,9 @@ use App\Model\banner;
 use App\Model\slider;
 use App\Model\sliderCustomer;
 use App\Model\traveltype_tb;
+use App\Model\review;
 use DB;
+use Auth;
 
 class frontEndController extends Controller
 {
@@ -27,7 +29,6 @@ class frontEndController extends Controller
     }
 
     public function getTourDetail($id){
-
         $tour = ToursModel::find($id);
         $id = $tour->dest_id;
         $dest = destModel::where('dest_id',$id)->first();
@@ -37,8 +38,19 @@ class frontEndController extends Controller
         $unkey = package::where('status',1)->orderBy('pac_id','desc')->take(4)->get();
         $data = banner::where('banner_id',2)->first('banner_img');
         return view('frontEnd.tour-details',compact('tour','key','unkey','dest','data'));
-
     }
+
+    public function postReview(request $req){
+        $review = new review;
+        $review->services = $req->star;
+        $review->hospitality = $req->star_1;
+        $review->cleanliness = $req->star_2;
+        $review->rooms = $req->star_3;
+        $review->comfort = $req->star_4;
+        $review->satisfaction = $req->star_5;
+        $review->review_cmt = $req->review;
+    }
+
     public function getTourpackages(){
         // $data['tour'] = ToursModel::where('status',1)->orderBy('tour_id','desc')->paginate(6);
         $data['guider'] = guider::where('status',1)->get();
