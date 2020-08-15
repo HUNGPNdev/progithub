@@ -19,7 +19,7 @@ class frontEndController extends Controller
     public function getHome(){
         $data['guider'] = guider::where('status',1)->get();
         $data['dest']   = destModel::all();
-        $data['tour'] = ToursModel::where('status',1)->orderBy('tour_id','desc')->take(4)->get();
+        $data['tour'] = ToursModel::where('Tours_tb.status',1)->join('traveltype_tb','Tours_tb.tour_id','=','traveltype_tb.tour_id')->orderBy('Tours_tb.tour_id','desc')->get();
         $data['slider'] = slider::where('slider_status',1)->get();
         $data['banner'] = banner::where('banner_id',1)->first('banner_img');
         $data['sliCus'] = sliderCustomer::where('slider_status',1)->take(3)->get();
