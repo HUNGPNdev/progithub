@@ -163,6 +163,7 @@ Route::group(['namespace' => 'Admin'], function() {
         });
 
         Route::get('destroy/{id}','AdminController@destroy')->name('destroy');
+        Route::get('delete/{id}','RoleController@delete')->name('roles.delete');
         Route::resources([
             'roles' => 'RoleController',
             'listadmin' => 'AdminController',
