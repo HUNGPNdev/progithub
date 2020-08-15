@@ -44,6 +44,7 @@ Route::group(['namespace' => 'User'], function() {
         Route::post('edit/{id}','UserLoginController@EditUser')->name('userlogin.edit');
 		Route::group(['prefix' => 'tour'], function() {
 			Route::get('tourdetail/{id}','frontEndController@getTourDetail');
+            Route::post('review','frontEndController@postReview')->name('tour.review');
             Route::get('tourpackages','frontEndController@getTourpackages');
             Route::post('tourpackages/getpagetours','frontEndController@getpagetours')->name('getpagetours');
         });
@@ -76,9 +77,10 @@ Route::group(['namespace' => 'Admin'], function() {
     });
 
     Route::get('logout','HomeController@getlogout');
+    
+        Route::get('error','AdminController@error')->name('error');
 
     Route::group(['prefix' => 'admin', 'middleware'=>'CheckLogedOut','as'=>'admin.'], function() {
-        Route::get('/','HomeController@getHome')->name('home');
         Route::get('home','HomeController@getHome')->name('home');
 
         Route::group(['prefix' => 'listadmin'], function() {
@@ -160,7 +162,6 @@ Route::group(['namespace' => 'Admin'], function() {
             Route::get('sliCus-delete/{id}','SliCusController@getDelSlider')->name('sliCus.delete');
         });
 
-        Route::get('error','AdminController@error')->name('error');
         Route::get('destroy/{id}','AdminController@destroy')->name('destroy');
         Route::resources([
             'roles' => 'RoleController',

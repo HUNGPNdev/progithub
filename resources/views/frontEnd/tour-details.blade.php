@@ -129,42 +129,43 @@
 							</div>
 						</div>
 						<div class="client-start-comment">
-							<form action="#" method="post">
-								@csrf
 								<div class="all-women-heading">
 									<h3>Write a Review</h3>
 								</div>
+							@if(Auth::guard("users_tb")->check())
+							<form action="{{ route('tour.review') }}" method="post">
+								@csrf
 								<div class="row">
 									<div class="col-lg-6">
 										<div class="dtart-one">
 											<div class="start-one-ras">
 												<h6>Services</h6>
 												<div class="stat-serv">
-													<input name="star" type="radio" class="star" value="10"/>
-													<input name="star" type="radio" class="star" value="20"/>
-													<input name="star" type="radio" class="star" value="30"/>
-													<input name="star" type="radio" class="star" value="40"/>
-													<input name="star" type="radio" class="star" value="50"/>
+													<input name="star" type="radio" class="star" value="1"/>
+													<input name="star" type="radio" class="star" value="2"/>
+													<input name="star" type="radio" class="star" value="3"/>
+													<input name="star" type="radio" class="star" value="4"/>
+													<input name="star" type="radio" class="star" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Hospitality</h6>
 												<div class="stat-serv">
-													<input name="star-1" type="radio" class="star-1" value="10"/>
-													<input name="star-1" type="radio" class="star-1" value="20"/>
-													<input name="star-1" type="radio" class="star-1" value="30"/>
-													<input name="star-1" type="radio" class="star-1" value="40"/>
-													<input name="star-1" type="radio" class="star-1" value="50"/>
+													<input name="star_1" type="radio" class="star-1" value="1"/>
+													<input name="star_1" type="radio" class="star-1" value="2"/>
+													<input name="star_1" type="radio" class="star-1" value="3"/>
+													<input name="star_1" type="radio" class="star-1" value="4"/>
+													<input name="star_1" type="radio" class="star-1" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Cleanliness</h6>
 												<div class="stat-serv">
-													<input name="star-2" type="radio" class="star-2" value="10"/>
-													<input name="star-2" type="radio" class="star-2" value="20"/>
-													<input name="star-2" type="radio" class="star-2" value="30"/>
-													<input name="star-2" type="radio" class="star-2" value="40"/>
-													<input name="star-2" type="radio" class="star-2" value="50"/>
+													<input name="star_2" type="radio" class="star-2" value="1"/>
+													<input name="star_2" type="radio" class="star-2" value="2"/>
+													<input name="star_2" type="radio" class="star-2" value="3"/>
+													<input name="star_2" type="radio" class="star-2" value="4"/>
+													<input name="star_2" type="radio" class="star-2" value="5"/>
 												</div>
 											</div>
 
@@ -175,31 +176,31 @@
 											<div class="start-one-ras">
 												<h6>Rooms</h6>
 												<div class="stat-serv">
-													<input name="star-3" type="radio" class="star-3" value="10"/>
-													<input name="star-3" type="radio" class="star-3" value="20"/>
-													<input name="star-3" type="radio" class="star-3" value="30"/>
-													<input name="star-3" type="radio" class="star-3" value="40"/>
-													<input name="star-3" type="radio" class="star-3" value="50"/>
+													<input name="star_3" type="radio" class="star-3" value="1"/>
+													<input name="star_3" type="radio" class="star-3" value="2"/>
+													<input name="star_3" type="radio" class="star-3" value="3"/>
+													<input name="star_3" type="radio" class="star-3" value="4"/>
+													<input name="star_3" type="radio" class="star-3" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Comfort</h6>
 												<div class="stat-serv">
-													<input name="star-4" type="radio" class="star-4" value="10"/>
-													<input name="star-4" type="radio" class="star-4" value="20"/>
-													<input name="star-4" type="radio" class="star-4" value="30"/>
-													<input name="star-4" type="radio" class="star-4" value="40"/>
-													<input name="star-4" type="radio" class="star-4" value="50"/>
+													<input name="star_4" type="radio" class="star-4" value="1"/>
+													<input name="star_4" type="radio" class="star-4" value="2"/>
+													<input name="star_4" type="radio" class="star-4" value="3"/>
+													<input name="star_4" type="radio" class="star-4" value="4"/>
+													<input name="star_4" type="radio" class="star-4" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Satisfaction</h6>
 												<div class="stat-serv">
-													<input name="star-5" type="radio" class="star-5" value="10"/>
-													<input name="star-5" type="radio" class="star-5" value="20"/>
-													<input name="star-5" type="radio" class="star-5" value="30"/>
-													<input name="star-5" type="radio" class="star-5" value="40"/>
-													<input name="star-5" type="radio" class="star-5" value="50"/>
+													<input name="star_5" type="radio" class="star-5" value="1"/>
+													<input name="star_5" type="radio" class="star-5" value="2"/>
+													<input name="star_5" type="radio" class="star-5" value="3"/>
+													<input name="star_5" type="radio" class="star-5" value="4"/>
+													<input name="star_5" type="radio" class="star-5" value="5"/>
 												</div>
 											</div>
 
@@ -210,16 +211,19 @@
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="form-group nessage-text">
-												<textarea name="message" id="message" rows="6" class="form-control"
+												<textarea name="review" id="message" rows="6" class="form-control"
 												placeholder="Enter Your Review:" required=""></textarea>
 											</div>
 											<div class="contact-sub-btn">
-												<a href="#!" class="btn submit">Submit</a>
+												<button class="btn submit">Submit</button>
 											</div>
 										</div>
 									</div>
 								</div>
 							</form>
+							@else
+							<h6 style="margin-left: 111px;color: red;">You need login befor Review!</h6><br><br>
+							@endif
 						</div>
 					</div>
 				</div>
