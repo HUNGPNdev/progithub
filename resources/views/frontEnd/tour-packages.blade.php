@@ -84,7 +84,9 @@
     </div>
 </div>
 </section>
-
+<div class="container mt-5">
+    <hr class="color-1">
+</div>
 <section id="tour-des">
     <div class="content-box can-if">
         <h6>Travel Express Provide</h6>
@@ -98,6 +100,10 @@
         </div>
     </div>
 </section>
+
+<div class="container mb-5">
+    <hr class="color-1">
+</div>
 
 <section id="summery">
     <div class="container">

@@ -26,143 +26,31 @@
 <section id="gallery-area">
     <div class="container">
         <div class="row">
+            @foreach($itg as $itg)
+            @if($itg->images != [])
+            @php
+            $imgs = json_decode($itg->images);
+            $arr = ['London','Tokyo','Thailand','Australia','South Africa','Singapore','China'];
+            @endphp
+            @foreach($imgs as $img)
             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                 <div class="gallery-main-hover wow fadeIn" data-wow-duration="1s">
-                    <img src="assets/img/gallery/1.png" alt="">
+                    <img src="{{asset('storage/app/blog_img/'.$img)}}" alt="">
                     <div class="gall-overlay">
                         <div class="all-cover-hall">
                             <div class="icon-tsdg">
                                 <a href="assets/img/gallery/1.png"><i class="fas fa-search-location"></i></a>
                             </div>
                             <div class="gall-heding-travel">
-                                <h6>London</h6>
+                                <h6><?php echo $arr[array_rand($arr)]; ?></h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="gallery-main-hover wow fadeIn" data-wow-duration="2s">
-                    <img src="assets/img/gallery/2.png" alt="">
-                    <div class="gall-overlay">
-                        <div class="all-cover-hall">
-                            <div class="icon-tsdg">
-                                <a href="assets/img/gallery/2.png"><i class="fas fa-search-location"></i></a>
-                            </div>
-                            <div class="gall-heding-travel">
-                                <h6>London</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="gallery-main-hover wow fadeIn" data-wow-duration="3s">
-                    <img src="assets/img/gallery/3.png" alt="">
-                    <div class="gall-overlay">
-                        <div class="all-cover-hall">
-                            <div class="icon-tsdg">
-                                <a href="assets/img/gallery/3.png"><i class="fas fa-search-location"></i></a>
-                            </div>
-                            <div class="gall-heding-travel">
-                                <h6>London</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="gallery-main-hover wow fadeIn" data-wow-duration="1s">
-                    <img src="assets/img/gallery/4.png" alt="">
-                    <div class="gall-overlay">
-                        <div class="all-cover-hall">
-                            <div class="icon-tsdg">
-                                <a href="assets/img/gallery/4.png"><i class="fas fa-search-location"></i></a>
-                            </div>
-                            <div class="gall-heding-travel">
-                                <h6>London</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="gallery-main-hover wow fadeIn" data-wow-duration="2s">
-                    <img src="assets/img/gallery/5.png" alt="">
-                    <div class="gall-overlay">
-                        <div class="all-cover-hall">
-                            <div class="icon-tsdg">
-                                <a href="assets/img/gallery/5.png"><i class="fas fa-search-location"></i></a>
-                            </div>
-                            <div class="gall-heding-travel">
-                                <h6>London</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="gallery-main-hover wow fadeIn" data-wow-duration="3s">
-                    <img src="assets/img/gallery/6.png" alt="">
-                    <div class="gall-overlay">
-                        <div class="gall-overlay">
-                            <div class="all-cover-hall">
-                                <div class="icon-tsdg">
-                                    <a href="assets/img/gallery/6.png"><i class="fas fa-search-location"></i></a>
-                                </div>
-                                <div class="gall-heding-travel">
-                                    <h6>London</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="gallery-main-hover wow fadeIn" data-wow-duration="1s">
-                    <img src="assets/img/gallery/7.png" alt="">
-                    <div class="gall-overlay">
-                        <div class="all-cover-hall">
-                            <div class="icon-tsdg">
-                                <a href="assets/img/gallery/7.png"><i class="fas fa-search-location"></i></a>
-                            </div>
-                            <div class="gall-heding-travel">
-                                <h6>London</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="gallery-main-hover wow fadeIn" data-wow-duration="2s">
-                    <img src="assets/img/gallery/8.png" alt="">
-                    <div class="gall-overlay">
-                        <div class="all-cover-hall">
-                            <div class="icon-tsdg">
-                                <a href="assets/img/gallery/8.png"><i class="fas fa-search-location"></i></a>
-                            </div>
-                            <div class="gall-heding-travel">
-                                <h6>London</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                <div class="gallery-main-hover wow fadeIn" data-wow-duration="3s">
-                    <img src="assets/img/gallery/9.png" alt="">
-                    <div class="gall-overlay">
-                        <div class="all-cover-hall">
-                            <div class="icon-tsdg">
-                                <a href="assets/img/gallery/9.png"><i class="fas fa-search-location"></i></a>
-                            </div>
-                            <div class="gall-heding-travel">
-                                <h6>London</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            @endif
+            @endforeach
         </div>
     </div>
 </section>

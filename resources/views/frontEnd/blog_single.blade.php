@@ -90,7 +90,7 @@
 							<li><a href="#!"> Share this article</a></li>
 						</ul>
 					</div>
-					<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width=""></div>
+					<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="3" data-width=""></div>
 					
 				</div>
 			</div>
@@ -183,3 +183,7 @@
 </section>
 
 @stop
+@section('tourjs')
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=377553719880284&autoLogAppEvents=1" nonce="oO4y37Dt"></script>
+@stop()

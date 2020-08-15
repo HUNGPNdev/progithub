@@ -21,9 +21,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- tour-banner end-->
 
-	<!-- tour-details info-->
 	<section id="tour-detailes-main">
 		<div class="container">
 			<div class="row">
@@ -131,94 +129,85 @@
 							</div>
 						</div>
 						<div class="client-start-comment">
-							<div class="all-women-heading">
-								<h3>Write a Review</h3>
-							</div>
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="dtart-one">
-										<div class="start-one-ras">
-											<h6>Services</h6>
-											<div class="stat-serv">
-												<input name="star-demo" type="radio" class="star" />
-												<input name="star-demo" type="radio" class="star" />
-												<input name="star-demo" type="radio" class="star" />
-												<input name="star-demo" type="radio" class="star" />
-												<input name="star-demo" type="radio" class="star" />
+							<form action="#" method="post">
+								@csrf
+								<div class="all-women-heading">
+									<h3>Write a Review</h3>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="dtart-one">
+											<div class="start-one-ras">
+												<h6>Services</h6>
+												<div class="stat-serv">
+													<input name="star" type="radio" class="star" value="10"/>
+													<input name="star" type="radio" class="star" value="20"/>
+													<input name="star" type="radio" class="star" value="30"/>
+													<input name="star" type="radio" class="star" value="40"/>
+													<input name="star" type="radio" class="star" value="50"/>
+												</div>
 											</div>
-										</div>
-										<div class="start-one-ras">
-											<h6>Hospitality</h6>
-											<div class="stat-serv">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
+											<div class="start-one-ras">
+												<h6>Hospitality</h6>
+												<div class="stat-serv">
+													<input name="star-1" type="radio" class="star-1" value="10"/>
+													<input name="star-1" type="radio" class="star-1" value="20"/>
+													<input name="star-1" type="radio" class="star-1" value="30"/>
+													<input name="star-1" type="radio" class="star-1" value="40"/>
+													<input name="star-1" type="radio" class="star-1" value="50"/>
+												</div>
 											</div>
-										</div>
-										<div class="start-one-ras">
-											<h6>Cleanliness</h6>
-											<div class="stat-serv">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
+											<div class="start-one-ras">
+												<h6>Cleanliness</h6>
+												<div class="stat-serv">
+													<input name="star-2" type="radio" class="star-2" value="10"/>
+													<input name="star-2" type="radio" class="star-2" value="20"/>
+													<input name="star-2" type="radio" class="star-2" value="30"/>
+													<input name="star-2" type="radio" class="star-2" value="40"/>
+													<input name="star-2" type="radio" class="star-2" value="50"/>
+												</div>
 											</div>
-										</div>
 
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="dtart-one">
+											<div class="start-one-ras">
+												<h6>Rooms</h6>
+												<div class="stat-serv">
+													<input name="star-3" type="radio" class="star-3" value="10"/>
+													<input name="star-3" type="radio" class="star-3" value="20"/>
+													<input name="star-3" type="radio" class="star-3" value="30"/>
+													<input name="star-3" type="radio" class="star-3" value="40"/>
+													<input name="star-3" type="radio" class="star-3" value="50"/>
+												</div>
+											</div>
+											<div class="start-one-ras">
+												<h6>Comfort</h6>
+												<div class="stat-serv">
+													<input name="star-4" type="radio" class="star-4" value="10"/>
+													<input name="star-4" type="radio" class="star-4" value="20"/>
+													<input name="star-4" type="radio" class="star-4" value="30"/>
+													<input name="star-4" type="radio" class="star-4" value="40"/>
+													<input name="star-4" type="radio" class="star-4" value="50"/>
+												</div>
+											</div>
+											<div class="start-one-ras">
+												<h6>Satisfaction</h6>
+												<div class="stat-serv">
+													<input name="star-5" type="radio" class="star-5" value="10"/>
+													<input name="star-5" type="radio" class="star-5" value="20"/>
+													<input name="star-5" type="radio" class="star-5" value="30"/>
+													<input name="star-5" type="radio" class="star-5" value="40"/>
+													<input name="star-5" type="radio" class="star-5" value="50"/>
+												</div>
+											</div>
+
+										</div>
 									</div>
 								</div>
-								<div class="col-lg-6">
-									<div class="dtart-one">
-										<div class="start-one-ras">
-											<h6>Rooms</h6>
-											<div class="stat-serv">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star" style="color:#fff;"></i>
-											</div>
-										</div>
-										<div class="start-one-ras">
-											<h6>Comfort</h6>
-											<div class="stat-serv">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-											</div>
-										</div>
-										<div class="start-one-ras">
-											<h6>Satisfaction</h6>
-											<div class="stat-serv">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star" style="color:#fff;"></i>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="revs-form">
-								<form action="#">
+								<div class="revs-form">
 									<div class="row">
-										<div class="col-lg-6">
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Your Name:" required="">
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Your Email:" required="">
-											</div>
-										</div>
 										<div class="col-lg-12">
 											<div class="form-group nessage-text">
 												<textarea name="message" id="message" rows="6" class="form-control"
@@ -229,8 +218,8 @@
 											</div>
 										</div>
 									</div>
-								</form>
-							</div>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -370,7 +359,5 @@
 			</div>
 		</div>
 	</div>
-	<!-- tour-details end-->
 
-	<!-- footer start-->
 	@stop
