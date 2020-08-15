@@ -22,6 +22,8 @@ class ServiceController extends Controller
 
 	public function getGallery(){
 		$data['banner'] = banner::where('banner_id',4)->first('banner_img');
+		$data['itg'] = Blog_Model::all()->random()->get();
+
 		return view('frontEnd.gallery',$data);	
 	}
 

@@ -453,7 +453,6 @@
 
 <script src="assets/star-rating/jquery.rating.js"></script>
 @yield('tourjs')
-<!-- a -->
 <script>
     $('#sendmail').click(function(){
         $('.showsend').addClass('d-none');
@@ -493,34 +492,43 @@
             $('#img').click();
         });
     });
-        // total money
 
+    //ajax
+    $(document).on('click','.pagination a', function(e){
+        e.preventDefault();
+        var page = $(this).attr('href').split('page=')[1];
+        getpagetours(page);
+    });
+    function getpagetours(page){
+        var _token = $("input[name=_token]").val();
+        
+        $.ajax({
+          url:"{{ route('getpagetours') }}",
+          method:"POST",
+          data:{_token:_token, page:page},
+          success:function(data)
+          {
+           $('#table_data').html(data);
+       }
+   });
+    }
 
-        //ajax
+    // rating
+    $('.star').rating({
+    });
+    $('.star-1').rating({
+    });
+    $('.star-2').rating({
+    });
+    $('.star-3').rating({
+    });
+    $('.star-4').rating({
+    });
+    $('.star-5').rating({
+    });
 
-        $(document).on('click','.pagination a', function(e){
-            e.preventDefault();
-            var page = $(this).attr('href').split('page=')[1];
-            getpagetours(page);
-        });
-        function getpagetours(page){
-            var _token = $("input[name=_token]").val();
-            
-            $.ajax({
-              url:"{{ route('getpagetours') }}",
-              method:"POST",
-              data:{_token:_token, page:page},
-              success:function(data)
-              {
-               $('#table_data').html(data);
-           }
-       });
-        }
-
-
-    </script>
+</script>
 
 </body>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=377553719880284&autoLogAppEvents=1" nonce="fqWVHBSM"></script>
+
 </html>
