@@ -26,8 +26,8 @@ class Review extends Migration
             $table->tinyInteger('review_status');
             $table->Integer('user_id')->unsigned();
             $table->Integer('tour_id')->unsigned();
-            $table->Foreign('user_id')->References('id')->on('users_tb')->onDelete('cascade');
-            $table->Foreign('tour_id')->References('tour_id')->on('tours_tb')->onDelete('cascade');
+            $table->Foreign('user_id')->references('id')->on('users_tb')->onDelete('cascade');
+            $table->Foreign('tour_id')->references('tour_id')->on('tours_tb')->onDelete('cascade');
             $table->timestamps();
         });
     }
