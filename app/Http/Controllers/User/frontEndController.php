@@ -29,7 +29,7 @@ class frontEndController extends Controller
     }
 
     public function getTourDetail($id){
-        $review = DB::table('users_tb')->join('review','users_tb.id','=','review.user_id')->where('tour_id',$id)->orderBy('review_id','desc')->take(2)->get();
+        $review = DB::table('users_tb')->join('review','users_tb.id','=','review.user_id')->where('tour_id',$id)->where('review_status',1)->orderBy('review_id','desc')->take(2)->get();
         $r = review::where('tour_id',$id)->get('avg');
         $tour = ToursModel::find($id);
         $count = review::where('tour_id',$id)->count();
