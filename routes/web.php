@@ -44,7 +44,7 @@ Route::group(['namespace' => 'User'], function() {
         Route::post('edit/{id}','UserLoginController@EditUser')->name('userlogin.edit');
 		Route::group(['prefix' => 'tour'], function() {
 			Route::get('tourdetail/{id}','frontEndController@getTourDetail');
-            Route::post('review','frontEndController@postReview')->name('tour.review');
+            Route::post('review/{id}','frontEndController@postReview')->name('tour.review');
             Route::get('tourpackages','frontEndController@getTourpackages');
             Route::post('tourpackages/getpagetours','frontEndController@getpagetours')->name('getpagetours');
         });
