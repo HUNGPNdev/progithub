@@ -30,8 +30,10 @@ class UserLoginController extends Controller
     	$name = UserModel::where('email',$request->email)->value("name");
     	$img = UserModel::where('email',$request->email)->value("image");
     	$phone = UserModel::where('email',$request->email)->value("phone");
-    	$gender = UserModel::where('email',$request->email)->value("gender");
+        $gender = UserModel::where('email',$request->email)->value("gender");
+    	$email = UserModel::where('email',$request->email)->value("email");
     	if(Auth::guard('users_tb')->attempt($arr, $remember)){
+            $request->session()->put("email",$email);
             $request->session()->put("id",$id);
     		$request->session()->put("name",$name);
     		$request->session()->put("image",$img);
@@ -41,9 +43,8 @@ class UserLoginController extends Controller
     	}else{
     		return back()->withInput()->with('error','User account or password is incorrect!');
     	}
-
-
 	}
+    
     public function EditUser( Request $request, UserModel $UserModel, $id){
         $rules = [];
         $messages = [];

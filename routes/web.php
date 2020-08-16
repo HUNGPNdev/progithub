@@ -105,6 +105,8 @@ Route::group(['namespace' => 'Admin'], function() {
         	Route::post('edit/{id}','ToursController@postEditTour')->name('tours.postedit');
 
         	Route::get('delete/{id}','ToursController@getDeleteTour')->name('tours.delete');
+
+            
         });
         Route::group(['prefix' => 'guider'], function() {
             Route::get('/','TourGuiderController@tourguider')->name('guider');
