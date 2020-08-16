@@ -507,6 +507,9 @@
     }
 
     // rating
+    $('.star-0').rating({
+        readOnly:true,
+    });
     $('.star').rating({
     });
     $('.star-1').rating({

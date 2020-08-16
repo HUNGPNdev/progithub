@@ -31,16 +31,26 @@
 							<div class="tour-heading-detailse">
 								<h6>{{$dest['dest_name']}}</h6>
 								<h2>Special <span>{{$tour->tour_name}} Tour</span></h2>
+								<?php 
+								$a = 0;
+								$rating = '';
+								foreach($r as $r){
+									$a = $a + $r->avg;
+								}
+								if($count != 0){
+									$rating = $a / $count;
+								}
+								?>
 								<div class="start-text-details">
 									<div class="start-icon-deta">
-										<a href="#"><i class="fas fa-star"></i></a>
-										<a href="#"><i class="fas fa-star"></i></a>
-										<a href="#"><i class="fas fa-star"></i></a>
-										<a href="#"><i class="fas fa-star"></i></a>
-										<a href="#"><i class="fas fa-star"></i></a>
+										<input name="star_0" type="radio" class="star-0" value="1" {{((Int)$rating == 1) ? 'checked' : ''}}/>
+										<input name="star_0" type="radio" class="star-0" value="2" {{((Int)$rating == 2) ? 'checked' : ''}}/>
+										<input name="star_0" type="radio" class="star-0" value="3" {{((Int)$rating == 3) ? 'checked' : ''}}/>
+										<input name="star_0" type="radio" class="star-0" value="4" {{((Int)$rating == 4) ? 'checked' : ''}}/>
+										<input name="star_0" type="radio" class="star-0" value="5" {{((Int)$rating == 5) ? 'checked' : ''}}/>
 									</div>
 									<div class="revews">
-										<h6>21 Review</h6>
+										<h6>{{$count}} Review</h6>
 									</div>
 								</div>
 							</div>
@@ -97,43 +107,30 @@
 						</div>
 						<div class="client-revews">
 							<h5>Our Clients Review</h5>
-							<div class="client-info-rev">
-								<div class="cliennt-img">
-									<img src="assets/img/client/replay.png" alt="img">
+							@foreach($review as $r)
+							<div style="border: 2px solid #000;padding: 10px 20px;border-radius: 25px;margin-top: 30px;">
+								<div class="client-info-rev">
+									<div class="cliennt-img">
+										<img src="{{asset('storage/app/users/'.$r->image)}}" alt="img">
+									</div>
+									<div class="clients-desnigation">
+										<h5>{{$r->name}}</h5>
+										<h6>{{date('d M Y - H:i',strtotime($r->created_at))}}</h6>
+									</div>
 								</div>
-								<div class="clients-desnigation">
-									<h5>Jessica Ana</h5>
-									<h6>25 Sep 2019</h6>
-								</div>
-							</div>
-							<div>
-								<h6>It was a great tour with this awesome agency. Thanks.</h6>
-								<p>Ut accumsan lorem scelerisque mauris congue posuere. Aliquam elementum fermentum
-									accumsan. Mauris id blandit eros. Nullam in convallis dui. Nunc sit amet justo
-								porta, euismod nisi at, vehicula ligula. Pellentesque ante orci, </p>
-							</div>
-							<div class="client-info-rev">
-								<div class="cliennt-img">
-									<img src="assets/img/client/replay-1.png" alt="img">
-								</div>
-								<div class="clients-desnigation">
-									<h5>Marry Smith</h5>
-									<h6>25 Sep 2019</h6>
+								<div>
+									<h6 style="margin-bottom: 20px;">{{$r->review_cmt}}</h6>
 								</div>
 							</div>
-							<div>
-								<h6>It was a great tour with this awesome agency. Thanks.</h6>
-								<p>Ut accumsan lorem scelerisque mauris congue posuere. Aliquam elementum fermentum
-									accumsan. Mauris id blandit eros. Nullam in convallis dui. Nunc sit amet justo
-								porta, euismod nisi at, vehicula ligula. Pellentesque ante orci, </p>
-							</div>
+							@endforeach
 						</div>
 						<div class="client-start-comment">
-								<div class="all-women-heading">
-									<h3>Write a Review</h3>
-								</div>
+							<div class="all-women-heading">
+								<h3>Write a Review</h3>
+							</div>
 							@if(Auth::guard("users_tb")->check())
-							<form action="{{ route('tour.review') }}" method="post">
+							@include('errors.note')
+							<form action="{{ route('tour.review',$tour->tour_id) }}" method="post">
 								@csrf
 								<div class="row">
 									<div class="col-lg-6">
@@ -141,31 +138,31 @@
 											<div class="start-one-ras">
 												<h6>Services</h6>
 												<div class="stat-serv">
-													<input name="star" type="radio" class="star" value="1"/>
-													<input name="star" type="radio" class="star" value="2"/>
-													<input name="star" type="radio" class="star" value="3"/>
-													<input name="star" type="radio" class="star" value="4"/>
-													<input name="star" type="radio" class="star" value="5"/>
+													<input required name="star" type="radio" class="star" value="1"/>
+													<input required name="star" type="radio" class="star" value="2"/>
+													<input required name="star" type="radio" class="star" value="3"/>
+													<input required name="star" type="radio" class="star" value="4"/>
+													<input required name="star" type="radio" class="star" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Hospitality</h6>
 												<div class="stat-serv">
-													<input name="star_1" type="radio" class="star-1" value="1"/>
-													<input name="star_1" type="radio" class="star-1" value="2"/>
-													<input name="star_1" type="radio" class="star-1" value="3"/>
-													<input name="star_1" type="radio" class="star-1" value="4"/>
-													<input name="star_1" type="radio" class="star-1" value="5"/>
+													<input required name="star_1" type="radio" class="star-1" value="1"/>
+													<input required name="star_1" type="radio" class="star-1" value="2"/>
+													<input required name="star_1" type="radio" class="star-1" value="3"/>
+													<input required name="star_1" type="radio" class="star-1" value="4"/>
+													<input required name="star_1" type="radio" class="star-1" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Cleanliness</h6>
 												<div class="stat-serv">
-													<input name="star_2" type="radio" class="star-2" value="1"/>
-													<input name="star_2" type="radio" class="star-2" value="2"/>
-													<input name="star_2" type="radio" class="star-2" value="3"/>
-													<input name="star_2" type="radio" class="star-2" value="4"/>
-													<input name="star_2" type="radio" class="star-2" value="5"/>
+													<input required name="star_2" type="radio" class="star-2" value="1"/>
+													<input required name="star_2" type="radio" class="star-2" value="2"/>
+													<input required name="star_2" type="radio" class="star-2" value="3"/>
+													<input required name="star_2" type="radio" class="star-2" value="4"/>
+													<input required name="star_2" type="radio" class="star-2" value="5"/>
 												</div>
 											</div>
 
@@ -176,31 +173,31 @@
 											<div class="start-one-ras">
 												<h6>Rooms</h6>
 												<div class="stat-serv">
-													<input name="star_3" type="radio" class="star-3" value="1"/>
-													<input name="star_3" type="radio" class="star-3" value="2"/>
-													<input name="star_3" type="radio" class="star-3" value="3"/>
-													<input name="star_3" type="radio" class="star-3" value="4"/>
-													<input name="star_3" type="radio" class="star-3" value="5"/>
+													<input required name="star_3" type="radio" class="star-3" value="1"/>
+													<input required name="star_3" type="radio" class="star-3" value="2"/>
+													<input required name="star_3" type="radio" class="star-3" value="3"/>
+													<input required name="star_3" type="radio" class="star-3" value="4"/>
+													<input required name="star_3" type="radio" class="star-3" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Comfort</h6>
 												<div class="stat-serv">
-													<input name="star_4" type="radio" class="star-4" value="1"/>
-													<input name="star_4" type="radio" class="star-4" value="2"/>
-													<input name="star_4" type="radio" class="star-4" value="3"/>
-													<input name="star_4" type="radio" class="star-4" value="4"/>
-													<input name="star_4" type="radio" class="star-4" value="5"/>
+													<input required name="star_4" type="radio" class="star-4" value="1"/>
+													<input required name="star_4" type="radio" class="star-4" value="2"/>
+													<input required name="star_4" type="radio" class="star-4" value="3"/>
+													<input required name="star_4" type="radio" class="star-4" value="4"/>
+													<input required name="star_4" type="radio" class="star-4" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Satisfaction</h6>
 												<div class="stat-serv">
-													<input name="star_5" type="radio" class="star-5" value="1"/>
-													<input name="star_5" type="radio" class="star-5" value="2"/>
-													<input name="star_5" type="radio" class="star-5" value="3"/>
-													<input name="star_5" type="radio" class="star-5" value="4"/>
-													<input name="star_5" type="radio" class="star-5" value="5"/>
+													<input required name="star_5" type="radio" class="star-5" value="1"/>
+													<input required name="star_5" type="radio" class="star-5" value="2"/>
+													<input required name="star_5" type="radio" class="star-5" value="3"/>
+													<input required name="star_5" type="radio" class="star-5" value="4"/>
+													<input required name="star_5" type="radio" class="star-5" value="5"/>
 												</div>
 											</div>
 

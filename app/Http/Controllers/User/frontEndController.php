@@ -29,7 +29,10 @@ class frontEndController extends Controller
     }
 
     public function getTourDetail($id){
+        $review = DB::table('users_tb')->join('review','users_tb.id','=','review.user_id')->where('tour_id',$id)->where('review_status',1)->orderBy('review_id','desc')->take(2)->get();
+        $r = review::where('tour_id',$id)->get('avg');
         $tour = ToursModel::find($id);
+        $count = review::where('tour_id',$id)->count();
         $id = $tour->dest_id;
         $dest = destModel::where('dest_id',$id)->first();
         if($tour->package!=null){
@@ -37,10 +40,11 @@ class frontEndController extends Controller
         }
         $unkey = package::where('status',1)->orderBy('pac_id','desc')->take(4)->get();
         $data = banner::where('banner_id',2)->first('banner_img');
-        return view('frontEnd.tour-details',compact('tour','key','unkey','dest','data'));
+        return view('frontEnd.tour-details',compact('tour','key','unkey','dest','data','review','count','r'));
     }
 
-    public function postReview(request $req){
+    public function postReview(request $req, $id){
+        $tour = ToursModel::find($id);
         $review = new review;
         $review->services = $req->star;
         $review->hospitality = $req->star_1;
@@ -48,7 +52,14 @@ class frontEndController extends Controller
         $review->rooms = $req->star_3;
         $review->comfort = $req->star_4;
         $review->satisfaction = $req->star_5;
+        $review->avg = ($req->star + $req->star_1 + $req->star_2 + $req->star_3 + $req->star_4 + $req->star_5) / 6;
         $review->review_cmt = $req->review;
+        $review->review_status = 1;
+        $review->user_id = Auth::guard('users_tb')->id();
+        $review->tour_id = $id;
+        $review->save();
+
+        return back();
     }
 
     public function getTourpackages(){
