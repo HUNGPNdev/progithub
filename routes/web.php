@@ -89,6 +89,9 @@ Route::group(['namespace' => 'Admin'], function() {
         Route::group(['prefix' => 'adminUser'], function() {
             Route::get('/','UserController@getuser')->name('user.admin');
             Route::get('delete/{id}','UserController@DeleteUser')->name('user.delete');
+
+            Route::get('/active/{id}','UserController@activeUser')->name('user.active');
+            Route::get('/unactive/{id}','UserController@unactiveUser')->name('user.unactive');
         });
         Route::group(['prefix' => 'destination'], function() {
         	Route::get('/','DestinationController@getDest')->name('destination');

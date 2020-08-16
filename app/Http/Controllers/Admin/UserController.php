@@ -17,4 +17,13 @@ class UserController extends Controller
     	UserModel::destroy($id);
     	return back();
     }
+
+    public function activeUser($id){
+    	UserModel::where('id',$id)->update(['check_register'=>1]);
+    	return redirect()->route('admin.user.admin')->with('success','Active User successfully');
+    }
+    public function unactiveUser($id){
+    	UserModel::where('id',$id)->update(['check_register'=>0]);
+    	return redirect()->route('admin.user.admin')->with('success','Unactive User successfully');
+    }
 }
