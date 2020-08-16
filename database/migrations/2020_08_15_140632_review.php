@@ -21,6 +21,7 @@ class Review extends Migration
             $table->Integer('comfort');
             $table->Integer('cleanliness');
             $table->Integer('satisfaction');
+            $table->Integer('avg');
             $table->text('review_cmt');
             $table->tinyInteger('review_status');
             $table->Integer('user_id')->unsigned();
