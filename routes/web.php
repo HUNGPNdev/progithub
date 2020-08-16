@@ -86,6 +86,10 @@ Route::group(['namespace' => 'Admin'], function() {
         Route::group(['prefix' => 'listadmin'], function() {
             Route::get('/','HomeController@listadmin')->name('listadmin');
         });
+        Route::group(['prefix' => 'adminUser'], function() {
+            Route::get('/','UserController@getuser')->name('user.admin');
+            Route::get('delete/{id}','UserController@DeleteUser')->name('user.delete');
+        });
         Route::group(['prefix' => 'destination'], function() {
         	Route::get('/','DestinationController@getDest')->name('destination');
         	Route::post('/','DestinationController@postDest')->name('destination.post');

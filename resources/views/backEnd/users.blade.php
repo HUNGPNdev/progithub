@@ -23,8 +23,6 @@
                                            <td>Name</td>
                                            <td>email</td>
                                            <td>phone</td>
-                                           <td>address</td>
-                                           <td>birthday</td>
                                            <td>gender</td>
                                            <td>image</td>
                                            <td>status</td>
@@ -38,14 +36,11 @@
                                            <td>{{$a->name}}</td>
                                            <td>{{$a->email}}</td>
                                            <td>{{$a->phone}}</td>
-                                           <td>{{$a->address}}</td>
-                                           <td>{{$a->birthday}}</td>
-                                           <td>{{$a->gender}}</td>
-                                           <td>{{$a->image}}</td>
-                                           <td>{{$a->status}}</td>
+                                           <td>{{($a->gender == 0) ? 'Nam' : 'Nữ'}}</td>
+                                           <td><img width="100px" style="margin: 0;" src="{{asset('storage/app/users/'.$a->image)}}" class="thumbnail img-fluid">
+                                           <td>{{($a->check_register == 0 ) ? 'Đã kích hoạt' : 'Chưa kích hoạt'}}</td>
                                            <td>
-                                                <a href="{{ route('admin.listadmin.edit',$a->id) }}" class="btn btn-primary">Edit</a>
-                                                <a href="{{ asset('admin/destroy/'.$a->id) }}" class="btn btn-danger">Delete</a>
+                                                <a href="{{ route('admin.user.delete',$a->id) }}" class="btn btn-danger">Delete</a>
                                             </td>
                                        </tr>
                                        @endforeach
@@ -60,6 +55,6 @@
                     </div>
                 </div>
             </div>
-        </div><!--/.row-->
-    </div>  <!--/.main-->
+        </div>
+    </div> 
 @stop

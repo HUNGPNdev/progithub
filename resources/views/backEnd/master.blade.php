@@ -41,6 +41,9 @@
 				<a href="{{ route('admin.roles.index') }}"><svg class="glyph stroked chain"><use xlink:href="#stroked-chain"></use></svg> Roles</a>
 			</li>
 			@endif
+			@if($user->can('admin.user.admin'))
+			<li><a href="{{ route('admin.user.admin' )}}"><svg class="glyph stroked male user"><use xlink:href="#stroked-male-user"></use></svg> User</a></li>
+			@endif
 			@if($user->can('admin.guider'))
 			<li><a href="{{asset('admin/guider')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Tour Guider</a></li>
 			@endif
