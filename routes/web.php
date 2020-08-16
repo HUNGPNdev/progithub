@@ -44,7 +44,7 @@ Route::group(['namespace' => 'User'], function() {
         Route::post('edit/{id}','UserLoginController@EditUser')->name('userlogin.edit');
 		Route::group(['prefix' => 'tour'], function() {
 			Route::get('tourdetail/{id}','frontEndController@getTourDetail');
-            Route::post('review','frontEndController@postReview')->name('tour.review');
+            Route::post('review/{id}','frontEndController@postReview')->name('tour.review');
             Route::get('tourpackages','frontEndController@getTourpackages');
             Route::post('tourpackages/getpagetours','frontEndController@getpagetours')->name('getpagetours');
         });
@@ -105,6 +105,8 @@ Route::group(['namespace' => 'Admin'], function() {
         	Route::post('edit/{id}','ToursController@postEditTour')->name('tours.postedit');
 
         	Route::get('delete/{id}','ToursController@getDeleteTour')->name('tours.delete');
+
+            
         });
         Route::group(['prefix' => 'guider'], function() {
             Route::get('/','TourGuiderController@tourguider')->name('guider');
@@ -163,6 +165,7 @@ Route::group(['namespace' => 'Admin'], function() {
         });
 
         Route::get('destroy/{id}','AdminController@destroy')->name('destroy');
+        Route::get('delete/{id}','RoleController@delete')->name('roles.delete');
         Route::resources([
             'roles' => 'RoleController',
             'listadmin' => 'AdminController',

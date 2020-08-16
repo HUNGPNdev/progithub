@@ -50,7 +50,7 @@
                         <form action="{{route('cart.booking')}}" role="form" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="name">First name</label>
+                                <label for="name">Full name</label>
                                 <input type="text" class="form-control" name="name" required placeholder="Full Name" id="name" />
                             </div>
                             <div class="form-group">

@@ -31,16 +31,26 @@
 							<div class="tour-heading-detailse">
 								<h6>{{$dest['dest_name']}}</h6>
 								<h2>Special <span>{{$tour->tour_name}} Tour</span></h2>
+								<?php 
+								$a = 0;
+								$rating = '';
+								foreach($r as $r){
+									$a = $a + $r->avg;
+								}
+								if($count != 0){
+									$rating = $a / $count;
+								}
+								?>
 								<div class="start-text-details">
 									<div class="start-icon-deta">
-										<a href="#"><i class="fas fa-star"></i></a>
-										<a href="#"><i class="fas fa-star"></i></a>
-										<a href="#"><i class="fas fa-star"></i></a>
-										<a href="#"><i class="fas fa-star"></i></a>
-										<a href="#"><i class="fas fa-star"></i></a>
+										<input name="star_0" type="radio" class="star-0" value="1" {{((Int)$rating == 1) ? 'checked' : ''}}/>
+										<input name="star_0" type="radio" class="star-0" value="2" {{((Int)$rating == 2) ? 'checked' : ''}}/>
+										<input name="star_0" type="radio" class="star-0" value="3" {{((Int)$rating == 3) ? 'checked' : ''}}/>
+										<input name="star_0" type="radio" class="star-0" value="4" {{((Int)$rating == 4) ? 'checked' : ''}}/>
+										<input name="star_0" type="radio" class="star-0" value="5" {{((Int)$rating == 5) ? 'checked' : ''}}/>
 									</div>
 									<div class="revews">
-										<h6>21 Review</h6>
+										<h6>{{$count}} Review</h6>
 									</div>
 								</div>
 							</div>
@@ -97,43 +107,30 @@
 						</div>
 						<div class="client-revews">
 							<h5>Our Clients Review</h5>
-							<div class="client-info-rev">
-								<div class="cliennt-img">
-									<img src="assets/img/client/replay.png" alt="img">
+							@foreach($review as $r)
+							<div style="border: 2px solid #000;padding: 10px 20px;border-radius: 25px;margin-top: 30px;">
+								<div class="client-info-rev">
+									<div class="cliennt-img">
+										<img src="{{asset('storage/app/users/'.$r->image)}}" alt="img">
+									</div>
+									<div class="clients-desnigation">
+										<h5>{{$r->name}}</h5>
+										<h6>{{date('d M Y - H:i',strtotime($r->created_at))}}</h6>
+									</div>
 								</div>
-								<div class="clients-desnigation">
-									<h5>Jessica Ana</h5>
-									<h6>25 Sep 2019</h6>
-								</div>
-							</div>
-							<div>
-								<h6>It was a great tour with this awesome agency. Thanks.</h6>
-								<p>Ut accumsan lorem scelerisque mauris congue posuere. Aliquam elementum fermentum
-									accumsan. Mauris id blandit eros. Nullam in convallis dui. Nunc sit amet justo
-								porta, euismod nisi at, vehicula ligula. Pellentesque ante orci, </p>
-							</div>
-							<div class="client-info-rev">
-								<div class="cliennt-img">
-									<img src="assets/img/client/replay-1.png" alt="img">
-								</div>
-								<div class="clients-desnigation">
-									<h5>Marry Smith</h5>
-									<h6>25 Sep 2019</h6>
+								<div>
+									<h6 style="margin-bottom: 20px;">{{$r->review_cmt}}</h6>
 								</div>
 							</div>
-							<div>
-								<h6>It was a great tour with this awesome agency. Thanks.</h6>
-								<p>Ut accumsan lorem scelerisque mauris congue posuere. Aliquam elementum fermentum
-									accumsan. Mauris id blandit eros. Nullam in convallis dui. Nunc sit amet justo
-								porta, euismod nisi at, vehicula ligula. Pellentesque ante orci, </p>
-							</div>
+							@endforeach
 						</div>
 						<div class="client-start-comment">
-								<div class="all-women-heading">
-									<h3>Write a Review</h3>
-								</div>
+							<div class="all-women-heading">
+								<h3>Write a Review</h3>
+							</div>
 							@if(Auth::guard("users_tb")->check())
-							<form action="{{ route('tour.review') }}" method="post">
+							@include('errors.note')
+							<form action="{{ route('tour.review',$tour->tour_id) }}" method="post">
 								@csrf
 								<div class="row">
 									<div class="col-lg-6">
@@ -141,31 +138,31 @@
 											<div class="start-one-ras">
 												<h6>Services</h6>
 												<div class="stat-serv">
-													<input name="star" type="radio" class="star" value="1"/>
-													<input name="star" type="radio" class="star" value="2"/>
-													<input name="star" type="radio" class="star" value="3"/>
-													<input name="star" type="radio" class="star" value="4"/>
-													<input name="star" type="radio" class="star" value="5"/>
+													<input required name="star" type="radio" class="star" value="1"/>
+													<input required name="star" type="radio" class="star" value="2"/>
+													<input required name="star" type="radio" class="star" value="3"/>
+													<input required name="star" type="radio" class="star" value="4"/>
+													<input required name="star" type="radio" class="star" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Hospitality</h6>
 												<div class="stat-serv">
-													<input name="star_1" type="radio" class="star-1" value="1"/>
-													<input name="star_1" type="radio" class="star-1" value="2"/>
-													<input name="star_1" type="radio" class="star-1" value="3"/>
-													<input name="star_1" type="radio" class="star-1" value="4"/>
-													<input name="star_1" type="radio" class="star-1" value="5"/>
+													<input required name="star_1" type="radio" class="star-1" value="1"/>
+													<input required name="star_1" type="radio" class="star-1" value="2"/>
+													<input required name="star_1" type="radio" class="star-1" value="3"/>
+													<input required name="star_1" type="radio" class="star-1" value="4"/>
+													<input required name="star_1" type="radio" class="star-1" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Cleanliness</h6>
 												<div class="stat-serv">
-													<input name="star_2" type="radio" class="star-2" value="1"/>
-													<input name="star_2" type="radio" class="star-2" value="2"/>
-													<input name="star_2" type="radio" class="star-2" value="3"/>
-													<input name="star_2" type="radio" class="star-2" value="4"/>
-													<input name="star_2" type="radio" class="star-2" value="5"/>
+													<input required name="star_2" type="radio" class="star-2" value="1"/>
+													<input required name="star_2" type="radio" class="star-2" value="2"/>
+													<input required name="star_2" type="radio" class="star-2" value="3"/>
+													<input required name="star_2" type="radio" class="star-2" value="4"/>
+													<input required name="star_2" type="radio" class="star-2" value="5"/>
 												</div>
 											</div>
 
@@ -176,31 +173,31 @@
 											<div class="start-one-ras">
 												<h6>Rooms</h6>
 												<div class="stat-serv">
-													<input name="star_3" type="radio" class="star-3" value="1"/>
-													<input name="star_3" type="radio" class="star-3" value="2"/>
-													<input name="star_3" type="radio" class="star-3" value="3"/>
-													<input name="star_3" type="radio" class="star-3" value="4"/>
-													<input name="star_3" type="radio" class="star-3" value="5"/>
+													<input required name="star_3" type="radio" class="star-3" value="1"/>
+													<input required name="star_3" type="radio" class="star-3" value="2"/>
+													<input required name="star_3" type="radio" class="star-3" value="3"/>
+													<input required name="star_3" type="radio" class="star-3" value="4"/>
+													<input required name="star_3" type="radio" class="star-3" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Comfort</h6>
 												<div class="stat-serv">
-													<input name="star_4" type="radio" class="star-4" value="1"/>
-													<input name="star_4" type="radio" class="star-4" value="2"/>
-													<input name="star_4" type="radio" class="star-4" value="3"/>
-													<input name="star_4" type="radio" class="star-4" value="4"/>
-													<input name="star_4" type="radio" class="star-4" value="5"/>
+													<input required name="star_4" type="radio" class="star-4" value="1"/>
+													<input required name="star_4" type="radio" class="star-4" value="2"/>
+													<input required name="star_4" type="radio" class="star-4" value="3"/>
+													<input required name="star_4" type="radio" class="star-4" value="4"/>
+													<input required name="star_4" type="radio" class="star-4" value="5"/>
 												</div>
 											</div>
 											<div class="start-one-ras">
 												<h6>Satisfaction</h6>
 												<div class="stat-serv">
-													<input name="star_5" type="radio" class="star-5" value="1"/>
-													<input name="star_5" type="radio" class="star-5" value="2"/>
-													<input name="star_5" type="radio" class="star-5" value="3"/>
-													<input name="star_5" type="radio" class="star-5" value="4"/>
-													<input name="star_5" type="radio" class="star-5" value="5"/>
+													<input required name="star_5" type="radio" class="star-5" value="1"/>
+													<input required name="star_5" type="radio" class="star-5" value="2"/>
+													<input required name="star_5" type="radio" class="star-5" value="3"/>
+													<input required name="star_5" type="radio" class="star-5" value="4"/>
+													<input required name="star_5" type="radio" class="star-5" value="5"/>
 												</div>
 											</div>
 
@@ -233,83 +230,17 @@
 							<h6>Package Details</h6>
 						</div>
 						<div class="bookk0-natd-form">
-							<form action="#">
-								<div class="form-group">
-									<label for="name">Start Date:</label>
-									<input type="date" class="form-control" placeholder="First Name" id="name">
-								</div>
-								<div class="form-group">
-									<label for="last-name">End Date:</label>
-									<input type="date" class="form-control" placeholder="Last Name" id="last-name">
-								</div>
-								<div class="form-group mainm-sel">
-									<label for="text" id="form-control">Location:</label>
-									<div class="select-box">
-										<span class="sec-po"></span>
-										<select id="text">
-											<option value="0">--- Location ---</option>
-											<option value="1">Thailand</option>
-											<option value="2">Japan</option>
-											<option value="3">Korean</option>
-										</select>
-										<div class="serv-ivmf-2 book-in">
-											<i class="fas fa-angle-down"></i>
-										</div>
-									</div>
-								</div>
-								<div class="form-group mainm-sel">
-									<label for="text" id="form-control">Guest:</label>
-									<div class="select-box">
-										<span class="sec-po"></span>
-										<select id="text">
-											<option value="0">Number of Guest</option>
-											<option value="1">4</option>
-											<option value="2">10</option>
-											<option value="3">20</option>
-										</select>
-										<div class="serv-ivmf-2 book-in">
-											<i class="fas fa-angle-down"></i>
-										</div>
-									</div>
-								</div>
-								<div class="sunb-btn-naple">
-									<a href="#!" class="btn submit widet"  data-toggle="modal" data-target="#myModal">BOOKING NOW</a>
-								</div>
-							</form>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<div class="modal fade hais" id="myModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<button type="button" class="close" data-dismiss="modal">
-						&times;
-					</button>
-					<div class="model-details">
-						<h5>Travel Booking Form</h5>
-						<div class="mdel-form">
 							<form action="{{route('cart.booking')}}" role="form" method="POST">
 								@csrf
-								<div class="form-group">
-									<label for="name">First name</label>
-									<input type="text" class="form-control" name="name" required placeholder="Full Name" id="name" />
+								<div hidden>
+								<input type="text" class="form-control" value="{{$tour->tour_id}}" name="id">
+								<input type="text" class="form-control" value="{{session('name')}}" name="name">
+								<input type="text" class="form-control"  value="{{session('email')}}" name="email">
+								<input type="text" class="form-control"  value="{{session('phone')}}" name="phone">
 								</div>
 								<div class="form-group">
-									<label for="last-name">Email: </label>
-									<input type="email" class="form-control" placeholder="email" required name="email" id="email" />
-								</div>
-								<div class="form-group">
-									<label for="last-name"> Phone: </label>
-									<input type="number" class="form-control" placeholder="phone" required name="phone" id="phone" />
-								</div>
-								<div class="form-group">
-									<label for="last-name">Address: </label>
-									<input type="text" class="form-control" placeholder="address" name="address" id="address" />
+									<label for="name">Address:</label>
+									<input type="text" class="form-control" placeholder="First Name" id="name" name="address">
 								</div>
 								<div class="form-group">
 									<label for="departure">Departure Date: </label>
@@ -329,32 +260,31 @@
 									</div>
 									<div class="flex-type col-lg-9">
 										<label>
-											<input type="radio" id="tour-first" name="package" value=""> First Class
+											<input type="radio" id="tour-first" name="package" value="{{$tours[0]['first']}}"> First Class
 										</label>
 										<label>
-											<input type="radio" id="tour-business" name="package" value=""> Business Class
+											<input type="radio" id="tour-business" name="package" value="{{$tours[0]['business']}}"> Business Class
 										</label><br>
 										<label>
-											<input type="radio" id="tour-premium" name="package" value=""> Premium Class
+											<input type="radio" id="tour-premium" name="package" value="{{$tours[0]['premium']}}"> Premium Class
 										</label>
 										<label>
-											<input type="radio" id="tour-economy" name="package" value=""> Economy Class
+											<input type="radio" id="tour-economy" name="package" value="{{$tours[0]['economy']}}"> Economy Class
 										</label>
 										<label>
 											<input type="radio" id="package" name="package" checked value="0"> Self-sufficient
 										</label>
-										<input  type="text" name="tour_price" hidden="hidden" value="" id="tour-price">
 										<input  type="text" name="tour_id" hidden="hidden" value="" id="tour-id">
 									</div>
 								</div>
 								<div class="col-lg-9 sub-travel-tyepe">
 								</div><br><br>
-								<div style="color: orange;">
+								<div>
 									<label for="">Total: </label>
-									<span id="total"></span>
+									<span id="total"  style="color: #000;"></span>
 								</div>
-								<div class="sunb-btn-mod">
-									<button class="btn btn-3 widet-2" type="submit">BOOKING NOW</button>
+								<div class="sunb-btn-naple">
+									<button class="btn submit widet" type="submit">BOOKING NOW</button>
 								</div>
 							</form>
 						</div>
@@ -362,6 +292,37 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
 	@stop
+@section('tourjs')
+<script type="text/javascript">
+    $(document).ready(function (argument) {
+	    	var price = <?php echo $tour->tour_price; ?>
+
+            $('input[type=radio][name=package]').change(function() {
+                var _adult = $('input[type=number][name=adults]').val();
+                var _children = $('input[type=number][name=children]').val();
+                var _package = parseInt($(this).val());
+                var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
+            });
+
+            $('input[name=children]').change(function() {
+                var _children = $(this).val();
+                var _adult = $('input[type=number][name=adults]').val();
+                var _package =  $('input[name=package]:checked').val();
+                var _total = price * _adult + _package * _adult + price*0.1 * _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
+            });
+
+            $('input[type=number][name=adults]').change(function() {
+                var _adult = $(this).val();
+                var _package =  $('input[name=package]:checked').val();
+                var _children = $('input[type=number][name=children]').val();
+                var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total+' $</span>');
+            });
+        });
+</script> 
+@stop

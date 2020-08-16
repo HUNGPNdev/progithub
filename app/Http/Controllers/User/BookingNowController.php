@@ -12,7 +12,7 @@ class BookingNowController extends Controller
 {
     
     public function postBooking(Request $request) {
-        $tour = ToursModel::where('tour_id',$request->tour_id)->join('destination_tb','destination_tb.dest_id','=','tours_tb.dest_id')->get();
+        $tour = ToursModel::where('tour_id',$request->tour_id)->orWhere('tour_id',$request->id)->join('destination_tb','destination_tb.dest_id','=','tours_tb.dest_id')->get();
         foreach ($tour as $tour) {
             $data['cart'] = ['id' => $tour->tour_id, 'name' => $tour->tour_name, 'Destination' => $tour->dest_name, 'qty' => 1, 'price' => $tour->tour_price];
         }

@@ -186,7 +186,6 @@ class AdminController extends Controller
 
     public function error()
     {
-        
         return view('backEnd.error');
     }
 }

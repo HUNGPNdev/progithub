@@ -54,10 +54,9 @@ class RoleController extends Controller
         $request->validate([
             'name' => 'unique:roles,name'
         ],['name.unique' => 'Roles has been dupplicated!']); 
-        array_push($request->route,'admin.home');
         $route = json_encode($request->route);
         roles::create(['name' => $request->name, 'permission' => $route]);
-        return back();
+        return back()->with('succcess','Add roles successfully!');
     }
 
     /**
@@ -113,7 +112,6 @@ class RoleController extends Controller
         $arr['name'] = $request->name;
         $arr['permission'] = $route;
         $roles::where('id',$id)->update($arr);
-
         return redirect()->route('admin.roles.index')->with('succcess','Edited permission successfully!');
     }
     /**
@@ -122,8 +120,9 @@ class RoleController extends Controller
      * @param  \App\Model\roles  $roles
      * @return \Illuminate\Http\Response
      */
-    public function destroy(roles $roles)
+    public function delete(roles $roles, $id)
     {
-        //
+        roles::where('id',$id)->delete();
+        return back()->with('success','Delete successfully!');
     }
 }

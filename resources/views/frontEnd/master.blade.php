@@ -71,9 +71,6 @@
                     </h1>
                     <h1 style="margin: 0px 130px;"> @include('errors.note')</h1>
                 </div>
-                <div class="d-none plas">
-                    <h1 style="margin: 73px 130px;">Please check your mail to continue!</h1>
-                </div>
             </div>
         </div>
     </section>
@@ -82,9 +79,9 @@
     <div class="header-most-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7 col-md-8 col-sm-8 col-12">
+                <div class="col-lg-7 col-md-8 col-sm-12 col-12">
                     <div class="main-flex-top">
-                        <div class="email sel d-flex">
+                        <div class="email sel d-flex row">
                             <div class="main-email-text d-flex">
                                 <i class="fas fa-envelope"></i>
                                 <p>hung929912a@gmail.com</p>
@@ -96,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-4 col-sm-4 col-12">
+                <div class="col-lg-5 col-md-4 col-sm-12 col-12">
                     <div class="login-area">
                         <div class="seclict-area">
                             <img src="assets/img/common-img/flg.png" alt="img" />
@@ -454,10 +451,6 @@
 <script src="assets/star-rating/jquery.rating.js"></script>
 @yield('tourjs')
 <script>
-    $('#sendmail').click(function(){
-        $('.showsend').addClass('d-none');
-        $('.plas').removeClass('d-none');
-    });
     $('input[type=text][name=conf_pas]').change(function() {
         var conf_pas = $(this).val();
         var pass = $('input[name=password]').val();
@@ -514,6 +507,9 @@
     }
 
     // rating
+    $('.star-0').rating({
+        readOnly:true,
+    });
     $('.star').rating({
     });
     $('.star-1').rating({
