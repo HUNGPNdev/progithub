@@ -75,9 +75,6 @@
 								</div>
 								{{csrf_field()}}
 							</form>
-							<div class="success-msg alert alert-success" style="display: none">
-								<strong>Success!</strong> Email Send Succesfully.
-							</div>
 						</div>
 					</div>
 				</div>
