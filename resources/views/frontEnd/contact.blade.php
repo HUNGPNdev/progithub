@@ -42,31 +42,38 @@
 							Cras in vulputate est consectetur adipiscing elit. Ut vehicula volutpat porta.</p>
 						</div>
 						<div class="contact-form">
-							<form action="#">
+							<form action="{{route('admin.question')}}" method="post">
+								@include('errors.note')
 								<div class="row">
 									<div class="col-lg-6">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Your Name:" id="name" required>
+											<input type="text" class="form-control" placeholder="Your Name:" id="name" name="name" required>
 										</div>
 									</div>
 									<div class="col-lg-6">
 										<div class="form-group">
-											<input type="email" class="form-control" placeholder="Your Email:" id="email" required>
+											<input type="text" class="form-control" placeholder="Your Phone:" id="phone" name="phone" required>
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="form-group">
+											<input type="email" class="form-control" placeholder="Your Email:" id="email" name="email" required>
 										</div>
 									</div>
 									<div class="col-lg-12">
 										<div class="form-group nessage-text">
-											<textarea name="message" rows="6" class="form-control" placeholder="Enter Your Message:"
-											id="message" required></textarea>
+											<textarea name="question" rows="6" class="form-control" placeholder="Enter Your Message:"
+											id="question" required></textarea>
 										</div>
 										<div class="contact-sub-btn">
-											<button type="button" class="btn submit contactsuccess">Submit</button>
+											<button class="btn submit widet" type="submit">Submit</button>
 										</div>
 										<div class="sending-gif" style="display: none">
 											<img src="assets/img/loading.gif" alt="send-gif">
 										</div>
 									</div>
 								</div>
+								{{csrf_field()}}
 							</form>
 							<div class="success-msg alert alert-success" style="display: none">
 								<strong>Success!</strong> Email Send Succesfully.
