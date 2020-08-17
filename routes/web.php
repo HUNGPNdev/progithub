@@ -65,6 +65,7 @@ Route::group(['namespace' => 'User'], function() {
         Route::get('faqs','ServiceController@getFAQs');
 
         Route::get('contact','ServiceController@getContact');
+
     });
 });
 
@@ -81,6 +82,10 @@ Route::group(['namespace' => 'Admin'], function() {
         Route::get('error','AdminController@error')->name('error');
 
     Route::group(['prefix' => 'admin', 'middleware'=>'CheckLogedOut','as'=>'admin.'], function() {
+        Route::post('question','QuestionController@post_userQuestion')->name('question');
+        Route::get('user_question','QuestionController@getuser_question')->name('user_question');
+        Route::get('deletequestion/{id}','QuestionController@deletequestion')->name('deletequestion');
+
         Route::get('/','HomeController@getHome')->name('home');
         Route::get('home','HomeController@getHome')->name('home');
 

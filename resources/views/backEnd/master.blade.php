@@ -71,6 +71,13 @@
 			</li>
 			@endif
 			<li role="presentation" class="divider"></li>
+			@if($user->can('admin.question'))
+			<li><a href="{{route('admin.user_question')}}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg> User Question</a></li>
+			@endif
+			@if($user->can('admin.question'))
+			<li><a href="{{route('admin.user_question')}}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg> Tour Order</a></li>
+			@endif
+			<li role="presentation" class="divider"></li>
 		</ul>
 	</div>
 	
