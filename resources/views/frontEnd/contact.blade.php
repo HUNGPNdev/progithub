@@ -12,9 +12,9 @@
 					</div>
 					<div class="commom-sub-heading">
 						<h6>
-							<a href="index-2.html">Home</a>
+							<a href="{{asset('')}}">Home</a>
 							<span>/</span>
-							<a href="#!">Contact</a>
+							<a href="{{ route('contact') }}">Contact</a>
 						</h6>
 					</div>
 				</div>
@@ -75,9 +75,6 @@
 								</div>
 								{{csrf_field()}}
 							</form>
-							<div class="success-msg alert alert-success" style="display: none">
-								<strong>Success!</strong> Email Send Succesfully.
-							</div>
 						</div>
 					</div>
 				</div>

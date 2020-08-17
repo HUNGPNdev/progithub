@@ -14,7 +14,7 @@
 						<h6>
 							<a href="{{asset('home')}}">Home</a>
 							<span>/</span>
-							<a href="{{asset('user/blog')}}">Blog</a>
+							<a href="{{ route('fr.blog') }}">Blog</a>
 						</h6>
 					</div>
 				</div>
@@ -152,7 +152,7 @@
 						</div>
 						<div class="catago-item row">
 							@foreach($list_tags as $tags)
-							<a class="col-lg-5 col-md-4 col-sm-4" href="#!">{{$tags->list_tags}}</a>
+							<a class="col-lg-5 col-md-4 col-sm-4 ellipse" href="#!">{{$tags->list_tags}}</a>
 							@endforeach
 						</div>
 					</div>

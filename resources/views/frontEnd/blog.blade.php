@@ -14,7 +14,7 @@
             <h6>
               <a href="{{asset('home')}}">Home</a>
               <span>/</span>
-              <a href="{{asset('user/blog')}}">Blog</a>
+              <a href="{{ route('fr.blog') }}">Blog</a>
             </h6>
           </div>
         </div>
