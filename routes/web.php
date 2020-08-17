@@ -86,6 +86,9 @@ Route::group(['namespace' => 'Admin'], function() {
         Route::get('user_question','QuestionController@getuser_question')->name('user_question');
         Route::get('deletequestion/{id}','QuestionController@deletequestion')->name('deletequestion');
 
+        Route::get('order_tb','orderController@getorder_tb')->name('order_tb');
+        Route::get('deleteorder/{id}','orderController@postdeleteorder')->name('deleteorder');
+
         Route::get('/','HomeController@getHome')->name('home');
         Route::get('home','HomeController@getHome')->name('home');
 

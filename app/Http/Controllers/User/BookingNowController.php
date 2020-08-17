@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\destModel;
 use App\Model\ToursModel;
 use Mail;
+use App\Model\order_tb;
 
 class BookingNowController extends Controller
 {
@@ -21,6 +22,9 @@ class BookingNowController extends Controller
     	$email = $request->email;
         $b =  $request->all();
         $data['total'] = $c['price']*$b['adults'] + ($c['price']*0.1)*$b['children'] + $b['package']*$b['adults'] + ($b['package']*0.1)*$b['children'];
+        dd($b);
+        order_tb::create(['name'=>$request->name,'email'=>$request->email,'phone'=>$request->phone,'address'=>$request->address,'departure'=>$request->departure,'tour_name'=>$tour->tour_name,'destination'=>$tour->dest_name,'children'=>$request->children,'adults'=>$request->adults,'package'=>$request->package,'total'=>$data['total'], 'tour_price'=>$request->tour_price]);
+        
     	Mail::send('frontEnd.email', $data, function ($message) use($b) {
     	    $message->from('c1909i2bkap@gmail.com', 'C1909I2');
     	
