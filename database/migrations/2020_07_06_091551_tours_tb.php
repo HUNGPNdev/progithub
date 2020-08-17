@@ -25,7 +25,7 @@ class ToursTb extends Migration
             $table->text('maps');
             $table->tinyInteger('status');
             $table->string('list_tags');
-            $table->string('package ');
+            $table->string('package');
             $table->foreign('dest_id')
                   ->references('dest_id')
                   ->on('destination_tb')

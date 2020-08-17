@@ -21,12 +21,13 @@ class Review extends Migration
             $table->Integer('comfort');
             $table->Integer('cleanliness');
             $table->Integer('satisfaction');
+            $table->Integer('avg');
             $table->text('review_cmt');
             $table->tinyInteger('review_status');
             $table->Integer('user_id')->unsigned();
             $table->Integer('tour_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users_tb')->onDelete('cascade');
-            $table->foreign('tour_id')->references('tour_id')->on('tours_tb')->onDelete('cascade');
+            $table->Foreign('user_id')->references('id')->on('users_tb')->onDelete('cascade');
+            $table->Foreign('tour_id')->references('tour_id')->on('tours_tb')->onDelete('cascade');
             $table->timestamps();
         });
     }
