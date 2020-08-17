@@ -42,7 +42,7 @@
                                            <td>{{$a->address}}</td>
                                            <td>{{$a->birthday}}</td>
                                            <td>{{$a->gender}}</td>
-                                           <td>{{$a->image}}</td>
+                                           <td><img width="100px" style="margin: 0;" src="{{asset('storage/app/admin/'.$a->image)}}" class="thumbnail img-fluid"></td>
                                            <td>{{$a->status}}</td>
                                            <td>
                                                 <a href="{{ route('admin.listadmin.edit',$a->id) }}" class="btn btn-primary">Edit</a>
