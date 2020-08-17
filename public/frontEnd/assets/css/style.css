@@ -1,8 +1,8 @@
 /*---------------------------------------
  	01.Base Styles
-   --------------------------------------*/
+     --------------------------------------*/
 
-   * {
+     * {
         margin: 0;
         padding: 0;
         border: none;
@@ -57,9 +57,9 @@
 
 /*--------------------------
           2.  Typography
-        ---------------------------*/
+          ---------------------------*/
 
-        h1 {
+          h1 {
             font-size: 45px;
             color: #fff;
             line-height: 60px;
@@ -1834,7 +1834,7 @@
 
                 .dayt p {
                     color: var(--main-theme-color-two);
-                    font-size: 16px;
+                    font-size: 14px;
                     font-weight: 500;
                 }
 
@@ -2572,9 +2572,9 @@
 
 /*---------------------------------
      1.who-area
-    ----------------------------------*/
+     ----------------------------------*/
 
-    #who-area {
+     #who-area {
         padding: 100px 0;
     }
 
@@ -2749,9 +2749,9 @@
 
 /*---------------------------------
      9.Tour packages page
-    ----------------------------------*/
+     ----------------------------------*/
 
-    #tour-packes {
+     #tour-packes {
         background-image: url(../img/tour/packges-bnner.png);
         background-size: cover;
         background-repeat: no-repeat;
@@ -6862,4 +6862,9 @@
         color: var(--main-theme-color-one);
     }
 
-    
+    .ellipse{
+        white-space: nowrap; 
+        width: 230px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }

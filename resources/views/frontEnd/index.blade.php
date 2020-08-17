@@ -13,11 +13,11 @@
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna tempor invidunt ut
                     </p>
                     <div class="button-common">
-                       <a href="{{asset('')}}" class="btn btn-1">Learn More</a>
-                   </div>
-               </div>
-           </div>
-           <div class="col-lg-5 col-md-2 col-sm-12 col-12">
+                     <a href="{{asset('')}}" class="btn btn-1">Learn More</a>
+                 </div>
+             </div>
+         </div>
+         <div class="col-lg-5 col-md-2 col-sm-12 col-12">
             <div class="video-play-banner">
                 <a href="https://www.youtube.com/watch?v=TknrmpS4GOg" class="video-play-btn video-link venobox" data-autoplay="true" data-vbtype="video"><i class="fas fa-play"></i></a>
             </div>
@@ -176,8 +176,8 @@
                 </div>
                 <div class="des-para">
                     <div class="dayt">
-                        <h6><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}" >{{$tour->tour_name}}</a></h6>
-                        <p>{{$tour->tour_day }}Days | {{number_format($tour->tour_price,2,'.',' ' )}}$</p>
+                        <h6 class="ellipse"><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}" title="{{$tour->tour_name}}">{{$tour->tour_name}}</a></h6>
+                        <p>{{$tour->tour_day }} Days <br> {{number_format($tour->tour_price,1,'.',' ' )}}$</p>
                     </div>
                     <div class="real-dat-para" style="">
                         <p style="height: 70px; overflow: hidden;">

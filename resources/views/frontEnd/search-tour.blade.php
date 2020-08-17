@@ -1,6 +1,6 @@
 @extends('frontEnd.master')
 @section('title')
-	Search
+Search
 @stop()
 @section('main')
 <section id="tour-packes" style="background-image: url({{asset('storage/app/image/'.$banner->banner_img)}});">
@@ -100,12 +100,12 @@
 				@csrf
 				<div class="des-cov-1">
 					<div class="des-img-1">
-						<a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}"><img src="assets/img/tour-destanation/d-1.png" alt="img"></a>
+						<a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}"><img height="256px" src="{{asset('storage/app/image/'.$tour->tour_image)}}" alt="img"></a>
 					</div>
 					<div class="des-para">
 						<div class="dayt">
-							<h6><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}">{{$tour->tour_name}}</a></h6>
-							<p>{{$tour->tour_day }}Days | {{number_format($tour->tour_price,2,'.',' ' )}}$</p>
+							<h6 class="ellipse"><a href="{{asset('user/tour/tourdetail/'.$tour->tour_id)}}" title="{{$tour->tour_name}}">{{$tour->tour_name}}</a></h6>
+							<p>{{$tour->tour_day }} Days <br> {{number_format($tour->tour_price,1,'.',' ' )}}$</p>
 						</div>
 						<div class="real-dat-para">
 							<p style="height: 70px; overflow: hidden;">

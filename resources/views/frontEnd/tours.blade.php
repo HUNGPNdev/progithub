@@ -7,8 +7,8 @@
         </div>
         <div class="des-para">
             <div class="dayt">
-                <h6><a href="{{asset('user/tour/tourdetail/'.$tours->tour_id)}}">{{$tours->tour_name}}</a></h6>
-                <p>{{$tours->tour_day }}Days | {{number_format($tours->tour_price,2,'.',' ' )}}$</p>
+                <h6 class="ellipse"><a href="{{asset('user/tour/tourdetail/'.$tours->tour_id)}}" title="{{$tours->tour_name}}">{{$tours->tour_name}}</a></h6>
+                <p>{{$tours->tour_day }} Days <br> {{number_format($tours->tour_price,1,'.',' ' )}}$</p>
             </div>
             <div class="real-dat-para">
                 <p style="height: 70px; overflow: hidden;">
@@ -32,9 +32,12 @@
 </div>
 @endforeach
 
-<div class="col-lg-5 col-md-5"></div>
-<div style="margin-top: 20px" class="col-lg-7 col-md-7">
-    {!!$data->links()!!}
+<div class="col-lg-12 col-md-12">
+    <div class="row">
+        <div style="margin: 20px auto;" class="">
+            {!!$data->links()!!}
+        </div>
+    </div>
 </div>
 
 <div class="modal fade hais" id="myModal" role="dialog">
