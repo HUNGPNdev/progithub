@@ -180,6 +180,14 @@ Route::group(['namespace' => 'Admin'], function() {
             Route::get('sliCus-delete/{id}','SliCusController@getDelSlider')->name('sliCus.delete');
         });
 
+        Route::group(['prefix'=>'review'],function(){
+            Route::get('','ReviewController@getReview')->name('adminReview');
+            Route::get('delete/{id}','ReviewController@deleteReview')->name('adminReview.delete');
+
+            Route::get('/active-review/{id}','ReviewController@activeReview')->name('adminReview.active');
+            Route::get('/unactive-review/{id}','ReviewController@unactiveReview')->name('adminReview.unactive');
+        });
+
         Route::get('destroy/{id}','AdminController@destroy')->name('destroy');
         Route::get('delete/{id}','RoleController@delete')->name('roles.delete');
         Route::resources([
