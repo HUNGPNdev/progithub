@@ -21,7 +21,7 @@ class frontEndController extends Controller
     public function getHome(){
         $data['guider'] = guider::where('status',1)->get();
         $data['dest']   = destModel::all();
-        $data['tour'] = ToursModel::where('status',1)->orderBy('tour_id','desc')->take(4)->get();
+        $data['tour'] = ToursModel::where('Tours_tb.status',1)->join('traveltype_tb','Tours_tb.tour_id','=','traveltype_tb.tour_id')->orderBy('Tours_tb.tour_id','desc')->get();
         $data['slider'] = slider::where('slider_status',1)->get();
         $data['banner'] = banner::where('banner_id',1)->first('banner_img');
         $data['sliCus'] = sliderCustomer::where('slider_status',1)->take(3)->get();
@@ -32,6 +32,7 @@ class frontEndController extends Controller
         $review = DB::table('users_tb')->join('review','users_tb.id','=','review.user_id')->where('tour_id',$id)->where('review_status',1)->orderBy('review_id','desc')->take(2)->get();
         $r = review::where('tour_id',$id)->get('avg');
         $tour = ToursModel::find($id);
+        $tours = traveltype_tb::where('tour_id',$id)->get()->toArray();
         $count = review::where('tour_id',$id)->count();
         $id = $tour->dest_id;
         $dest = destModel::where('dest_id',$id)->first();
@@ -40,7 +41,7 @@ class frontEndController extends Controller
         }
         $unkey = package::where('status',1)->orderBy('pac_id','desc')->take(4)->get();
         $data = banner::where('banner_id',2)->first('banner_img');
-        return view('frontEnd.tour-details',compact('tour','key','unkey','dest','data','review','count','r'));
+        return view('frontEnd.tour-details',compact('tour','key','unkey','dest','data','review','count','r','tours'));
     }
 
     public function postReview(request $req, $id){
@@ -52,6 +53,7 @@ class frontEndController extends Controller
         $review->rooms = $req->star_3;
         $review->comfort = $req->star_4;
         $review->satisfaction = $req->star_5;
+        $review->review_cmt = $req->review;
         $review->avg = ($req->star + $req->star_1 + $req->star_2 + $req->star_3 + $req->star_4 + $req->star_5) / 6;
         $review->review_cmt = $req->review;
         $review->review_status = 1;

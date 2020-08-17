@@ -6809,8 +6809,7 @@
     }
 
     #check_register {
-        width: 1140px;
-        height: 260px;
+        width: 80%;
         text-align: center;
         background: #330099;
         color: #fff;
@@ -6822,8 +6821,7 @@
     #sendmail {
         font-style: italic; 
         font-size: 33px; 
-        color: #FFFF1A;
-        text-decoration: underline;
+        color: orange;
     }
     
     .booking-info .searchDay{

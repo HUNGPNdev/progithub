@@ -230,83 +230,17 @@
 							<h6>Package Details</h6>
 						</div>
 						<div class="bookk0-natd-form">
-							<form action="#">
-								<div class="form-group">
-									<label for="name">Start Date:</label>
-									<input type="date" class="form-control" placeholder="First Name" id="name">
-								</div>
-								<div class="form-group">
-									<label for="last-name">End Date:</label>
-									<input type="date" class="form-control" placeholder="Last Name" id="last-name">
-								</div>
-								<div class="form-group mainm-sel">
-									<label for="text" id="form-control">Location:</label>
-									<div class="select-box">
-										<span class="sec-po"></span>
-										<select id="text">
-											<option value="0">--- Location ---</option>
-											<option value="1">Thailand</option>
-											<option value="2">Japan</option>
-											<option value="3">Korean</option>
-										</select>
-										<div class="serv-ivmf-2 book-in">
-											<i class="fas fa-angle-down"></i>
-										</div>
-									</div>
-								</div>
-								<div class="form-group mainm-sel">
-									<label for="text" id="form-control">Guest:</label>
-									<div class="select-box">
-										<span class="sec-po"></span>
-										<select id="text">
-											<option value="0">Number of Guest</option>
-											<option value="1">4</option>
-											<option value="2">10</option>
-											<option value="3">20</option>
-										</select>
-										<div class="serv-ivmf-2 book-in">
-											<i class="fas fa-angle-down"></i>
-										</div>
-									</div>
-								</div>
-								<div class="sunb-btn-naple">
-									<a href="#!" class="btn submit widet"  data-toggle="modal" data-target="#myModal">BOOKING NOW</a>
-								</div>
-							</form>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<div class="modal fade hais" id="myModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<button type="button" class="close" data-dismiss="modal">
-						&times;
-					</button>
-					<div class="model-details">
-						<h5>Travel Booking Form</h5>
-						<div class="mdel-form">
 							<form action="{{route('cart.booking')}}" role="form" method="POST">
 								@csrf
-								<div class="form-group">
-									<label for="name">First name</label>
-									<input type="text" class="form-control" name="name" required placeholder="Full Name" id="name" />
+								<div hidden>
+								<input type="text" class="form-control" value="{{$tour->tour_id}}" name="id">
+								<input type="text" class="form-control" value="{{session('name')}}" name="name">
+								<input type="text" class="form-control"  value="{{session('email')}}" name="email">
+								<input type="text" class="form-control"  value="{{session('phone')}}" name="phone">
 								</div>
 								<div class="form-group">
-									<label for="last-name">Email: </label>
-									<input type="email" class="form-control" placeholder="email" required name="email" id="email" />
-								</div>
-								<div class="form-group">
-									<label for="last-name"> Phone: </label>
-									<input type="number" class="form-control" placeholder="phone" required name="phone" id="phone" />
-								</div>
-								<div class="form-group">
-									<label for="last-name">Address: </label>
-									<input type="text" class="form-control" placeholder="address" name="address" id="address" />
+									<label for="name">Address:</label>
+									<input type="text" class="form-control" placeholder="First Name" id="name" name="address">
 								</div>
 								<div class="form-group">
 									<label for="departure">Departure Date: </label>
@@ -326,32 +260,31 @@
 									</div>
 									<div class="flex-type col-lg-9">
 										<label>
-											<input type="radio" id="tour-first" name="package" value=""> First Class
+											<input type="radio" id="tour-first" name="package" value="{{$tours[0]['first']}}"> First Class
 										</label>
 										<label>
-											<input type="radio" id="tour-business" name="package" value=""> Business Class
+											<input type="radio" id="tour-business" name="package" value="{{$tours[0]['business']}}"> Business Class
 										</label><br>
 										<label>
-											<input type="radio" id="tour-premium" name="package" value=""> Premium Class
+											<input type="radio" id="tour-premium" name="package" value="{{$tours[0]['premium']}}"> Premium Class
 										</label>
 										<label>
-											<input type="radio" id="tour-economy" name="package" value=""> Economy Class
+											<input type="radio" id="tour-economy" name="package" value="{{$tours[0]['economy']}}"> Economy Class
 										</label>
 										<label>
 											<input type="radio" id="package" name="package" checked value="0"> Self-sufficient
 										</label>
-										<input  type="text" name="tour_price" hidden="hidden" value="" id="tour-price">
 										<input  type="text" name="tour_id" hidden="hidden" value="" id="tour-id">
 									</div>
 								</div>
 								<div class="col-lg-9 sub-travel-tyepe">
 								</div><br><br>
-								<div style="color: orange;">
+								<div>
 									<label for="">Total: </label>
-									<span id="total"></span>
+									<span id="total"  style="color: #000;"></span>
 								</div>
-								<div class="sunb-btn-mod">
-									<button class="btn btn-3 widet-2" type="submit">BOOKING NOW</button>
+								<div class="sunb-btn-naple">
+									<button class="btn submit widet" type="submit">BOOKING NOW</button>
 								</div>
 							</form>
 						</div>
@@ -359,6 +292,37 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
 	@stop
+@section('tourjs')
+<script type="text/javascript">
+    $(document).ready(function (argument) {
+	    	var price = <?php echo $tour->tour_price; ?>
+
+            $('input[type=radio][name=package]').change(function() {
+                var _adult = $('input[type=number][name=adults]').val();
+                var _children = $('input[type=number][name=children]').val();
+                var _package = parseInt($(this).val());
+                var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
+            });
+
+            $('input[name=children]').change(function() {
+                var _children = $(this).val();
+                var _adult = $('input[type=number][name=adults]').val();
+                var _package =  $('input[name=package]:checked').val();
+                var _total = price * _adult + _package * _adult + price*0.1 * _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
+            });
+
+            $('input[type=number][name=adults]').change(function() {
+                var _adult = $(this).val();
+                var _package =  $('input[name=package]:checked').val();
+                var _children = $('input[type=number][name=children]').val();
+                var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
+                $('#total').html('<span>'+_total+' $</span>');
+            });
+        });
+</script> 
+@stop

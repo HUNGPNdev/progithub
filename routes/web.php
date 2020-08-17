@@ -81,10 +81,18 @@ Route::group(['namespace' => 'Admin'], function() {
         Route::get('error','AdminController@error')->name('error');
 
     Route::group(['prefix' => 'admin', 'middleware'=>'CheckLogedOut','as'=>'admin.'], function() {
+        Route::get('/','HomeController@getHome')->name('home');
         Route::get('home','HomeController@getHome')->name('home');
 
         Route::group(['prefix' => 'listadmin'], function() {
             Route::get('/','HomeController@listadmin')->name('listadmin');
+        });
+        Route::group(['prefix' => 'adminUser'], function() {
+            Route::get('/','UserController@getuser')->name('user.admin');
+            Route::get('delete/{id}','UserController@DeleteUser')->name('user.delete');
+
+            Route::get('/active/{id}','UserController@activeUser')->name('user.active');
+            Route::get('/unactive/{id}','UserController@unactiveUser')->name('user.unactive');
         });
         Route::group(['prefix' => 'destination'], function() {
         	Route::get('/','DestinationController@getDest')->name('destination');
@@ -105,6 +113,8 @@ Route::group(['namespace' => 'Admin'], function() {
         	Route::post('edit/{id}','ToursController@postEditTour')->name('tours.postedit');
 
         	Route::get('delete/{id}','ToursController@getDeleteTour')->name('tours.delete');
+
+            
         });
         Route::group(['prefix' => 'guider'], function() {
             Route::get('/','TourGuiderController@tourguider')->name('guider');
@@ -163,6 +173,7 @@ Route::group(['namespace' => 'Admin'], function() {
         });
 
         Route::get('destroy/{id}','AdminController@destroy')->name('destroy');
+        Route::get('delete/{id}','RoleController@delete')->name('roles.delete');
         Route::resources([
             'roles' => 'RoleController',
             'listadmin' => 'AdminController',

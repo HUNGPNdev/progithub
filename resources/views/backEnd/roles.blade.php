@@ -16,7 +16,6 @@
 					</div>
 					<div class="panel-body">
 						<form action="{{route('admin.roles.store')}}" method="post">
-							@include('errors.note')
 							<div class="form-group">
 								<label>Name Role:</label>
 								<input type="text" name="name" required class="form-control" placeholder="Name roles...">
@@ -67,14 +66,16 @@
 											@php
 												$decode = json_decode($data->permission);
 											@endphp
-											@foreach($decode as $d)
-												{{$d}}<br>
-											@endforeach
+											@if($decode != "")
+												@foreach($decode as $d)
+													{{$d}}<br>
+												@endforeach
+											@endif
 										</div>
 										</td>
 										<td>
 											<a href="{{ route('admin.roles.edit',$data->id) }}" class="btn btn-primary">Edit</a>
-											<a href="{{asset('admin/roles/'.$data->id)}}" class="btn btn-danger">Delete</a>
+											<a href="{{ route('admin.roles.delete',$data->id) }}" class="btn btn-danger">Delete</a>
 										</td>
 									</tr>
 									@endforeach
