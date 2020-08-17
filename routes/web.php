@@ -81,6 +81,7 @@ Route::group(['namespace' => 'Admin'], function() {
         Route::get('error','AdminController@error')->name('error');
 
     Route::group(['prefix' => 'admin', 'middleware'=>'CheckLogedOut','as'=>'admin.'], function() {
+        Route::get('/','HomeController@getHome')->name('home');
         Route::get('home','HomeController@getHome')->name('home');
 
         Route::group(['prefix' => 'listadmin'], function() {

@@ -16,11 +16,6 @@
           @include('errors.note')
           <div class="bootstrap-table">
             <div class="table-responsive">
-              @if (session('success'))
-              <div class="alert alert-success">
-                {{ session('success') }}
-              </div>
-              @endif
               <table class="table table-bordered" style="margin-top:20px;">               
                 <thead>
                   <tr id="tbl-first-row">
