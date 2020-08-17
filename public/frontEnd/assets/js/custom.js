@@ -467,11 +467,11 @@ $('.testimonials-six-wrapper').owlCarousel({
 
     noUiSlider.create(tooltipSlider, {
         connect: true,
-        start: [0, 2000],
+        start: [0, 3000],
         tooltips: [wNumb({decimals: 0}), wNumb({decimals: 0})],
         range: {
             'min': 0,
-            'max': 2000
+            'max': 3000
         },
     });
 
