@@ -56,11 +56,10 @@
 							</div>
 						</div>
 						<div class="tour-main-informa">
-							<h6>5 Day <span>|</span></h6>
-							<h6>18+ <span>|</span></h6>
-							<h6>20 People <span>|</span></h6>
-							<h6>Adventure <span>|</span></h6>
-							<h6>25 September</h6>
+							<h6>{{$tour->tour_day}} Day <span>|</span></h6>
+							<h6>{{number_format($tour->tour_price,1,'.',' ' )}}$ <span>|</span></h6>
+							<h6>1 People <span>|</span></h6>
+							<h6>{{$dest['dest_name']}}</h6>
 						</div>
 						<div class="det-asor-img">
 							<img height="550px" src="{{asset('storage/app/image/'.$tour->tour_image)}}" alt="img">
