@@ -109,7 +109,7 @@
 													</div>
 												</div>
 											</td>
-											<td>{{$tour->status}}</td>
+											<td>{{($tour->status == 1) ? 'Mở' : 'Đóng'}}</td>
 											<td>{{$tour->package}}</td>
 											<td>
 												<a href="{{asset('admin/tours/edit/'.$tour->tour_id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>

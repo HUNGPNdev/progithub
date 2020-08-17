@@ -12,9 +12,9 @@
                     </div>
                     <div class="commom-sub-heading">
                         <h6>
-                            <a href="index-2.html">Home</a>
+                            <a href="{{ asset('') }}">Home</a>
                             <span>/</span>
-                            <a href="#!">Gallery</a>
+                            <a href="{{ route('gallery') }}">Gallery</a>
                         </h6>
                     </div>
                 </div>
