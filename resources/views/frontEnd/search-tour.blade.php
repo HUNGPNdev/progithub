@@ -13,9 +13,9 @@ Search
 					</div>
 					<div class="commom-sub-heading">
 						<h6>
-							<a href="index-2.html">Home</a>
+							<a href="{{asset('/')}}">Home</a>
 							<span>/</span>
-							<a href="#!">Tour Packges</a>
+							<a href="{{ route('tour.packages') }}">Tour Packges</a>
 						</h6>
 					</div>
 				</div>

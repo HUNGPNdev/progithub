@@ -90,7 +90,7 @@
 							<li><a href="#!"> Share this article</a></li>
 						</ul>
 					</div>
-					<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="3" data-width=""></div>
+					<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="3" data-width="" width="100%"></div>
 					
 				</div>
 			</div>
@@ -130,11 +130,11 @@
 							@foreach($review as $b)
 							<div class="blog-cliccs">
 								<div class="blog-clss-img  wow zoomIn" data-wow-duration="1s">
-									<a href="{{asset('user/blog_single/'.$b->id)}}"><img src="{{asset('storage/app/blog_img/'.$b->bn_image)}}" alt=""></a>
+									<a href="{{asset('user/blog_single/'.$b->id_blog)}}"><img src="{{asset('storage/app/blog_img/'.$b->bn_image)}}" alt=""></a>
 								</div>
 								<div class="alo-blog-clss-text">
 									<h6 style="height: 42px;overflow: hidden;">
-										<a href="{{asset('user/blog_single/'.$b->id)}}">{{$b->title}}</a>
+										<a href="{{asset('user/blog_single/'.$b->id_blog)}}">{{$b->title}}</a>
 									</h6>
 									@php
 									$d = strtotime($b->created_at);
@@ -152,7 +152,7 @@
 						</div>
 						<div class="catago-item row">
 							@foreach($list_tags as $tags)
-							<a class="col-lg-5 col-md-4 col-sm-4 ellipse" href="#!">{{$tags->list_tags}}</a>
+							<a class="col-lg-5 col-md-4 col-sm-4 ellipses" href="{{ route('tour.detail',$tags->tour_id) }}">{{$tags->list_tags}}</a>
 							@endforeach
 						</div>
 					</div>

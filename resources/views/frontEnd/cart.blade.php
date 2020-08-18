@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal">
                     &times;
                 </button>
-                <div class="model-details">
+                <div class="model-details" style="width: 100%; overflow-x: auto; overflow-y: auto;">
                     <h5>Your Booked Tour</h5>
                     <?php 
                     $stt = 1;

@@ -6962,3 +6962,13 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2
     }
+    
+    .ellipses{
+        white-space: nowrap; 
+        width: 230px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .ajax-data{
+        height: 1200px;
+    }
