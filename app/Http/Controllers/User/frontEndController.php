@@ -33,7 +33,7 @@ class frontEndController extends Controller
         $r = review::where('tour_id',$id)->get('avg');
         $tour = ToursModel::find($id);
         $tours = traveltype_tb::where('tour_id',$id)->get()->toArray();
-        $count = review::where('tour_id',$id)->count();
+        $count = review::where('tour_id',$id)->where('review_status',1)->count();
         $id = $tour->dest_id;
         $dest = destModel::where('dest_id',$id)->first();
         if($tour->package!=null){
