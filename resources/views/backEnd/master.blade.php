@@ -41,9 +41,6 @@
 				<a href="{{ route('admin.roles.index') }}"><svg class="glyph stroked chain"><use xlink:href="#stroked-chain"></use></svg> Roles</a>
 			</li>
 			@endif
-			@if($user->can('admin.user.admin'))
-			<li><a href="{{ route('admin.user.admin' )}}"><svg class="glyph stroked male user"><use xlink:href="#stroked-male-user"></use></svg> User</a></li>
-			@endif
 			@if($user->can('admin.guider'))
 			<li><a href="{{asset('admin/guider')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Tour Guider</a></li>
 			@endif
@@ -71,11 +68,17 @@
 			</li>
 			@endif
 			<li role="presentation" class="divider"></li>
+			@if($user->can('admin.user.admin'))
+			<li><a href="{{ route('admin.user.admin' )}}"><svg class="glyph stroked male user"><use xlink:href="#stroked-male-user"></use></svg> User</a></li>
+			@endif
 			@if($user->can('admin.question'))
 			<li><a href="{{route('admin.user_question')}}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg> User Question</a></li>
 			@endif
 			@if($user->can('admin.order_tb'))
 			<li><a href="{{route('admin.order_tb')}}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg> Tour Order</a></li>
+			@endif
+			@if($user->can('admin.adminReview'))
+			<li><a href="{{route('admin.adminReview')}}"><svg class="glyph stroked two messages"><use xlink:href="#stroked-two-messages"/></svg> Review</a></li>
 			@endif
 			<li role="presentation" class="divider"></li>
 		</ul>
