@@ -23,12 +23,12 @@
                         <fieldset>
                             <div class="form-group">
                                 <label for="">New Password</label>
-                                <input class="form-control" placeholder="E-mail" name="password" type="text" autofocus>
+                                <input class="form-control" placeholder="E-mail" name="password" type="text" required autofocus>
                                 @error('password')<p style="color: red;">{{ $message }}</p>@enderror
                             </div>
                             <div class="form-group">
                                 <label for="">Confirm password</label>
-                                <input class="form-control" placeholder="E-mail" name="cof_pass" type="text" autofocus>
+                                <input class="form-control" placeholder="E-mail" name="cof_pass" type="text" required autofocus>
                                 @error('cof_pass')<p style="color: red;">{{ $message }}</p>@enderror
                             </div>
                             <input class="form-control hidden" name="code" type="text" value="{{$data}}">
