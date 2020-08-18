@@ -383,6 +383,64 @@
     </div>
 </div>
 
+<div class="modal fade bd-example-modal-lg" id="myModalCart" role="dialog" >
+    <div class="modal-dialog" style="max-width: 1200px;">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                <div class="model-details">
+                    <h5>Your Booked Tour</h5>
+                    <table class="table table-bordered" style="margin-top:20px;">               
+                        <thead>
+                            <tr class="bg-primary">
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Departure</th>
+                                <th>Tour Name</th>
+                                <th>Destination</th>
+                                <th>Adults</th>
+                                <th>Children</th>
+                                <th>Tour Price</th>
+                                <th>Air Frares</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="show-cart">
+    <a data-toggle="modal"  data-target="#myModalCart">
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fab fa-opencart"></i>
+    </a>
+</div>
+
 <div class="go-top">
     <i class="fas fa-chevron-up"></i>
     <i class="fas fa-arrow-up"></i>
