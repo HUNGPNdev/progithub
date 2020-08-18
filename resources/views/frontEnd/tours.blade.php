@@ -53,18 +53,6 @@
                         <form action="{{route('cart.booking')}}" role="form" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="name">Full name</label>
-                                <input type="text" class="form-control" name="name" required placeholder="Full Name" id="name" />
-                            </div>
-                            <div class="form-group">
-                                <label for="last-name">Email: </label>
-                                <input type="email" class="form-control" placeholder="email" required name="email" id="email" />
-                            </div>
-                            <div class="form-group">
-                                <label for="last-name"> Phone: </label>
-                                <input type="number" class="form-control" placeholder="phone" required name="phone" id="phone" />
-                            </div>
-                            <div class="form-group">
                                 <label for="last-name">Address: </label>
                                 <input type="text" class="form-control" placeholder="address" name="address" id="address" />
                             </div>
