@@ -82,7 +82,7 @@
     <div class="header-most-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7 col-md-8 col-sm-12 col-12">
+                <div class="col-lg-7 col-md-7 col-sm-12 col-12">
                     <div class="main-flex-top">
                         <div class="email sel d-flex row">
                             <div class="main-email-text d-flex">
@@ -91,18 +91,18 @@
                             </div>
                             <div class="main-loc-text d-flex">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <p>78 5th Ave, New York, Ny 10011, USA</p>
+                                <p>238 HQV Street, Cau Giay, Hanoi, Vietnam</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-4 col-sm-12 col-12">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-12">
                     <div class="login-area">
                         <div class="seclict-area">
                             <img src="assets/img/common-img/flg.png" alt="img" />
                             <select name="cars">
                                 <option value="volvo">USA</option>
-                                <option value="audi">BAN</option>
+                                <option value="audi">VN</option>
                             </select>
                             <i class="fas fa-angle-down"></i>
                         </div>
@@ -224,7 +224,7 @@
                     <div class="col-2"></div>
                     <div class="  navbar navbar-expand-lg navigation-area col-9">
                         <div class="site-branding ">
-                            <a class="site-logo" href="{{asset('home')}}">
+                            <a class="site-logo" href="{{asset('/')}}">
                                 <img src="assets/img/logo.png" alt="Site-logo" />
                             </a>
                         </div>
@@ -373,7 +373,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-8 col-sm-8 col-8">
                 <div class="copy-right-para">
-                    <p>And IT Themes © 2019. All Rights Reserved</p>
+                    <p>And IT Themes © 2020. All Rights Reserved</p>
                 </div>
             </div>
             <div class="col-lg-6 col-md-4 col-sm-4 col-4">

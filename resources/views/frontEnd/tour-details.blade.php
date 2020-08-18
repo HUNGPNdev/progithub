@@ -11,9 +11,9 @@
 						</div>
 						<div class="commom-sub-heading">
 							<h6>
-								<a href="index-2.html">Home</a>
+								<a href="{{ asset('/')}}">Home</a>
 								<span>/</span>
-								<a href="#!">Tour Details</a>
+								<a href="{{route('tour.detail',$tour->tour_id)}}">Tour Details</a>
 							</h6>
 						</div>
 					</div>
