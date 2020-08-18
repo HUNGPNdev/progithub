@@ -60,6 +60,9 @@
     <link rel="stylesheet" href="assets/star-rating/jquery.rating.css">
 </head>
 <body>
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
     @if(Auth::guard("users_tb")->check())
     @if(Auth::guard("users_tb")->user()->check_register == 1)
     <section>

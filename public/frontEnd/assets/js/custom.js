@@ -435,7 +435,10 @@ $('.testimonials-six-wrapper').owlCarousel({
             }
         });
     });
-
+    $(window).on('load', function () {
+        $('#status').fadeOut();
+        $('#preloader').delay(350).fadeOut('slow');
+    });
 
     /*====== Scroll to top ========*/
     // show-cart
