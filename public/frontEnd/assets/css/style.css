@@ -1673,7 +1673,6 @@
 
             .buget {
                 width: 36%;
-                height: 6px;
                 background: var(--main-theme-color-two);
                 position: absolute;
                 top: 55px;
@@ -4360,30 +4359,6 @@
    20. preloder
    --------------------------------*/
 
-
-   #preloader {
-      background-color: #fff;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-  }
-
-
-  #status {
-    background-image: url(../img/loader.gif);
-    background-repeat: no-repeat;
-    width: 125px;
-    height: 121px;
-    position: absolute;
-    left: 48%;
-    top: 45%;
-    margin-top: -33px;
-    margin-left: -33px;
-    background-position: center;
-}
 
 #banner-home-slider .owl-item.active .slick-slider-home .slider-owl .title {
     -webkit-animation: 2s 0.9s fadeIn both;
