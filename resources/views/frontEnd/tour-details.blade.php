@@ -239,7 +239,7 @@
 								</div>
 								<div class="form-group">
 									<label for="name">Address:</label>
-									<input type="text" class="form-control" placeholder="First Name" id="name" name="address">
+									<input type="text" class="form-control" placeholder="Your address" id="name" name="address">
 								</div>
 								<div class="form-group">
 									<label for="departure">Departure Date: </label>

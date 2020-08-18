@@ -50,6 +50,7 @@ Route::group(['namespace' => 'User'], function() {
         });
         Route::group(['prefix' => 'cart'], function() {
             route::post('booking','bookingnowcontroller@postbooking')->name('cart.booking');
+            route::post('booking2','bookingnowcontroller@postbooking2')->name('cart.bookinga');
         });
         Route::get('service','ServiceController@getService')->name('service');
 

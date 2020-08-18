@@ -10,7 +10,7 @@
                     <?php 
                     $stt = 1;
                     ?>
-                    <table class="table table-bordered" style="margin-top:20px; overflow-y: auto; height: 300px">  
+                    <table class="table table-bordered" >  
                         <thead>
                             <tr class="bg-primary">
                                 <th>STT</th>
@@ -32,7 +32,7 @@
                             @if(Auth::guard("users_tb")->check())
                             @if($orders->count() != 0)
                             @foreach($orders as $o)
-                            <tr>
+                            <tr  style=" height: 300px ;overflow-y: auto;">
                                 <td>{{$stt++}}</td>
                                 <td>{{$o->name}}</td>
                                 <td>{{$o->email}}</td>
