@@ -34,7 +34,7 @@ class OrderTb extends Migration
             $table->timestamps();
         });
     }
-
+    // m
     /**
      * Reverse the migrations.
      *
