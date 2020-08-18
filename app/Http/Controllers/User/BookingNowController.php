@@ -23,12 +23,17 @@ class BookingNowController extends Controller
         $b =  $request->all();
         $data['total'] = $c['price']*$b['adults'] + ($c['price']*0.1)*$b['children'] + $b['package']*$b['adults'] + ($b['package']*0.1)*$b['children'];
         $ss = session('id');
-        order_tb::create(['user_id'=>$ss,'tour_id' => $tour->tour_id,'name'=>$request->name,'email'=>$request->email,'phone'=>$request->phone,'address'=>$request->address,'departure'=>$request->departure,'tour_name'=>$tour->tour_name,'destination'=>$tour->dest_name,'children'=>$request->children,'adults'=>$request->adults,'package'=>$request->package,'total'=>$data['total'], 'tour_price'=>$request->tour_price]);
+        $name = session('name');
+        $email = session('email');
+        $phone = session('phone');
+        $data['user'] = [$name, $email, $phone,];
+
+        order_tb::create(['user_id'=>$ss,'tour_id' => $tour->tour_id,'name'=>$name,'email'=>$email,'phone'=>$phone,'address'=>$request->address,'departure'=>$request->departure,'tour_name'=>$tour->tour_name,'destination'=>$tour->dest_name,'children'=>$request->children,'adults'=>$request->adults,'package'=>$request->package,'total'=>$data['total'], 'tour_price'=>$request->tour_price]);
         
-    	Mail::send('frontEnd.email', $data, function ($message) use($b) {
+    	Mail::send('frontEnd.email', $data, function ($message) use($email, $name) {
     	    $message->from('c1909i2bkap@gmail.com', 'C1909I2');
     	
-    	    $message->to($b['email'], $b['name']);
+    	    $message->to($email, $email);
     	
     	    // $message->cc('john@johndoe.com', 'John Doe');
     	

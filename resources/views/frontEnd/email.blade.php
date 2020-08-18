@@ -3,15 +3,15 @@
 		<h3><font color="#FF9600">Client Information</font></h3>
 		<p>
 			<strong>Customer: </strong>
-			{{$info['name']}}
+			{{$user[0]}}
 		</p>
 		<p>
 			<strong>Email: </strong>
-			{{$info['email']}}
+			{{$user[1]}}
 		</p>
 		<p>
 			<strong>Phone number: </strong>
-			{{$info['phone']}}
+			{{$user[2]}}
 		</p>
 		<p>
 			<strong>Address: </strong>
