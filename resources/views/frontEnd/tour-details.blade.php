@@ -304,7 +304,7 @@
                 var _children = $('input[type=number][name=children]').val();
                 var _package = parseInt($(this).val());
                 var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
-                $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
+                $('#total').html(_total.toFixed(1));
             });
 
             $('input[name=children]').change(function() {
@@ -312,7 +312,7 @@
                 var _adult = $('input[type=number][name=adults]').val();
                 var _package =  parseInt($('input[name=package]:checked').val());
                 var _total = price * _adult + _package * _adult + price*0.1 * _children + _package*0.1 * _children;
-                $('#total').html('<span>'+_total.toPrecision(3)+' $</span>');
+                $('#total').html('<span>'+_total.toFixed(1)+' $</span>');
             });
 
             $('input[type=number][name=adults]').change(function() {
@@ -320,7 +320,7 @@
                 var _package =  parseInt($('input[name=package]:checked').val());
                 var _children = $('input[type=number][name=children]').val();
                 var _total = price * _adult + _package * _adult + price*0.1* _children + _package*0.1 * _children;
-                $('#total').html('<span>'+_total+' $</span>');
+                $('#total').html('<span>'+_total.toFixed(1)+' $</span>');
             });
         });
 </script> 
