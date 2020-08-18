@@ -60,9 +60,6 @@
     <link rel="stylesheet" href="assets/star-rating/jquery.rating.css">
 </head>
 <body>
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
     @if(Auth::guard("users_tb")->check())
     @if(Auth::guard("users_tb")->user()->check_register == 1)
     <section>
@@ -277,7 +274,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="mobile-menu">
-                        <a class="mobile-logo" href="index-2.html">
+                        <a class="mobile-logo" href="{{asset('/') }}">
                             <img src="assets/img/logo.png" alt="logo" />
                         </a>
                     </div>

@@ -13,11 +13,19 @@
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna tempor invidunt ut
                     </p>
                     <div class="button-common">
+<<<<<<< HEAD
                        <a href="{{asset('')}}" class="btn btn-2 mar-top">Learn More</a>
                    </div>
                </div>
            </div>
            <div class="col-lg-5 col-md-2 col-sm-12 col-12">
+=======
+                     <a href="{{asset('')}}" class="btn btn-1">Learn More</a>
+                 </div>
+             </div>
+         </div>
+         <div class="col-lg-5 col-md-2 col-sm-12 col-12">
+>>>>>>> 6a0d2476fef4ea97763bc6a9bd2cc19468d7e29d
             <div class="video-play-banner">
                 <a href="https://www.youtube.com/watch?v=TknrmpS4GOg" class="video-play-btn video-link venobox" data-autoplay="true" data-vbtype="video"><i class="fas fa-play"></i></a>
             </div>
@@ -67,7 +75,7 @@
                                 <span id="slider-value-upper" hidden></span>
                                 <input type="number" id="minval" name="minval" hidden>
                                 <input type="number" id="maxval" name="maxval" hidden>
-                                <div class="col-lg-4">
+                                <div class="col-lg-4 col-md-12 col-sm-12">
                                     <div class="book-ctn">
                                         <button class="btn btn-2 pad">Search Now</button>
                                     </div>
