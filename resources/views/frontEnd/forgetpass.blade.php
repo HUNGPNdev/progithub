@@ -24,7 +24,7 @@
                         <fieldset>
                             <div class="form-group">
                                 <label for="">Input your Email</label>
-                                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                <input class="form-control" required placeholder="E-mail" name="email" type="email" autofocus>
                             </div>
                             <div class="checkbox">
                                 <label>

@@ -1,58 +1,58 @@
 /*---------------------------------------
  	01.Base Styles
-     --------------------------------------*/
+   --------------------------------------*/
 
-     * {
-        margin: 0;
-        padding: 0;
-        border: none;
-        outline: none;
-    }
+   * {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
 
-    body,
-    html {
-        height: 100%;
-        margin: 0;
-    }
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
 
-    body {
-        background: #fff none repeat scroll;
-        font-size: 14px;
-        font-weight: normal;
-        line-height: 24px;
-        position: relative;
-        font-family: "Poppins", sans-serif;
-        overflow-x: hidden;
-    }
+body {
+    background: #fff none repeat scroll;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
 
-    :root {
-        --main-theme-color-one: #014073;
-        --main-theme-color-two: #ff9d34;
-        --paragraph-color: #777c87;
-    }
+:root {
+    --main-theme-color-one: #014073;
+    --main-theme-color-two: #ff9d34;
+    --paragraph-color: #777c87;
+}
 
-    ul li {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
+ul li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
 
-    ul {
-        margin: 0;
-        padding: 0;
-    }
+ul {
+    margin: 0;
+    padding: 0;
+}
 
-    a,
-    a>* {
-        outline: none;
-        cursor: pointer;
-        text-decoration: none;
-        color: var(--main-theme-color-one);
-    }
+a,
+a>* {
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--main-theme-color-one);
+}
 
-    a:hover {
-        text-decoration: none;
-    }
+a:hover {
+    text-decoration: none;
+}
 
 
 /*--------------------------
@@ -6721,10 +6721,10 @@
 /*----------------------------
      Back to top Button
      --------------------------------*/
-    
 
-    /* show-cart */
-    .show-cart.active {
+
+     /* show-cart */
+     .show-cart.active {
         top: 98%;
         -webkit-transform: translateY(-250%);
         transform: translateY(-250%);
@@ -6811,7 +6811,7 @@
         top: 50%;
     }
     /* show-cart */
-     .go-top.active {
+    .go-top.active {
         top: 98%;
         -webkit-transform: translateY(-98%);
         transform: translateY(-98%);
@@ -6950,10 +6950,15 @@
         font-size: 16px;
         color: var(--main-theme-color-one);
     }
-
+    
     .ellipse{
-        white-space: nowrap; 
+        display: -webkit-box;
+        font-size: 18px;
+        line-height: 1.4;
+        height: 50px;
         width: 230px; 
         overflow: hidden;
         text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2
     }
