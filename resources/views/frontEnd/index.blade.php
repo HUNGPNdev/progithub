@@ -13,7 +13,7 @@
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna tempor invidunt ut
                     </p>
                     <div class="button-common">
-                       <a href="{{asset('')}}" class="btn btn-1">Learn More</a>
+                       <a href="{{asset('')}}" class="btn btn-2 mar-top">Learn More</a>
                    </div>
                </div>
            </div>
@@ -133,7 +133,7 @@
                 </div>
                 <div class="all-service-travel">
                     <div class="flight-cover">
-                        <i class="fas fa-plane"></i>
+                        <i class="fas fa-shopping-cartfa-plane"></i>
                         <p>Flight</p>
                     </div>
                     <div class="flight-cover">
