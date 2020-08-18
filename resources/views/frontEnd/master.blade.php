@@ -316,12 +316,12 @@
                 </div>
                 <div class="foot-list">
                     <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="tour-packages.html">Tours & Trips</a></li>
-                        <li><a href="tour-details.html">Locations Find</a></li>
-                        <li><a href="contact.html">Contact Us.</a></li>
-                        <li><a href="faq.html">Terms & conditions</a></li>
-                        <li><a href="faq.html">Praivcy Policy</a></li>
+                        <li><a href="{{ route('about') }}">About</a></li>
+                        <li><a href="{{ route('tour.packages') }}">Tours & Trips</a></li>
+                        <li><a href="{{ route('tour.packages') }}">Locations Find</a></li>
+                        <li><a href="{{ route('contact') }}">Contact Us.</a></li>
+                        <li><a href="{{ route('faq') }}">Terms & conditions</a></li>
+                        <li><a href="{{ route('faq') }}">Praivcy Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -330,11 +330,11 @@
             <div class="quick-link-2">
                 <div class="foot-list-2">
                     <ul>
-                        <li><a href="index-2.html">Home</a></li>
-                        <li><a href="faq.html">Testimonials</a></li>
-                        <li><a href="gallery.html">Team</a></li>
-                        <li><a href="service.html">Service</a></li>
-                        <li><a href="blog.html">News</a></li>
+                        <li><a href="{{ asset('') }}">Home</a></li>
+                        <li><a href="{{ route('faq') }}">Testimonials</a></li>
+                        <li><a href="{{ route('gallery') }}">Team</a></li>
+                        <li><a href="{{ route('service') }}">Service</a></li>
+                        <li><a href="{{ route('fr.blog') }}">News</a></li>
                     </ul>
                 </div>
             </div>
@@ -345,42 +345,19 @@
                     <h6>Recent Post</h6>
                 </div>
                 <div class="post-cover-foot">
+                    @foreach($mblog as $m)
                     <div class="pos-rece-1">
                         <div class="post-rect-img">
-                            <a href="blog-single.html"><img src="assets/img/common-img/footer-blog.png" alt="" /></a>
+                            <a href="{{ route('blog.single',$m->id_blog) }}"><img src="{{asset('storage/app/blog_img/'.$m->bn_image)}}" alt="" /></a>
                         </div>
                         <div class="podt-text-1">
                             <p>
-                                <a href="blog-single.html">Pellentesque convallis, diam et feugiat volutpat,
-                                tellus ligula c</a>
+                                <a href="{{ route('blog.single',$m->id_blog) }}">{{$m->title}}</a>
                             </p>
-                            <span>Sep 09, 2019</span>
+                            <span>{{ date('d M Y',strtotime($m->created_at)) }}</span>
                         </div>
                     </div>
-                    <div class="pos-rece-1">
-                        <div class="post-rect-img">
-                            <a href="blog-single.html"><img src="assets/img/common-img/footer-blog-1.png" alt="" /></a>
-                        </div>
-                        <div class="podt-text-1">
-                            <p>
-                                <a href="blog-single.html">Pellentesque convallis, diam et feugiat volutpat,
-                                tellus ligula c</a>
-                            </p>
-                            <span>Sep 09, 2019</span>
-                        </div>
-                    </div>
-                    <div class="pos-rece-1">
-                        <div class="post-rect-img">
-                            <a href="blog-single.html"><img src="assets/img/common-img/footer-blog-2.png" alt="" /></a>
-                        </div>
-                        <div class="podt-text-1">
-                            <p>
-                                <a href="blog-single.html">Pellentesque convallis, diam et feugiat volutpat,
-                                tellus ligula c</a>
-                            </p>
-                            <span>Sep 09, 2019</span>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -404,6 +381,64 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="myModalCart" role="dialog" >
+    <div class="modal-dialog" style="max-width: 1200px;">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                <div class="model-details">
+                    <h5>Your Booked Tour</h5>
+                    <table class="table table-bordered" style="margin-top:20px;">               
+                        <thead>
+                            <tr class="bg-primary">
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Departure</th>
+                                <th>Tour Name</th>
+                                <th>Destination</th>
+                                <th>Adults</th>
+                                <th>Children</th>
+                                <th>Tour Price</th>
+                                <th>Air Frares</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="show-cart">
+    <a data-toggle="modal"  data-target="#myModalCart">
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fab fa-opencart"></i>
+    </a>
 </div>
 
 <div class="go-top">

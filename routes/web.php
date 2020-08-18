@@ -45,26 +45,26 @@ Route::group(['namespace' => 'User'], function() {
 		Route::group(['prefix' => 'tour'], function() {
 			Route::get('tourdetail/{id}','frontEndController@getTourDetail');
             Route::post('review/{id}','frontEndController@postReview')->name('tour.review');
-            Route::get('tourpackages','frontEndController@getTourpackages');
+            Route::get('tourpackages','frontEndController@getTourpackages')->name('tour.packages');
             Route::post('tourpackages/getpagetours','frontEndController@getpagetours')->name('getpagetours');
         });
         Route::group(['prefix' => 'cart'], function() {
             route::post('booking','bookingnowcontroller@postbooking')->name('cart.booking');
         });
-        Route::get('service','ServiceController@getService');
+        Route::get('service','ServiceController@getService')->name('service');
 
-        Route::get('gallery','ServiceController@getGallery');
+        Route::get('gallery','ServiceController@getGallery')->name('gallery');
 
-        Route::get('blog','ServiceController@getBlog');
+        Route::get('blog','ServiceController@getBlog')->name('fr.blog');
         Route::get('search','ServiceController@SearchBlog')->name('searchblog');
 
-        Route::get('blog_single/{id}','ServiceController@getBlog_Single');
+        Route::get('blog_single/{id}','ServiceController@getBlog_Single')->name('blog.single');
 
         Route::get('about','ServiceController@getAbout')->name('about');
 
-        Route::get('faqs','ServiceController@getFAQs');
+        Route::get('faqs','ServiceController@getFAQs')->name('faq');
 
-        Route::get('contact','ServiceController@getContact');
+        Route::get('contact','ServiceController@getContact')->name('contact');
 
     });
 });
@@ -178,6 +178,14 @@ Route::group(['namespace' => 'Admin'], function() {
             Route::post('sliCus-edit/{id}','SliCusController@postEditSlider')->name('sliCus.edit');
 
             Route::get('sliCus-delete/{id}','SliCusController@getDelSlider')->name('sliCus.delete');
+        });
+
+        Route::group(['prefix'=>'review'],function(){
+            Route::get('','ReviewController@getReview')->name('adminReview');
+            Route::get('delete/{id}','ReviewController@deleteReview')->name('adminReview.delete');
+
+            Route::get('/active-review/{id}','ReviewController@activeReview')->name('adminReview.active');
+            Route::get('/unactive-review/{id}','ReviewController@unactiveReview')->name('adminReview.unactive');
         });
 
         Route::get('destroy/{id}','AdminController@destroy')->name('destroy');

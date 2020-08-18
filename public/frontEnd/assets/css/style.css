@@ -2265,7 +2265,7 @@
 
                 .map-inner iframe {
                     width: 100%;
-                    height: 599px;
+                    height: 664px;
                     border: 0;
                     opacity: 0.5;
                     position: absolute;
@@ -6721,7 +6721,96 @@
 /*----------------------------
      Back to top Button
      --------------------------------*/
+    
 
+    /* show-cart */
+    .show-cart.active {
+        top: 98%;
+        -webkit-transform: translateY(-250%);
+        transform: translateY(-250%);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .show-cart {
+        position: fixed;
+        cursor: pointer;
+        top: 0;
+        right: 15px;
+        color: #ffffff;
+        background-color: var(--main-theme-color-one);
+        z-index: 999;
+        width: 40px;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: .9s;
+        transition: .9s;
+        border-radius: 50%;
+    }
+
+    .show-cart::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: var(--main-theme-color-two);
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: 0.6s;
+        transition: 0.6s;
+        border-radius: 50%;
+    }
+
+    .show-cart a i {
+        color: #ffffff;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        -webkit-transition: 0.6s;
+        transition: 0.6s;
+    }
+
+    .show-cart a i:last-child {
+        opacity: 0;
+        visibility: hidden;
+        top: 60%;
+    }
+
+    .show-cart:hover,
+    .show-cart:focus {
+        color: #ffffff;
+    }
+
+    .show-cart:hover::before,
+    .show-cart:focus::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .show-cart:hover a i:first-child,
+    .show-cart:focus a i:first-child {
+        opacity: 0;
+        top: 0;
+        visibility: hidden;
+    }
+
+    .show-cart:hover a i:last-child,
+    .show-cart:focus a i:last-child {
+        opacity: 1;
+        visibility: visible;
+        top: 50%;
+    }
+    /* show-cart */
      .go-top.active {
         top: 98%;
         -webkit-transform: translateY(-98%);

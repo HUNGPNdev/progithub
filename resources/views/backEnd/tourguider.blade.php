@@ -55,8 +55,8 @@
 				<div class="panel panel-primary">
 					<div class="panel-heading">List Tour guider</div>
 					<div class="panel-body">
-						<div class="bootstrap-table">
-							<table class="table table-bordered">
+						<div class="bootstrap-table" style="width: 100%; overflow-y: auto;">
+							<table class="table table-bordered" >
 				              	<thead>
 					                <tr class="bg-primary">
 					                  <th>Name Guider</th>
@@ -72,7 +72,7 @@
 				              		@foreach($guider as $guider)
 								<tr>
 									<td>{{$guider->guider_name}}</td>
-									<td>{{$guider->status}}</td>
+									<td>{{($guider->status == 0) ? 'Chưa nhận tour' : 'Đã nhận tour'}}</td>
 									<td>
 										<img width="100px" src="{{asset('storage/app/image/'.$guider->images)}}" alt="">
 									</td>

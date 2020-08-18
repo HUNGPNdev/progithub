@@ -15,6 +15,10 @@ class OrderTb extends Migration
     {
         Schema::create('order_tb', function (Blueprint $table) {
             $table->increments('id');
+            $table->Integer('user_id')->unsigned();
+            $table->Integer('tour_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('user_tb');
+            $table->foreign('tour_id')->references('tour_id')->on('tours_tb');
             $table->string('name');
             $table->string('email');
             $table->string('phone');
@@ -30,7 +34,7 @@ class OrderTb extends Migration
             $table->timestamps();
         });
     }
-
+    // m
     /**
      * Reverse the migrations.
      *

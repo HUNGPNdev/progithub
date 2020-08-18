@@ -12,9 +12,9 @@
                     </div>
                     <div class="commom-sub-heading">
                         <h6>
-                            <a href="index-2.html">Home</a>
+                            <a href="{{ asset('') }}">Home</a>
                             <span>/</span>
-                            <a href="#!">Tour Packges</a>
+                            <a href="{{ route('tour.packages') }}">Tour Packges</a>
                         </h6>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
 </section>
 
 <section id="ab-home" class="travel-pac">
- <div class="container">
+   <div class="container">
     <div class="heading">
         <h2>ab-section</h2>
     </div>
@@ -266,35 +266,39 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form action="#">
+                    <form action="{{route('admin.question')}}" method="post">
+                        @include('errors.note')
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name:" required>
+                                    <input type="text" class="form-control" placeholder="Your Name:" id="name" name="name" required>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Email:" required>
+                                    <input type="text" class="form-control" placeholder="Your Phone:" id="phone" name="phone" required>
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email:" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
                                 <div class="form-group nessage-text">
-                                    <textarea name="message" id="message" rows="6" class="form-control"
-                                    placeholder="Enter Your Message:" required></textarea>
+                                    <textarea name="question" rows="6" class="form-control" placeholder="Enter Your Message:"
+                                    id="question" required></textarea>
                                 </div>
                                 <div class="contact-sub-btn">
-                                    <a href="#!" class="btn submit contactsuccess">Submit</a>
+                                    <button class="btn submit widet" type="submit">Submit</button>
                                 </div>
                                 <div class="sending-gif" style="display: none">
                                     <img src="assets/img/loading.gif" alt="send-gif">
                                 </div>
                             </div>
                         </div>
+                        {{csrf_field()}}
                     </form>
-                    <div class="success-msg alert alert-success" style="display: none">
-                        <strong>Success!</strong> Email Send Succesfully.
-                    </div>
                 </div>
             </div>
         </div>

@@ -3,8 +3,8 @@ $(document).ready(function () {
     "use strict";
 
     $('.input-group.date').datepicker(
-       { format: "dd/mm/yyyy" }
-       );
+     { format: "dd/mm/yyyy" }
+     );
 
     $('.slider-main-ab').owlCarousel({
         loop: true,
@@ -438,6 +438,17 @@ $('.testimonials-six-wrapper').owlCarousel({
 
 
     /*====== Scroll to top ========*/
+    // show-cart
+    $(function () {
+        // Scroll Event
+        $(window).on('scroll', function () {
+            var scrolled = $(window).scrollTop();
+            if (scrolled > 350) $('.show-cart').addClass('active');
+            if (scrolled < 350) $('.show-cart').removeClass('active');
+        });
+        // Click Event
+    });
+    // show-cart
     // Go to Top
     $(function () {
         // Scroll Event
@@ -467,17 +478,17 @@ $('.testimonials-six-wrapper').owlCarousel({
 
     noUiSlider.create(tooltipSlider, {
         connect: true,
-        start: [0, 2000],
+        start: [0, 3000],
         tooltips: [wNumb({decimals: 0}), wNumb({decimals: 0})],
         range: {
             'min': 0,
-            'max': 2000
+            'max': 3000
         },
     });
 
     var toolValues = [
-        document.getElementById('slider-value-lower'),
-        document.getElementById('slider-value-upper')
+    document.getElementById('slider-value-lower'),
+    document.getElementById('slider-value-upper')
     ];
 
     tooltipSlider.noUiSlider.on('update', function (values, handle) {
