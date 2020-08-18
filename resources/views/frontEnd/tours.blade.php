@@ -1,38 +1,39 @@
-@foreach($data as $tours)
-<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-    @csrf
-    <div class="des-cov-1">
-        <div class="des-img-1">
-            <a href="{{asset('user/tour/tourdetail/'.$tours->tour_id)}}"><img height="256px" src="{{asset('storage/app/image/'.$tours->tour_image)}}" alt="img"></a>
-        </div>
-        <div class="des-para">
-            <div class="dayt">
-                <h6 class="ellipse"><a href="{{asset('user/tour/tourdetail/'.$tours->tour_id)}}" title="{{$tours->tour_name}}">{{$tours->tour_name}}</a></h6>
-                <p>{{$tours->tour_day }} Days <br> {{number_format($tours->tour_price,1,'.',' ' )}}$</p>
+<div class="row ajax-data">
+    @foreach($data as $tours)
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+        @csrf
+        <div class="des-cov-1">
+            <div class="des-img-1">
+                <a href="{{asset('user/tour/tourdetail/'.$tours->tour_id)}}"><img height="256px" src="{{asset('storage/app/image/'.$tours->tour_image)}}" alt="img"></a>
             </div>
-            <div class="real-dat-para">
-                <p style="height: 70px; overflow: hidden;">
-                    {{$tours->tour_sumary}}
-                </p>
-            </div>
-            <div class="des-button-icon">
-                <div class="das-into-btn">
-                    <a data-id="{{$tours->tour_id}}" data-price="{{$tours->tour_price}}" data-first="{{$tours->first}}"  data-business="{{$tours->business}}"  data-premium="{{$tours->premium}}"  data-economy="{{$tours->economy}}"  class="btn btn-3 book-tour" style="color: #fff" data-toggle="modal" data-target="#myModal">Book Now</a>
+            <div class="des-para">
+                <div class="dayt">
+                    <h6 class="ellipse"><a href="{{asset('user/tour/tourdetail/'.$tours->tour_id)}}" title="{{$tours->tour_name}}">{{$tours->tour_name}}</a></h6>
+                    <p>{{$tours->tour_day }} Days <br> {{number_format($tours->tour_price,1,'.',' ' )}}$</p>
                 </div>
-                <div class="start-icon-des">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="real-dat-para">
+                    <p style="height: 70px; overflow: hidden;">
+                        {{$tours->tour_sumary}}
+                    </p>
+                </div>
+                <div class="des-button-icon">
+                    <div class="das-into-btn">
+                        <a data-id="{{$tours->tour_id}}" data-price="{{$tours->tour_price}}" data-first="{{$tours->first}}"  data-business="{{$tours->business}}"  data-premium="{{$tours->premium}}"  data-economy="{{$tours->economy}}"  class="btn btn-3 book-tour" style="color: #fff" data-toggle="modal" data-target="#myModal">Book Now</a>
+                    </div>
+                    <div class="start-icon-des">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
 </div>
-@endforeach
-
-<div class="col-lg-12 col-md-12">
+<div class="col-lg-12 col-md-12" style="border-top: 2px solid #a6d7ff;;">
     <div class="row">
         <div style="margin: 20px auto;" class="">
             {!!$data->links()!!}
